@@ -1,9 +1,9 @@
 import React from 'react'
 
-const MainPaige: React.FC = () => {
-  return (
-    <div>MainPaige</div>
-  )
+import styles from '../styles/main.module.scss'
+
+const MainPage: React.FC = () => {
+  return <div className={styles['main-page']}>MainPage</div>
 }
 
-export default MainPaige
+export default MainPage
