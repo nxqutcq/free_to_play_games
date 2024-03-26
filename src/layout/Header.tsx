@@ -1,11 +1,9 @@
 import React from 'react'
 
-import styles from '../styles/main.module.scss'
-
 import { ModeToggle } from '@/components/mode-toggle'
 
 const Header: React.FC = () => (
-  <header className={styles['header-block']}>
+  <header className="flex h-20 bg-[rgb(23,23,23)] w-full justify-center items-center;">
     <ModeToggle />
   </header>
 )

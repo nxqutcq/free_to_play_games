@@ -1,9 +1,7 @@
 import React from 'react'
 
-import styles from '../styles/main.module.scss'
-
 const Footer: React.FC = () => (
-  <footer className={styles['footer-block']}></footer>
+  <footer className="flex h-40 bg-[rgb(23,23,23)] w-full"></footer>
 )
 
 export default Footer
