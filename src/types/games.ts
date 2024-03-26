@@ -11,3 +11,8 @@ export interface Game {
   release_date: string
   freetogame_profile_url: string
 }
+export type GameImageType = {
+  isPending: boolean
+  src: string
+  alt: string
+}
