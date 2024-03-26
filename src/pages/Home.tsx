@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                   alt={game.title}
                 />
                 <p>{game.short_description}</p>
-                <Button>Click me</Button>
+                <Button className="mt-5">Click me</Button>
               </article>
             ))}
         </div>

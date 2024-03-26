@@ -7,7 +7,6 @@ import { ModeToggle } from '@/components/mode-toggle'
 const Header: React.FC = () => (
   <header className={styles['header-block']}>
     <ModeToggle />
-    Header
   </header>
 )
 
