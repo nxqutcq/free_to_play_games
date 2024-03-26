@@ -4,7 +4,14 @@ import Header from './layout/Header'
 import MainPage from './pages/MainPage'
 
 const App = () => (
-  <div>
+  <div
+    style={{
+      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+    }}
+  >
     <Header />
     <MainPage />
     <Footer />

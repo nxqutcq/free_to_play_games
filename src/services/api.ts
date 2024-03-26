@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 export const getGamesList = async () => {
   try {
     const response = await axiosInstance.get<Game[]>('games')
-    return response.data.map((game) => game)
+    return response.data
   } catch (error) {
     console.error('Error fetching games list:', error)
     throw error
