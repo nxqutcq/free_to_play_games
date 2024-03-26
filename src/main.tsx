@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import App from './App.tsx'
-import './styles/main.module.scss'
+import './styles/global.scss'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 5, retryDelay: 30000 } },

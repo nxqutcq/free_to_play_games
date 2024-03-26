@@ -3,7 +3,9 @@ import React from 'react'
 import { useGamesList } from '../services/queries'
 import styles from '../styles/main.module.scss'
 
-const MainPage: React.FC = () => {
+import { Button } from '@/components/ui/button'
+
+const Home: React.FC = () => {
   const gamesListQuery = useGamesList()
   const { isPending, isError, error } = gamesListQuery
 
@@ -28,7 +30,6 @@ const MainPage: React.FC = () => {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  backgroundColor: 'black',
                   width: '250px',
                   padding: '0 20px 20px 20px',
                   alignItems: 'center',
@@ -52,6 +53,7 @@ const MainPage: React.FC = () => {
                   alt={game.title}
                 />
                 <p>{game.short_description}</p>
+                <Button>Click me</Button>
               </article>
             ))}
         </div>
@@ -60,4 +62,4 @@ const MainPage: React.FC = () => {
   )
 }
 
-export default MainPage
+export default Home

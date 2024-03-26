@@ -2,8 +2,13 @@ import React from 'react'
 
 import styles from '../styles/main.module.scss'
 
+import { ModeToggle } from '@/components/mode-toggle'
+
 const Header: React.FC = () => (
-  <header className={styles['header-block']}>Header</header>
+  <header className={styles['header-block']}>
+    <ModeToggle />
+    Header
+  </header>
 )
 
 export default Header
