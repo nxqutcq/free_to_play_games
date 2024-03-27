@@ -83,7 +83,7 @@ const GamesList: React.FC = () => {
               {game?.short_description}
             </p>
             {game.id && (
-              <Link to={`/games/${game.id}`}>
+              <Link to={`/games/game/${game.id}`}>
                 <Button className="mt-5">Click me</Button>
               </Link>
             )}
