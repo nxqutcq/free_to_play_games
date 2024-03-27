@@ -26,7 +26,12 @@ const GamesList: React.FC = () => {
     navigate(-1)
   }
 
-  if (isLoading) return <div className="min-h-screen">Loading...</div>
+  if (isLoading)
+    return (
+      <div className="flex min-h-screen w-[1200px] justify-center items-center">
+        Loading...
+      </div>
+    )
   if (isError)
     return (
       <div className="min-h-screen w-[1200px]">

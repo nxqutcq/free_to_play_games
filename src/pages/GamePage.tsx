@@ -15,7 +15,12 @@ const GamePage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
 
   const { data, isLoading, isError } = useGameDetails(id || '')
-  if (isLoading) return <div className="min-h-screen">Loading...</div>
+  if (isLoading)
+    return (
+      <div className="flex min-h-screen w-[1200px] justify-center items-center">
+        Loading...
+      </div>
+    )
   if (isError)
     return (
       <div className="min-h-screen w-[1200px]">
