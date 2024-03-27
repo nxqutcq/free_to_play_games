@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
+import Loader from '@/components/shared/Loader'
 import { Button } from '@/components/ui/button'
 import { useGameDetails } from '@/services/queries'
 
@@ -18,7 +19,7 @@ const GamePage: React.FC = () => {
   if (isLoading)
     return (
       <div className="flex min-h-screen w-[1200px] justify-center items-center">
-        Loading...
+        <Loader />
       </div>
     )
   if (isError)
@@ -34,11 +35,13 @@ const GamePage: React.FC = () => {
     )
   if (!data)
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen w-[1200px]">
         <Button className="mb-10" onClick={goBack}>
           Back
         </Button>
-        No data available
+        <h3 className="mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
+          No data available
+        </h3>
       </div>
     )
 

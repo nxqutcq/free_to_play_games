@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useGamesList } from '../services/queries'
 
+import Loader from '@/components/shared/Loader'
 import { Button } from '@/components/ui/button'
 import {
   Pagination,
@@ -29,7 +30,7 @@ const GamesList: React.FC = () => {
   if (isLoading)
     return (
       <div className="flex min-h-screen w-[1200px] justify-center items-center">
-        Loading...
+        <Loader />
       </div>
     )
   if (isError)
