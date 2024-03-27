@@ -46,7 +46,7 @@ const GamePage: React.FC = () => {
     )
 
   return (
-    <article className="min-h-screen mb-10 w-[1200px]">
+    <article className="min-h-screen mb-10 w-[1200px] overflow-x-hidden">
       <Button className="mb-10" onClick={goBack}>
         Back
       </Button>
