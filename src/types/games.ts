@@ -12,7 +12,7 @@ export interface Game {
   freetogame_profile_url: string
 }
 export type GameImageType = {
-  isPending: boolean
+  isLoading: boolean
   src: string
   alt: string
 }
@@ -46,4 +46,13 @@ export interface GameDetails {
   freetogame_profile_url: string
   minimum_system_requirements: MinimumSystemRequirements
   screenshots: Screenshot[]
+}
+export interface GamesListItemProps {
+  game: Game
+  isLoading: boolean
+}
+export interface GameInfoProps {
+  data: GameDetails
+  isLoading: boolean
+  goBack: () => void
 }
