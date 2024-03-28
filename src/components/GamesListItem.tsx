@@ -6,10 +6,7 @@ import { Button } from '@/components/ui/button'
 import { GamesListItemProps } from '@/types/games'
 
 const GamesListItem: React.FC<GamesListItemProps> = ({ game, isLoading }) => (
-  <article
-    className="flex flex-col w-60 p-5 items-center overflow-x-hidden"
-    key={game?.id}
-  >
+  <article className="flex flex-col w-60 p-5 items-center overflow-x-hidden">
     <div className="w-[220px]">
       <GameImage
         alt={game?.title}
