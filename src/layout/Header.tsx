@@ -20,7 +20,12 @@ const Header: React.FC = () => (
             </NavLink>
           </li>
           <li>
-            <NavLink draggable={false} to="/games" role="link">
+            <NavLink
+              className="flex gap-2 items-center flex-row"
+              draggable={false}
+              to="/games"
+              role="link"
+            >
               Games
             </NavLink>
           </li>
