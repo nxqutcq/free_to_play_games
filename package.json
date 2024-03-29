@@ -1,6 +1,5 @@
 {
   "name": "free2game",
-  "homepage": "https://free2playgame.netlify.app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
