@@ -48,7 +48,7 @@ const GamesList: React.FC = () => {
 
   return (
     <div className="mb-10 min-h-screen w-[1200px]">
-      <div className="overflow-x-hidden flex flex-wrap items-start gap-col-2 w-full flex-row">
+      <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center gap-2 md:gap-0 lg:gap-2 w-full flex-row">
         {data?.map((game) => (
           <GamesListItem key={game.id} game={game} isLoading={isLoading} />
         ))}
