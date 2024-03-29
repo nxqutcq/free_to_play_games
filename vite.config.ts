@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/free_to_play_games',
+  base: '/https://free2playgame.netlify.app',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
