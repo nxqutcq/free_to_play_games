@@ -7,7 +7,7 @@ import { GamesListItemProps } from '@/types/games'
 
 const GamesListItem: React.FC<GamesListItemProps> = ({ game, isLoading }) => (
   <article className="flex flex-col w-60 p-5 items-center overflow-x-hidden">
-    <div className="w-[220px]">
+    <div className="w-[220px] min-h-[150px]">
       <GameImage
         alt={game?.title}
         src={game?.thumbnail}

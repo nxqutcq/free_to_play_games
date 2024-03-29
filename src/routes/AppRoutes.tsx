@@ -10,7 +10,7 @@ const GamesList = lazy(() => import('../pages/GamesList.tsx'))
 const NotFound = lazy(() => import('../pages/NotFound.tsx'))
 
 export const AppRoutes: React.FC = () => (
-  <div className="flex min-h-screen w-[1200px] justify-center items-center">
+  <div className="flex min-h-screen justify-center items-center xl:w-[1280px] sm:w-[640px] lg:w-[1024px] md:w-[768px]">
     <Suspense fallback={<Loader />}>
       <ScrollToTopOnPageChange />
       <Routes>
