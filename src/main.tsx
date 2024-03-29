@@ -13,7 +13,7 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename="/free2play-games">
+    <BrowserRouter basename="/free2play-games.netlify.app">
       <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools initialIsOpen={false} />
