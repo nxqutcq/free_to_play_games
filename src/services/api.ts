@@ -29,3 +29,17 @@ export const getGameDetails = async (id: string) => {
     throw error
   }
 }
+
+export const getGamesByCategoryOrTag = async (category: string) => {
+  try {
+    const response = await axiosInstance.get<Game[]>(`games`, {
+      params: {
+        category: category,
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.error('Error fetching games list:', error)
+    throw error
+  }
+}

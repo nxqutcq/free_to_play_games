@@ -13,8 +13,7 @@ import { getRandomGames } from '@/utils'
 let randomGames: Game[] | undefined
 
 const GamesList: React.FC = () => {
-  const gamesListQuery = useGamesList()
-  const { isLoading, isError, data } = gamesListQuery
+  const { isLoading, isError, data } = useGamesList()
 
   const navigate = useNavigate()
 
