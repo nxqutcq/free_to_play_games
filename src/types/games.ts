@@ -56,3 +56,7 @@ export interface GameInfoProps {
   isLoading: boolean
   goBack: () => void
 }
+export interface SortingPanelProps {
+  data: Game[] | undefined
+  isLoading: boolean
+}

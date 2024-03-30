@@ -4,8 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { useGamesList } from '../services/queries'
 
 import GamesListItem from '@/components/GamesListItem'
+import GamesSortingPanel from '@/components/GamesSortingPanel'
 import Loader from '@/components/shared/Loader'
 import { Button } from '@/components/ui/button'
+import { Game } from '@/types/games'
+import { getRandomGames } from '@/utils'
+
+let randomGames: Game[] | undefined
 
 const GamesList: React.FC = () => {
   const gamesListQuery = useGamesList()
@@ -16,7 +21,9 @@ const GamesList: React.FC = () => {
   const goBack = () => {
     navigate(-1)
   }
-
+  if (data) {
+    randomGames = getRandomGames(data, 3)
+  }
   if (isLoading)
     return (
       <div className="flex min-h-screen w-[1200px] justify-center items-center">
@@ -48,6 +55,7 @@ const GamesList: React.FC = () => {
 
   return (
     <div className="mb-10 min-h-screen w-[1200px]">
+      <GamesSortingPanel data={randomGames} isLoading={isLoading} />
       <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center gap-2 md:gap-0 lg:gap-2 w-full flex-row">
         {data?.map((game) => (
           <GamesListItem key={game.id} game={game} isLoading={isLoading} />

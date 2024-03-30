@@ -18,6 +18,9 @@ const GamesListItem: React.FC<GamesListItemProps> = ({ game, isLoading }) => (
       <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
         {game?.title}
       </h3>
+      <p className="xs3:leading-7 [&:not(:first-child)]:mt-6">
+        {game.genre}, {game.platform}
+      </p>
       <p className="xs3:mb-3 mb-10 leading-7 [&:not(:first-child)]:mt-6">
         {game?.short_description}
       </p>
