@@ -9,6 +9,7 @@ import { SortingPanelProps } from '@/types/games'
 const GamesSortingPanel: React.FC<SortingPanelProps> = ({
   data,
   isLoading,
+  gamesCount,
 }) => {
   if (!data) {
     return null
@@ -21,13 +22,15 @@ const GamesSortingPanel: React.FC<SortingPanelProps> = ({
         </h2>
       </div>
       <div>
-        <p className="mb-5">397 free-to-play games found in our games list!</p>
+        <p className="mb-5">
+          {gamesCount} free-to-play games found in our games list!
+        </p>
       </div>
-      <div className="flex mb-10 gap-5 justify-between">
+      <div className="flex mb-5 gap-5 justify-between">
         {data.map((game) => (
           <Link
             key={game.id}
-            className="mb-5 w-full"
+            className="mb-10 w-full"
             to={`/games/game/${game.id}`}
           >
             <GameImage
@@ -38,7 +41,7 @@ const GamesSortingPanel: React.FC<SortingPanelProps> = ({
           </Link>
         ))}
       </div>
-      <Separator className="mb-10" />
+      <Separator className="mb-5" />
     </div>
   )
 }

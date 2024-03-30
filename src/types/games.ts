@@ -59,4 +59,5 @@ export interface GameInfoProps {
 export interface SortingPanelProps {
   data: Game[] | undefined
   isLoading: boolean
+  gamesCount: number
 }
