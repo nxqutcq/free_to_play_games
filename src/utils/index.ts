@@ -1,7 +1,6 @@
 import { Game } from '@/types/games'
 
 export const getRandomGames = (data: Game[], count: number): Game[] => {
-  console.log('generated')
   const randomIndices = new Set<number>()
   while (randomIndices.size < count) {
     randomIndices.add(Math.floor(Math.random() * data.length))
