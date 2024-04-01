@@ -8,8 +8,10 @@ import {
 } from '@/components/ui/accordion'
 
 const FrequentlyAskedQuestions: React.FC = () => (
-  <div>
-    Frequently Asked Questions
+  <div className="flex w-full flex-col mb-10">
+    <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
+      Frequently Asked Questions:
+    </h3>
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
         <AccordionTrigger>
