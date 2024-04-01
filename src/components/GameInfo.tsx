@@ -21,7 +21,7 @@ const GameInfo: React.FC<GameInfoProps> = ({ data, goBack }) => {
       </p>
       <div className="lg:flex lg:justify-between lg:w-full">
         <div className="lg:w-[450px] xs:mb-5">
-          <div className="flex sm:w-[600px] md:w-[720px] lg:w-full">
+          <div className="flex min-h-[250px] sm:w-[600px] md:w-[720px] lg:w-full">
             <GameImage alt={data?.title} src={data?.thumbnail} />
           </div>
           <Link

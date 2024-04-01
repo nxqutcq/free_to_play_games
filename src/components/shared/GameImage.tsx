@@ -10,7 +10,7 @@ const GameImage: React.FC<GameImageType> = ({ src, alt }) => {
     setLoaded(true)
   }
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {!loaded && (
         <Skeleton className="absolute inset-0 flex w-full min-h-[200px]" />
       )}
