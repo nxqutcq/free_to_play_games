@@ -1,0 +1,16 @@
+export const GAME_TYPES = [
+  { name: 'MMORPG', url: '/games/mmorpg' },
+  { name: 'Shooter', url: '/games/shooter' },
+  { name: 'MOBA', url: '/games/moba' },
+  { name: 'Anime', url: '/games/anime' },
+  { name: 'Battle Royale', url: '/games/battle-royale' },
+  { name: 'Strategy', url: '/games/strategy' },
+  { name: 'Fantasy', url: '/games/fantasy' },
+  { name: 'Sci-Fi', url: '/games/sci-fi' },
+  { name: 'Card Games', url: '/games/card' },
+  { name: 'Racing', url: '/games/racing' },
+  { name: 'Fighting', url: '/games/fighting' },
+  { name: 'Social', url: '/games/social' },
+  { name: 'Sports', url: '/games/sports' },
+  { name: 'Free To PlayGames Games', url: '/games' },
+]
