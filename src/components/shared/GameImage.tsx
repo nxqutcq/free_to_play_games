@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Skeleton } from '@/components/ui/skeleton'
 import { GameImageType } from '@/types/games'
 
-const GameImage: React.FC<GameImageType> = ({ src, alt, isLoading }) => {
-  return isLoading ? (
-    <Skeleton className="w-full min-h-[180px]" />
-  ) : (
-    <img
-      className="w-full h-full rounded-md"
-      src={src}
-      alt={alt}
-      loading="lazy"
-    />
+const GameImage: React.FC<GameImageType> = ({ src, alt }) => {
+  const [loaded, setLoaded] = useState(false)
+
+  const handleImageLoaded = () => {
+    setLoaded(true)
+  }
+  return (
+    <div className="relative">
+      {!loaded && (
+        <Skeleton className="absolute inset-0 flex w-full min-h-[200px]" />
+      )}
+      <div className="image-container" style={{ opacity: loaded ? 1 : 0 }}>
+        <img
+          className="w-full h-full rounded-md"
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={handleImageLoaded}
+        />
+      </div>
+    </div>
   )
 }
 
