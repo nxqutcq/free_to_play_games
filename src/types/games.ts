@@ -12,7 +12,6 @@ export interface Game {
   freetogame_profile_url: string
 }
 export type GameImageType = {
-  isLoading: boolean
   src: string
   alt: string
 }
@@ -60,4 +59,7 @@ export interface SortingPanelProps {
   data: Game[] | undefined
   isLoading: boolean
   gamesCount: number
+  onSortChange: (value: string) => void
+  onCategoryChange: (value: string) => void
+  onPlatformChange: (value: string) => void
 }

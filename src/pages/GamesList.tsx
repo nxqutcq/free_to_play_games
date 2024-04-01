@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useGamesList } from '../services/queries'
+import { useFilteredGames } from '../services/queries'
 
 import GamesListItem from '@/components/GamesListItem'
 import GamesSortingPanel from '@/components/GamesSortingPanel'
@@ -13,7 +13,15 @@ import { getRandomGames } from '@/utils'
 let randomGames: Game[] | undefined
 
 const GamesList: React.FC = () => {
-  const { isLoading, isError, data } = useGamesList()
+  const [sortBy, setSortBy] = useState('relevance')
+  const [category, setCategory] = useState('shooter')
+  const [platform, setPlatform] = useState('all')
+
+  const { isLoading, isError, data } = useFilteredGames(
+    platform,
+    category,
+    sortBy
+  )
 
   const navigate = useNavigate()
 
@@ -58,6 +66,9 @@ const GamesList: React.FC = () => {
         gamesCount={data.length}
         data={randomGames}
         isLoading={isLoading}
+        onSortChange={setSortBy}
+        onCategoryChange={setCategory}
+        onPlatformChange={setPlatform}
       />
       <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center gap-2 md:gap-0 lg:gap-2 w-full flex-row">
         {data?.map((game) => (
