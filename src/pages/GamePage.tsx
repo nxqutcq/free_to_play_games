@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import GameInfo from '@/components/GameInfo'
+import { ErrorComponent } from '@/components/shared/ErrorComponent'
 import Loader from '@/components/shared/Loader'
-import { Button } from '@/components/ui/button'
+import { NoDataComponent } from '@/components/shared/NoDataComponent'
 import { useGameDetails } from '@/services/queries'
 
 const GamePage: React.FC = () => {
@@ -17,36 +18,11 @@ const GamePage: React.FC = () => {
 
   const { data, isLoading, isError } = useGameDetails(id || '')
 
-  if (isLoading)
-    return (
-      <div className="flex min-h-screen w-[1200px] justify-center items-center">
-        <Loader />
-      </div>
-    )
+  if (isLoading) return <Loader />
 
-  if (isError)
-    return (
-      <div className="min-h-screen w-[1200px]">
-        <h3 className="mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
-          Error fetching game
-        </h3>
-        <Button onClick={() => window.location.reload()} className="mt-10">
-          Reload
-        </Button>
-      </div>
-    )
+  if (isError) return <ErrorComponent reload={() => window.location.reload()} />
 
-  if (!data)
-    return (
-      <div className="min-h-screen w-[1200px]">
-        <Button className="mb-10" onClick={goBack}>
-          Back
-        </Button>
-        <h3 className="mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
-          No data available
-        </h3>
-      </div>
-    )
+  if (!data) return <NoDataComponent goBack={goBack} />
 
   return <GameInfo data={data} goBack={goBack} isLoading={isLoading} />
 }

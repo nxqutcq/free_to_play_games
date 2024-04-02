@@ -5,8 +5,9 @@ import { useFilteredGames } from '../services/queries'
 
 import GamesListItem from '@/components/GamesListItem'
 import GamesSortingPanel from '@/components/GamesSortingPanel'
+import { ErrorComponent } from '@/components/shared/ErrorComponent'
 import Loader from '@/components/shared/Loader'
-import { Button } from '@/components/ui/button'
+import { NoDataComponent } from '@/components/shared/NoDataComponent'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
@@ -28,37 +29,16 @@ const GamesList: React.FC = () => {
   const goBack = () => {
     navigate(-1)
   }
+
   if (data) {
     randomGames = getRandomGames(data, 3)
   }
-  if (isLoading)
-    return (
-      <div className="flex min-h-screen w-[1200px] justify-center items-center">
-        <Loader />
-      </div>
-    )
-  if (isError)
-    return (
-      <div className="min-h-screen w-[1200px]">
-        <h3 className="mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
-          Error fetching games
-        </h3>
-        <Button onClick={() => window.location.reload()} className="mt-10">
-          Reload
-        </Button>
-      </div>
-    )
-  if (!data)
-    return (
-      <div className="min-h-screen w-[1200px]">
-        <Button className="mb-10" onClick={goBack}>
-          Back
-        </Button>
-        <h3 className="mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
-          No data available
-        </h3>
-      </div>
-    )
+
+  if (isLoading) return <Loader />
+
+  if (isError) return <ErrorComponent reload={() => window.location.reload()} />
+
+  if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
     <div className="mb-10 min-h-screen w-[1200px]">
