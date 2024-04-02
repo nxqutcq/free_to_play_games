@@ -15,10 +15,10 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({
     role="alert"
     className="flex flex-col min-h-screen w-full bg-black items-start justify-center p-3 xs2:items-center"
   >
-    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight w-[min-content] sm:w-[max-content]">
+    <h1 className="text-gray-100 scroll-m-20 text-4xl font-extrabold tracking-tight w-[min-content] sm:w-[max-content]">
       Something went wrong 🥺
     </h1>
-    <p className="mb-5 leading-7 [&:not(:first-child)]:mt-6 sm:flex">
+    <p className="text-gray-100 mb-5 leading-7 [&:not(:first-child)]:mt-6 sm:flex">
       {error.message}
     </p>
     <Button
