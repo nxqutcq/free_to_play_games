@@ -18,7 +18,7 @@ const GamesSortingPanel: React.FC<SortingPanelProps> = ({
   usePageTitle(`${gamesCount} Free-to-play games found in our games list!`)
 
   return data ? (
-    <div className="overflow-x-hidden xs:flex xs:flex-col">
+    <div className="overflow-x-hidden xs:flex xs:flex-col p-1">
       <GamesCount gamesCount={gamesCount} />
       <RandomGames data={data} />
       <SortingSelectors
@@ -29,7 +29,7 @@ const GamesSortingPanel: React.FC<SortingPanelProps> = ({
       <Separator className="mb-5" />
     </div>
   ) : (
-    <div className="min-h-[380px] overflow-x-hidden"></div>
+    <div className="xs:min-[620px] min-h-[380px] overflow-x-hidden"></div>
   )
 }
 export default GamesSortingPanel

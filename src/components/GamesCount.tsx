@@ -8,7 +8,7 @@ const GamesCount: React.FC<{ gamesCount: number }> = ({ gamesCount }) => (
       </h2>
     </div>
     <div>
-      <p className="mb-5">
+      <p className="mb-5 flex gap-2">
         {gamesCount} free-to-play games found in our games list!
       </p>
     </div>

@@ -41,7 +41,7 @@ const GamesList: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <div className="mb-10 min-h-screen w-[1200px]">
+    <div className="mb-10 min-h-screen w-[1200px] xs3:p-3px">
       <GamesSortingPanel
         gamesCount={data.length}
         data={randomGames}
@@ -50,7 +50,7 @@ const GamesList: React.FC = () => {
         onCategoryChange={setCategory}
         onPlatformChange={setPlatform}
       />
-      <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center gap-2 md:gap-0 lg:gap-2 w-full flex-row">
+      <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center xs:gap-0 gap-2 md:gap-0 lg:gap-2 w-full flex-row">
         {data?.map((game) => (
           <GamesListItem key={game.id} game={game} isLoading={isLoading} />
         ))}
