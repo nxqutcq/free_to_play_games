@@ -11,11 +11,12 @@ export interface Game {
   release_date: string
   freetogame_profile_url: string
 }
-export type GameImageType = {
-  src: string
-  alt: string
+export interface GameDetails extends Game {
+  minimum_system_requirements: MinimumSystemRequirements
+  screenshots: Screenshot[]
+  description: string
+  status: string
 }
-
 interface MinimumSystemRequirements {
   os: string
   processor: string
@@ -23,28 +24,13 @@ interface MinimumSystemRequirements {
   graphics: string
   storage: string
 }
-
+export type GameImageType = {
+  src: string
+  alt: string
+}
 interface Screenshot {
   id: number
   image: string
-}
-
-export interface GameDetails {
-  id: number
-  title: string
-  thumbnail: string
-  status: string
-  short_description: string
-  description: string
-  game_url: string
-  genre: string
-  platform: string
-  publisher: string
-  developer: string
-  release_date: string
-  freetogame_profile_url: string
-  minimum_system_requirements: MinimumSystemRequirements
-  screenshots: Screenshot[]
 }
 export interface GamesListItemProps {
   game: Game
@@ -63,3 +49,10 @@ export interface SortingPanelProps {
   onCategoryChange: (value: string) => void
   onPlatformChange: (value: string) => void
 }
+export interface RandomGamesProps {
+  data: Game[]
+}
+export type SortingSelectorsProps = Omit<
+  SortingPanelProps,
+  'data' | 'isLoading' | 'gamesCount'
+>
