@@ -14,60 +14,65 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
   onPlatformChange,
   onSortChange,
 }) => {
+  const selects = [
+    {
+      placeholder: 'Platform',
+      options: [
+        { value: 'all', label: 'All' },
+        { value: 'pc', label: 'PC (Windows)' },
+        { value: 'browser', label: 'Browser (Web)' },
+      ],
+      onChange: onPlatformChange,
+    },
+    {
+      placeholder: 'Genre/Tag',
+      options: [
+        { value: 'all', label: 'All' },
+        { value: 'pc', label: 'PC' },
+        { value: 'browser', label: 'Browser' },
+      ],
+      onChange: onCategoryChange,
+    },
+    {
+      placeholder: 'Sort By',
+      options: [
+        { value: 'all', label: 'All' },
+        { value: 'pc', label: 'PC' },
+        { value: 'browser', label: 'Browser' },
+      ],
+      onChange: onSortChange,
+    },
+  ]
+
   return (
-    <div className="flex justify-between min-h-[70px] xs:flex-col xs:gap-5">
-      <div className="flex flex-row justify-center">
-        <div>
+    <div className="flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 xs:gap-2">
+      {selects.map((select) => (
+        <div key={select.placeholder}>
           <Select>
-            <SelectTrigger className="max-w-[180px]">
-              <SelectValue placeholder="Platform" />
+            <SelectTrigger className="max-w-[max-content]">
+              <SelectValue placeholder={select.placeholder} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all" onClick={() => onPlatformChange('all')}>
-                All
-              </SelectItem>
-              <SelectItem value="pc" onClick={() => onPlatformChange('pc')}>
-                PC (Windows)
-              </SelectItem>
-              <SelectItem
-                value="browser"
-                onClick={() => onPlatformChange('browser')}
-              >
-                Browser (Web)
-              </SelectItem>
+              {select.options.map((option) => (
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                  onChange={() => select.onChange(option.value)}
+                >
+                  {option.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
-      </div>
-      <div>
-        <Select>
-          <SelectTrigger className="max-w-[180px]">
-            <SelectValue placeholder="Genre/Tag" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all" onClick={() => onCategoryChange('browser')}>
-              All
-            </SelectItem>
-            <SelectItem value="pc">PC</SelectItem>
-            <SelectItem value="browser">Browser</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-      <div>
-        <Select>
-          <SelectTrigger className="max-w-[180px]">
-            <SelectValue placeholder="Sort By" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all" onClick={() => onSortChange('browser')}>
-              All
-            </SelectItem>
-            <SelectItem value="pc">PC</SelectItem>
-            <SelectItem value="browser">Browser</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-      <a>Advanсed Filters</a>
+      ))}
+      <button
+        type="button"
+        role="link"
+        className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 max-w-[max-content]"
+      >
+        Advanced Filters
+      </button>
     </div>
   )
 }
