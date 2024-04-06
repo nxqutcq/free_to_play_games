@@ -45,7 +45,7 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
   ]
 
   return (
-    <div className="flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 xs:gap-2">
+    <div className="sm:px-5 xl:px-0 md:px-5 flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 xs:gap-2">
       {selects.map((select) => (
         <div key={select.placeholder}>
           <Select>

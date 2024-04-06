@@ -24,6 +24,6 @@ const GamePage: React.FC = () => {
 
   if (!data) return <NoDataComponent goBack={goBack} />
 
-  return <GameInfo data={data} goBack={goBack} isLoading={isLoading} />
+  return <GameInfo data={data} goBack={goBack} />
 }
 export default GamePage

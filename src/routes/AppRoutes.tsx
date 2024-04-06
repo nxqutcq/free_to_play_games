@@ -7,7 +7,7 @@ import ScrollToTopOnPageChange from '@/components/ScrollToTopOnPageChange.tsx'
 import Loader from '@/components/shared/Loader.tsx'
 
 export const AppRoutes: React.FC = () => (
-  <div className="flex min-h-screen xs2:w-[400px] xs:w-[320px] justify-center items-center xl:w-[1280px] sm:w-[640px] lg:w-[1024px] md:w-[768px]">
+  <div className="xs1:w-[375px] xs4:w-[425px] xs3:w-[480px] flex min-h-screen xs2:w-[400px] xs:w-[320px] justify-center items-center xl:w-[1280px] sm:w-[640px] lg:w-[1024px] md:w-[768px]">
     <Suspense fallback={<Loader />}>
       <ScrollToTopOnPageChange />
       <Routes>

@@ -10,9 +10,9 @@ const GameImage: React.FC<GameImageType> = ({ src, alt }) => {
     setLoaded(true)
   }
   return (
-    <div className="relative w-full min-h-[100%]">
+    <div className="relative w-full min-h-[min-content]">
       {!loaded && (
-        <Skeleton className="absolute inset-0 flex w-full min-h-[100%]" />
+        <Skeleton className="absolute inset-0 flex w-full min-h-[min-content]" />
       )}
       <div className="image-container" style={{ opacity: loaded ? 1 : 0 }}>
         <img

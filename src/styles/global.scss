@@ -84,3 +84,12 @@
 .image-container img {
   opacity: 1;
 }
+
+.browser-icon,
+.windows-icon {
+  width: 20px;
+}
+
+.windows-icon path {
+  fill: rgb(0 128 255);
+}

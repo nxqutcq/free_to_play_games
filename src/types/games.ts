@@ -38,7 +38,6 @@ export interface GamesListItemProps {
 }
 export interface GameInfoProps {
   data: GameDetails
-  isLoading: boolean
   goBack: () => void
 }
 export interface SortingPanelProps {
@@ -56,3 +55,8 @@ export type SortingSelectorsProps = Omit<
   SortingPanelProps,
   'data' | 'isLoading' | 'gamesCount'
 >
+export interface IconProps {
+  className?: string
+}
+export type MinimumSystemRequirementsProps = Omit<GameInfoProps, 'goBack'>
+export type GameScreenshotsProps = Omit<GameInfoProps, 'goBack'>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useFilteredGames } from '../services/queries'
@@ -11,9 +11,9 @@ import { NoDataComponent } from '@/components/shared/NoDataComponent'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
-let randomGames: Game[] | undefined
-
 const GamesList: React.FC = () => {
+  const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
+
   const [sortBy, setSortBy] = useState('relevance')
   const [category, setCategory] = useState('shooter')
   const [platform, setPlatform] = useState('all')
@@ -30,9 +30,11 @@ const GamesList: React.FC = () => {
     navigate(-1)
   }
 
-  if (data) {
-    randomGames = getRandomGames(data, 3)
-  }
+  useEffect(() => {
+    if (data) {
+      setRandomGames(getRandomGames(data, 3))
+    }
+  }, [data])
 
   if (isLoading) return <Loader />
 
@@ -41,7 +43,7 @@ const GamesList: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <div className="mb-10 min-h-screen w-[1200px] xs3:p-3px">
+    <div className="mb-10 min-h-screen w-[1200px]">
       <GamesSortingPanel
         gamesCount={data.length}
         data={randomGames}
@@ -50,7 +52,7 @@ const GamesList: React.FC = () => {
         onCategoryChange={setCategory}
         onPlatformChange={setPlatform}
       />
-      <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center xs:gap-0 gap-2 md:gap-0 lg:gap-2 w-full flex-row">
+      <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center gap-2 md:gap-5 lg:gap-2 w-full flex-row">
         {data?.map((game) => (
           <GamesListItem key={game.id} game={game} isLoading={isLoading} />
         ))}
