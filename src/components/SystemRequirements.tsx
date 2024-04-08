@@ -1,10 +1,8 @@
 import React from 'react'
 
-import { MinimumSystemRequirementsProps } from '@/types/games'
+import { SystemRequirementsProps } from '@/types/games'
 
-const MinimumSystemRequirements: React.FC<MinimumSystemRequirementsProps> = ({
-  data,
-}) => (
+const SystemRequirements: React.FC<SystemRequirementsProps> = ({ data }) => (
   <div>
     <h4 className="scroll-m-20 text-xl font-semibold tracking-tight sm:flex">
       Minimum System Requirements:
@@ -29,4 +27,4 @@ const MinimumSystemRequirements: React.FC<MinimumSystemRequirementsProps> = ({
   </div>
 )
 
-export default MinimumSystemRequirements
+export default SystemRequirements

@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator'
 import usePageTitle from '@/hooks/usePageTitle'
 import { SortingPanelProps } from '@/types/games'
 
-const GamesSortingPanel: React.FC<SortingPanelProps> = ({
+const SortingPanel: React.FC<SortingPanelProps> = ({
   data,
   gamesCount,
   onPlatformChange,
@@ -32,4 +32,4 @@ const GamesSortingPanel: React.FC<SortingPanelProps> = ({
     <div className="xs:min-[620px] min-h-[380px] overflow-x-hidden"></div>
   )
 }
-export default GamesSortingPanel
+export default SortingPanel

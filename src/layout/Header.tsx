@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import HeaderFreeGamesMenu from '@/components/HeaderFreeGamesMenu'
+import FreeGamesMenu from '@/components/FreeGamesMenu'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Separator } from '@/components/ui/separator'
 
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
               </NavLink>
             </li>
             <li>
-              <HeaderFreeGamesMenu />
+              <FreeGamesMenu />
             </li>
           </ul>
         </nav>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-const ScrollToTopOnPageChange: React.FC = () => {
+const useScrollToTopOnPageChange: React.FC = () => {
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -11,4 +11,4 @@ const ScrollToTopOnPageChange: React.FC = () => {
   return null
 }
 
-export default ScrollToTopOnPageChange
+export default useScrollToTopOnPageChange

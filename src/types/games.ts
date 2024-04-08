@@ -12,12 +12,12 @@ export interface Game {
   freetogame_profile_url: string
 }
 export interface GameDetails extends Game {
-  minimum_system_requirements: MinimumSystemRequirements
+  minimum_system_requirements: SystemRequirements
   screenshots: Screenshot[]
   description: string
   status: string
 }
-interface MinimumSystemRequirements {
+interface SystemRequirements {
   os: string
   processor: string
   memory: string
@@ -32,7 +32,7 @@ interface Screenshot {
   id: number
   image: string
 }
-export interface GamesListItemProps {
+export interface GamesBunchItemProps {
   game: Game
   isLoading: boolean
 }
@@ -58,5 +58,5 @@ export type SortingSelectorsProps = Omit<
 export interface IconProps {
   className?: string
 }
-export type MinimumSystemRequirementsProps = Omit<GameInfoProps, 'goBack'>
+export type SystemRequirementsProps = Omit<GameInfoProps, 'goBack'>
 export type GameScreenshotsProps = Omit<GameInfoProps, 'goBack'>

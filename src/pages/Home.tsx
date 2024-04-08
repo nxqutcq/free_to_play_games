@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FrequentlyAskedQuestions from '@/components/FrequentlyAskedQuestions'
+import FrequentlyAskedQuestions from '@/components/FAQ'
 import usePageTitle from '@/hooks/usePageTitle'
 
 const Home: React.FC = () => {
