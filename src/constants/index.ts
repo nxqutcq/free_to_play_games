@@ -46,3 +46,11 @@ export const faqData = [
     ],
   },
 ]
+
+export const requirements = [
+  { name: 'OS', key: 'os' },
+  { name: 'Processor', key: 'processor' },
+  { name: 'Memory', key: 'memory' },
+  { name: 'Graphics', key: 'graphics' },
+  { name: 'Storage', key: 'storage' },
+]

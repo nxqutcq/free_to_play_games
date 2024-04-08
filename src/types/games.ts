@@ -23,6 +23,7 @@ interface SystemRequirements {
   memory: string
   graphics: string
   storage: string
+  [key: string]: string
 }
 export type GameImageType = {
   src: string
