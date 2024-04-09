@@ -54,3 +54,39 @@ export const requirements = [
   { name: 'Graphics', key: 'graphics' },
   { name: 'Storage', key: 'storage' },
 ]
+
+export const selectOptions = [
+  {
+    placeholder: 'Platform',
+    options: [
+      { value: 'all', label: 'All' },
+      { value: 'pc', label: 'PC (Windows)' },
+      { value: 'browser', label: 'Browser (Web)' },
+    ],
+    onChange: (value: string) => {
+      console.log('Platform changed:', value)
+    },
+  },
+  {
+    placeholder: 'Genre/Tag',
+    options: [
+      { value: 'all', label: 'All' },
+      { value: 'pc', label: 'PC' },
+      { value: 'browser', label: 'Browser' },
+    ],
+    onChange: (value: string) => {
+      console.log('Category changed:', value)
+    },
+  },
+  {
+    placeholder: 'Sort By',
+    options: [
+      { value: 'all', label: 'All' },
+      { value: 'pc', label: 'PC' },
+      { value: 'browser', label: 'Browser' },
+    ],
+    onChange: (value: string) => {
+      console.log('Sort changed:', value)
+    },
+  },
+]
