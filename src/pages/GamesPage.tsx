@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 import { useFilteredGames } from '../services/queries'
 
-import GamesBunchItem from '@/components/GamesBunchItem'
+import GamesBunch from '@/components/GamesBunch'
+import GamesCount from '@/components/GamesCount'
+import RandomGames from '@/components/RandomGames'
 import { ErrorComponent } from '@/components/shared/ErrorComponent'
 import Loader from '@/components/shared/Loader'
 import { NoDataComponent } from '@/components/shared/NoDataComponent'
@@ -11,11 +13,11 @@ import SortingPanel from '@/components/SortingPanel'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
-const GamesBunch: React.FC = () => {
+const GamesPage: React.FC = () => {
   const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
 
   const [sortBy, setSortBy] = useState('relevance')
-  const [category, setCategory] = useState('shooter')
+  const [category, setCategory] = useState('sci-fi')
   const [platform, setPlatform] = useState('all')
 
   const { isLoading, isError, data } = useFilteredGames(
@@ -44,21 +46,17 @@ const GamesBunch: React.FC = () => {
 
   return (
     <div className="mb-10 min-h-screen w-[1200px]">
+      <GamesCount gamesCount={data.length} />
+      <RandomGames data={randomGames} />
       <SortingPanel
-        gamesCount={data.length}
-        data={randomGames}
         isLoading={isLoading}
         onSortChange={setSortBy}
         onCategoryChange={setCategory}
         onPlatformChange={setPlatform}
       />
-      <div className="xl:gap-0 xl:justify-between overflow-x-hidden flex flex-wrap items-start justify-center gap-2 md:gap-5 lg:gap-2 w-full flex-row">
-        {data?.map((game) => (
-          <GamesBunchItem key={game.id} game={game} isLoading={isLoading} />
-        ))}
-      </div>
+      <GamesBunch data={data} isLoading={isLoading} />
     </div>
   )
 }
 
-export default GamesBunch
+export default GamesPage

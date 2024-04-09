@@ -5,7 +5,7 @@ import { BrowserIcon, WindowsIcon } from '@/components/icons/index'
 import GameImage from '@/components/shared/GameImage'
 import { GamesBunchItemProps } from '@/types/games'
 
-const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
+const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
   <article className="rounded-xl border m-3 shadow-soft dark:shadow-soft-dark xs1:w-[375px] xs4:w-[425px] xl:p-0 lg:w-[320px] xl:w-[360px] md:w-[350px] justify-center flex flex-col items-center overflow-x-hidden sm:w-[300px] xs:w-[310px] xs2:w-[400px] xs3:w-[480px]">
     {game.id && (
       <Link
@@ -54,4 +54,4 @@ const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
   </article>
 )
 
-export default GamesBunchItem
+export default GamesListItem

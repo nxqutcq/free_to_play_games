@@ -42,15 +42,13 @@ export interface GameInfoProps {
   goBack: () => void
 }
 export interface SortingPanelProps {
-  data: Game[] | undefined
   isLoading: boolean
-  gamesCount: number
   onSortChange: (value: string) => void
   onCategoryChange: (value: string) => void
   onPlatformChange: (value: string) => void
 }
 export interface RandomGamesProps {
-  data: Game[]
+  data: Game[] | undefined
 }
 export type SortingSelectorsProps = Omit<
   SortingPanelProps,
@@ -61,3 +59,8 @@ export interface IconProps {
 }
 export type SystemRequirementsProps = Omit<GameInfoProps, 'goBack'>
 export type ScreenshotsProps = Omit<GameInfoProps, 'goBack'>
+
+export interface GamesBunchProps {
+  data: Game[]
+  isLoading: boolean
+}
