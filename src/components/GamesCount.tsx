@@ -1,9 +1,12 @@
 import React from 'react'
 
 import usePageTitle from '@/hooks/usePageTitle'
+import { GamesCountProps } from '@/types/games'
 
-const GamesCount: React.FC<{ gamesCount: number }> = ({ gamesCount }) => {
-  usePageTitle(`${gamesCount} Free-to-play games found in our games list!`)
+const GamesCount: React.FC<GamesCountProps> = ({ gamesCount, category }) => {
+  usePageTitle(
+    `${gamesCount} Free-to-play ${category} games found in our games list!`
+  )
   return (
     <div className="sm:px-5 xl:px-0">
       <div>
@@ -13,7 +16,8 @@ const GamesCount: React.FC<{ gamesCount: number }> = ({ gamesCount }) => {
       </div>
       <div>
         <p className="mb-5 flex gap-2">
-          {gamesCount} free-to-play games found in our games list!
+          {gamesCount} {category?.toLocaleUpperCase()} games found in our games
+          list!
         </p>
       </div>
     </div>

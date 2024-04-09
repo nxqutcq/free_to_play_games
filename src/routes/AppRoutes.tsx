@@ -14,7 +14,7 @@ export const AppRoutes: React.FC = () => (
         <Route path="/" element={<Home />} />
         <Route path="/games" element={<GamesPage />} />
         <Route path="/games/game/:id" element={<GamePage />} />
-        <Route path="/games/games/:category" element={<GamesPage />} />
+        <Route path="/games/:category" element={<GamesPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

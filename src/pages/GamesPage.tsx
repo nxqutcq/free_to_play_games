@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { useFilteredGames } from '../services/queries'
 
@@ -15,17 +15,16 @@ import { getRandomGames } from '@/utils'
 
 const GamesPage: React.FC = () => {
   const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
+  const { category } = useParams<{ category: string }>()
 
-  const [sortBy, setSortBy] = useState('relevance')
-  const [category, setCategory] = useState('sci-fi')
+  const [sortBy, setSortBy] = useState('alphabetical')
   const [platform, setPlatform] = useState('all')
 
   const { isLoading, isError, data } = useFilteredGames(
     platform,
-    category,
+    category || '',
     sortBy
   )
-
   const navigate = useNavigate()
 
   const goBack = () => {
@@ -46,11 +45,11 @@ const GamesPage: React.FC = () => {
 
   return (
     <div className="mb-10 min-h-screen w-[1200px]">
-      <GamesCount gamesCount={data.length} />
+      <GamesCount category={category} gamesCount={data.length} />
       <RandomGames data={randomGames} />
       <SortingPanel
         onSortChange={setSortBy}
-        onCategoryChange={setCategory}
+        // onCategoryChange={setCategory}
         onPlatformChange={setPlatform}
       />
       <GamesBunch data={data} />

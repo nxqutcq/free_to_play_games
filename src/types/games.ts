@@ -61,3 +61,7 @@ export type ScreenshotsProps = Omit<GameInfoProps, 'goBack'>
 export interface GamesBunchProps {
   data: Game[]
 }
+export interface GamesCountProps {
+  gamesCount: number
+  category: string | undefined
+}
