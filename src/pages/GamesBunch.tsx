@@ -11,7 +11,7 @@ import SortingPanel from '@/components/SortingPanel'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
-const GamesList: React.FC = () => {
+const GamesBunch: React.FC = () => {
   const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
 
   const [sortBy, setSortBy] = useState('relevance')
@@ -61,4 +61,4 @@ const GamesList: React.FC = () => {
   )
 }
 
-export default GamesList
+export default GamesBunch
