@@ -2,9 +2,9 @@ import React from 'react'
 
 import GameImage from './shared/GameImage'
 
-import { GameScreenshotsProps } from '@/types/games'
+import { ScreenshotsProps } from '@/types/games'
 
-const GameScreenshots: React.FC<GameScreenshotsProps> = ({ data }) => (
+const Screenshots: React.FC<ScreenshotsProps> = ({ data }) => (
   <div>
     <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
       Screenshots:
@@ -33,4 +33,4 @@ const GameScreenshots: React.FC<GameScreenshotsProps> = ({ data }) => (
   </div>
 )
 
-export default GameScreenshots
+export default Screenshots

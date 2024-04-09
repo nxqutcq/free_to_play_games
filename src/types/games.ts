@@ -60,4 +60,4 @@ export interface IconProps {
   className?: string
 }
 export type SystemRequirementsProps = Omit<GameInfoProps, 'goBack'>
-export type GameScreenshotsProps = Omit<GameInfoProps, 'goBack'>
+export type ScreenshotsProps = Omit<GameInfoProps, 'goBack'>
