@@ -16,8 +16,13 @@ const Header: React.FC = () => {
             </NavLink>
           </h1>
           <ul className="flex items-center mr-10 w-[200px] justify-between">
-            <li className="">
-              <NavLink draggable={false} to="/" role="link">
+            <li>
+              <NavLink
+                className="flex rounded-md p-3 leading-none transition-colors hover:bg-accent"
+                draggable={false}
+                to="/"
+                role="link"
+              >
                 Home
               </NavLink>
             </li>
