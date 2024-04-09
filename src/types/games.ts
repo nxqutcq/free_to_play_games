@@ -35,14 +35,12 @@ interface Screenshot {
 }
 export interface GamesBunchItemProps {
   game: Game
-  isLoading: boolean
 }
 export interface GameInfoProps {
   data: GameDetails
   goBack: () => void
 }
 export interface SortingPanelProps {
-  isLoading: boolean
   onSortChange: (value: string) => void
   onCategoryChange: (value: string) => void
   onPlatformChange: (value: string) => void
@@ -62,5 +60,4 @@ export type ScreenshotsProps = Omit<GameInfoProps, 'goBack'>
 
 export interface GamesBunchProps {
   data: Game[]
-  isLoading: boolean
 }

@@ -49,12 +49,11 @@ const GamesPage: React.FC = () => {
       <GamesCount gamesCount={data.length} />
       <RandomGames data={randomGames} />
       <SortingPanel
-        isLoading={isLoading}
         onSortChange={setSortBy}
         onCategoryChange={setCategory}
         onPlatformChange={setPlatform}
       />
-      <GamesBunch data={data} isLoading={isLoading} />
+      <GamesBunch data={data} />
     </div>
   )
 }
