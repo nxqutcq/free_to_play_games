@@ -35,6 +35,7 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
                 key={option.value}
                 value={option.value}
                 onClick={(event) => {
+                  if (event.target !== event.currentTarget) return
                   event.stopPropagation()
                   switch (select.placeholder) {
                     case 'Platform':
