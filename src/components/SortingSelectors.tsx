@@ -22,7 +22,14 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
           <SelectTrigger className="max-w-[max-content] hover:bg-accent transition-colors">
             <SelectValue placeholder={select.placeholder} />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent
+            ref={(ref) => {
+              if (!ref) return
+              ref.ontouchstart = (e) => {
+                e.preventDefault()
+              }
+            }}
+          >
             {select.options.map((option) => (
               <SelectItem
                 key={option.value}
