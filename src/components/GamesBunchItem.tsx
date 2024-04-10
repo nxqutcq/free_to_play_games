@@ -8,7 +8,7 @@ import { formatDate } from '@/utils'
 
 const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
   <article className="hover:bg-accent transition-colors rounded-xl border m-3 shadow-soft dark:shadow-soft-dark xs1:w-[375px] xs4:w-[425px] xl:p-0 lg:w-[320px] xl:w-[360px] md:w-[350px] justify-center flex flex-col items-center overflow-x-hidden sm:w-[300px] xs:w-[310px] xs2:w-[400px] xs3:w-[480px]">
-    {game.id && (
+    {game?.id && (
       <Link
         draggable="false"
         className="rounded-xl lg:w-[320px] md:w-[350px] justify-center xl:w-[360px]"
@@ -18,38 +18,32 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
           <div className="xl:w-[360px] lg:w-[320px] sm:w-[full] md:w-[350px] min-h-[150px] xs3:w-[full] xs:w-[full] items-center rounded-xl">
             <GameImage alt={game?.title} src={game?.thumbnail} />
           </div>
-          <div className="p-3 min-h-[180px]">
-            <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
-              {game?.title}
-            </h3>
-            <div className="flex flex-row pt-3">
-              {game.genre}
-              {game.platform === 'PC (Windows)' && (
-                <div
-                  title="Available on Windows"
-                  className="xs3:leading-7 [&:not(:first-child)]:mt-6 px-2"
-                >
-                  <WindowsIcon className="windows-icon" />
-                </div>
-              )}
-              {game.platform === 'Web Browser' && (
-                <div
-                  title="Available on Browser"
-                  className="xs3:leading-7 [&:not(:first-child)]:mt-6 px-2"
-                >
-                  <BrowserIcon className="browser-icon" />
-                </div>
-              )}
+          <div className="p-5 min-h-[180px]">
+            <div className="flex flex-row">
+              <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
+                {game?.title}
+              </h3>
+              <div className="flex flex-row pt-3 items-center h-[min-content]">
+                {game?.platform.includes('PC (Windows)') && (
+                  <div title="Available on Windows" className="px-2">
+                    <WindowsIcon className="windows-icon" />
+                  </div>
+                )}
+                {game?.platform.includes('Web Browser') && (
+                  <div title="Available on Browser" className="px-2">
+                    <BrowserIcon className="browser-icon" />
+                  </div>
+                )}
+              </div>
             </div>
-            <p className="xs3:mb-3 mb-2 leading-7 [&:not(:first-child)]:mt-4">
+            <p className="xs3:mb-1 leading-7 [&:not(:first-child)]:mt-4">
               {game?.short_description}
             </p>
-            <p className="xs3:mb-3 mb-2 leading-7 [&:not(:first-child)]:mt-6">
-              {game?.publisher}
-            </p>
-            <p className="mb-2 leading-7 [&:not(:first-child)]:mt-6">
-              Release date: {formatDate(game?.release_date)}
-            </p>
+            <div className="flex flex-row gap-2 justify-between items-center">
+              <p className="xs3:my-3 my-2">{game?.publisher}</p>
+              <p>{formatDate(game?.release_date)} </p>
+            </div>
+            <div className="genre-style">{game?.genre}</div>
           </div>
         </div>
       </Link>
