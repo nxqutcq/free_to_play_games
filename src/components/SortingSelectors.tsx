@@ -27,7 +27,8 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
               <SelectItem
                 key={option.value}
                 value={option.value}
-                onClick={() => {
+                onClick={(event) => {
+                  event.stopPropagation()
                   switch (select.placeholder) {
                     case 'Platform':
                       onPlatformChange(option.value)
