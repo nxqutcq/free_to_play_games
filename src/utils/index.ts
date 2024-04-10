@@ -16,3 +16,6 @@ export const formatDate = (dateString: string): string => {
   }
   return date.toLocaleDateString('en-US', options)
 }
+export const truncateString = (str: string, num: number): string => {
+  return str.length > num ? str.substring(0, num) + '...' : str
+}
