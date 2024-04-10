@@ -20,7 +20,7 @@ const GamesPage: React.FC = () => {
   const [sortBy, setSortBy] = useState('alphabetical')
   const [platform, setPlatform] = useState('all')
 
-  const { isLoading, isError, data } = useFilteredGames(
+  const { refetch, isLoading, isError, data } = useFilteredGames(
     platform,
     category || '',
     sortBy
@@ -29,6 +29,13 @@ const GamesPage: React.FC = () => {
 
   const goBack = () => {
     navigate(-1)
+  }
+  useEffect(() => {
+    refetch()
+  }, [category, refetch])
+
+  const handleCategoryChange = (newCategory: string) => {
+    navigate(`/games/${newCategory}`)
   }
 
   useEffect(() => {
@@ -49,7 +56,7 @@ const GamesPage: React.FC = () => {
       <RandomGames data={randomGames} />
       <SortingPanel
         onSortChange={setSortBy}
-        // onCategoryChange={setCategory}
+        onCategoryChange={handleCategoryChange}
         onPlatformChange={setPlatform}
       />
       <GamesBunch data={data} />

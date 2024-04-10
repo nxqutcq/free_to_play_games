@@ -26,7 +26,7 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
             {select.options.map((option) => (
               <SelectItem
                 key={option.value}
-                value={option.value} // Ensure value is provided
+                value={option.value}
                 onClick={() => {
                   switch (select.placeholder) {
                     case 'Platform':
