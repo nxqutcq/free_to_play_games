@@ -15,11 +15,11 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
   onSortChange,
   onCategoryChange,
 }) => (
-  <div className="sm:px-5 xl:px-0 md:px-5 flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 xs:gap-2">
+  <div className="items-center xs:w-[320px] sm:px-5 xl:px-0 md:px-5 flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 xl:w-[1200px]">
     {selectOptions.map((select) => (
       <div key={select.placeholder}>
         <Select>
-          <SelectTrigger className="max-w-[max-content] hover:bg-accent transition-colors">
+          <SelectTrigger className="xl:w-[150px] xs:w-[200px] hover:bg-accent transition-colors">
             <SelectValue placeholder={select.placeholder} />
           </SelectTrigger>
           <SelectContent
@@ -30,9 +30,9 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
               }
             }}
           >
-            {select.options.map((option) => (
+            {select.options.map((option, index) => (
               <SelectItem
-                key={option.value}
+                key={index}
                 value={option.value}
                 onClick={(event) => {
                   if (event.target !== event.currentTarget) return

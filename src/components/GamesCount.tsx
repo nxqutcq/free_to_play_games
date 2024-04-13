@@ -8,7 +8,7 @@ const GamesCount: React.FC<GamesCountProps> = ({ gamesCount, category }) => {
     `${gamesCount} Free-to-play ${category} games found in our games list!`
   )
   return (
-    <div className="sm:px-5 xl:px-0">
+    <div className="sm:px-5 xl:px-0 xl:w-[1200px]">
       <div>
         <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
           Top Free Games for PC and Browser In {new Date().getFullYear()}!

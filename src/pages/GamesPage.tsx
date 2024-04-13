@@ -32,11 +32,12 @@ const GamesPage: React.FC = () => {
   }
   useEffect(() => {
     refetch()
+    console.log(category)
   }, [category, refetch])
 
-  const handleCategoryChange = (newCategory: string) => {
-    navigate(`/games/${newCategory}`)
-  }
+  // const handleCategoryChange = (newCategory: string) => {
+  //   navigate(`/games/${newCategory}`)
+  // }
 
   useEffect(() => {
     if (data) {
@@ -51,14 +52,19 @@ const GamesPage: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <div className="mb-10 min-h-screen w-[1200px]">
+    <div className="mb-10 min-h-screen xl:w-[1200px]">
       <GamesCount category={category} gamesCount={data.length} />
       <RandomGames data={randomGames} />
       <SortingPanel
         onSortChange={setSortBy}
-        onCategoryChange={handleCategoryChange}
-        onPlatformChange={setPlatform}
+        onCategoryChange={(newCategory: string) => {
+          console.log('Category changed:', newCategory)
+        }}
+        onPlatformChange={(newPlatform: string) => {
+          setPlatform(newPlatform)
+        }}
       />
+
       <GamesBunch data={data} />
     </div>
   )

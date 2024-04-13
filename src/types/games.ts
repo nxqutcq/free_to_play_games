@@ -48,10 +48,18 @@ export interface SortingPanelProps {
 export interface RandomGamesProps {
   data: Game[] | undefined
 }
-export type SortingSelectorsProps = Omit<
-  SortingPanelProps,
-  'data' | 'isLoading' | 'gamesCount'
->
+
+export interface SelectOption {
+  value: string
+  label: string
+}
+
+export interface SortingSelectorsProps {
+  onPlatformChange: (newPlatform: string) => void
+  onSortChange: (newSortBy: string) => void
+  onCategoryChange: (newCategory: string) => void
+  selectOptions: SelectOption[]
+}
 export interface IconProps {
   className?: string
 }

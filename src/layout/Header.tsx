@@ -7,8 +7,8 @@ import { Separator } from '@/components/ui/separator'
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-[rgb(23,23,23)] flex h-20 w-full mx-auto items-center flex-col mb-5 xs:mb-2">
-      <div className="flex xs2:w-[400px] items-center xs:w-[320px] xl:w-[1200px] lg:w-[1024px] justify-between h-full flex-row sm:w-[640px] md:w-[768px] xs3:w-[480px]">
+    <header className="bg-[rgb(68,69,63)] flex h-20 w-full mx-auto items-center flex-col mb-5">
+      <div className="flex xs2:w-[400px] items-center xs:w-[300px] xl:w-[1200px] lg:w-[1024px] justify-between h-full flex-row sm:w-[640px] md:w-[768px] xs3:w-[480px]">
         <nav className="flex flex-row items-center justify-between w-full sm:pr-5">
           <h1 className="xs:hidden text-white scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl sm:flex">
             <NavLink draggable={false} to="/" role="link">

@@ -10,7 +10,7 @@ const SortingPanel: React.FC<SortingPanelProps> = ({
   onSortChange,
   onCategoryChange,
 }) => (
-  <div className="overflow-x-hidden xs:flex xs:flex-col p-1">
+  <div className="overflow-x-hidden xs:flex xs:flex-col xs:w-[320px] xl:w-[1200px]">
     <SortingSelectors
       onCategoryChange={onCategoryChange}
       onPlatformChange={onPlatformChange}
