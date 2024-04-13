@@ -1,3 +1,4 @@
+import { allGenres } from '@/constants'
 import { Game } from '@/types/games'
 
 export const getRandomGames = (data: Game[], count: number): Game[] => {
@@ -7,6 +8,7 @@ export const getRandomGames = (data: Game[], count: number): Game[] => {
   }
   return Array.from(randomIndices).map((index) => data[index as number])
 }
+
 export const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
   const options: Intl.DateTimeFormatOptions = {
@@ -16,6 +18,12 @@ export const formatDate = (dateString: string): string => {
   }
   return date.toLocaleDateString('en-US', options)
 }
+
 export const truncateString = (str: string, num: number): string => {
   return str.length > num ? str.substring(0, num) + '...' : str
+}
+
+export const getGenreUrl = (genreLabel: string) => {
+  const genreObject = allGenres.find((genre) => genre.label === genreLabel)
+  return `/games/${genreObject?.value}`
 }
