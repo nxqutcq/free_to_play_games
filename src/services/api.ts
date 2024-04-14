@@ -63,9 +63,10 @@ export const getSortedGames = async (sortBy: string) => {
     const response = await axiosInstance.get<Game[]>('games', {
       params: {
         'sort-by': sortBy,
+        limit: 7,
       },
     })
-    return response.data
+    return response.data.slice(0, 10)
   } catch (error) {
     console.error('Error fetching sorted games:', error)
     throw error
