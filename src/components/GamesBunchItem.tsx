@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { BrowserIcon, WindowsIcon } from '@/components/icons/index'
 import GameImage from '@/components/shared/GameImage'
 import { GamesBunchItemProps } from '@/types/games'
-import { formatDate, truncateString } from '@/utils'
+import { formatDate, genreStyle, truncateString } from '@/utils'
 
 const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
   <article className="hover:bg-accent transition-colors rounded-xl border m-3 shadow-soft dark:shadow-soft-dark xs1:w-[375px] xs4:w-[425px] xl:p-0 lg:w-[320px] xl:w-[360px] md:w-[350px] justify-center flex flex-col items-center overflow-x-hidden sm:w-[300px] xs:w-[310px] xs2:w-[400px] xs3:w-[480px]">
@@ -45,7 +45,11 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
                 <p>{formatDate(game?.release_date)} </p>
               </div>
               <div>
-                <div className="genre-style">{game?.genre}</div>
+                {game?.genre && (
+                  <div className="genre-style" style={genreStyle(game.genre)}>
+                    {game.genre}
+                  </div>
+                )}
               </div>
             </div>
           </div>

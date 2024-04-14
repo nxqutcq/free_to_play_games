@@ -7,7 +7,7 @@ import GameImage from './shared/GameImage'
 
 import { Button } from '@/components/ui/button'
 import { GameInfoProps } from '@/types/games'
-import { getGenreUrl } from '@/utils'
+import { genreStyle, getGenreUrl } from '@/utils'
 
 const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
   <div className="flex flex-col">
@@ -21,14 +21,17 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
       <h2 className="ml-10 scroll-m-20 text-4xl font-semibold tracking-tight mb-1 first:mb-0">
         {data?.title}
       </h2>
-      <NavLink
-        className="genre-style"
-        draggable={false}
-        to={getGenreUrl(data.genre)}
-        role="link"
-      >
-        {data?.genre}
-      </NavLink>
+      {data?.genre && (
+        <NavLink
+          className="genre-style"
+          draggable={false}
+          to={getGenreUrl(data.genre)}
+          role="link"
+          style={genreStyle(data.genre)}
+        >
+          {data.genre}
+        </NavLink>
+      )}
     </div>
     <p className="mb-10 leading-7 items-start [&:not(:first-child)]:mt-10 sm:flex">
       {data?.short_description}
