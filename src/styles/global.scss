@@ -145,3 +145,22 @@ html {
   color: rgb(255 255 0);
   background-color: rgb(255 255 0 / 10%);
 }
+
+.youtube path,
+.facebook path,
+.twitter path {
+  fill: rgb(75 75 75);
+  transition: fill 0.2s ease-in-out;
+}
+
+.youtube:hover path {
+  fill: rgb(255 0 0);
+}
+
+.twitter:hover path {
+  fill: rgb(0 162 255);
+}
+
+.facebook:hover path {
+  fill: rgb(6 0 97);
+}

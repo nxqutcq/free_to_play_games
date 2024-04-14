@@ -1,2 +1,5 @@
 export * from './BrowserIcon'
 export * from './WindowsIcon'
+export * from './FacebookIcon'
+export * from './TwitterIcon'
+export * from './YouTubeIcon'
