@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { BrowserIcon, WindowsIcon } from '@/components/icons/index'
+import Genre from './Genre'
+import PlatformIcons from './PlatformIcons'
+
 import GameImage from '@/components/shared/GameImage'
 import { GamesBunchItemProps } from '@/types/games'
-import { formatDate, genreStyle, truncateString } from '@/utils'
+import { formatDate, truncateString } from '@/utils'
 
 const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
   <article className="hover:bg-accent transition-colors rounded-xl border m-3 shadow-soft dark:shadow-soft-dark xs1:w-[375px] xs4:w-[425px] xl:p-0 lg:w-[320px] xl:w-[360px] md:w-[350px] justify-center flex flex-col items-center overflow-x-hidden sm:w-[300px] xs:w-[310px] xs2:w-[400px] xs3:w-[480px]">
@@ -24,16 +26,7 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
                 {game?.title}
               </h3>
               <div className="flex flex-row pt-3 items-center h-[min-content]">
-                {game?.platform.includes('PC (Windows)') && (
-                  <div title="Available on Windows" className="px-2">
-                    <WindowsIcon className="windows-icon" />
-                  </div>
-                )}
-                {game?.platform.includes('Web Browser') && (
-                  <div title="Available on Browser" className="px-2">
-                    <BrowserIcon className="browser-icon" />
-                  </div>
-                )}
+                <PlatformIcons platform={game.platform} />
               </div>
             </div>
             <p className="xs3:mb-1 leading-7 [&:not(:first-child)]:mt-4">
@@ -44,13 +37,7 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
                 <p className="mb-1">{game?.publisher}</p>
                 <p>{formatDate(game?.release_date)} </p>
               </div>
-              <div>
-                {game?.genre && (
-                  <div className="genre-style" style={genreStyle(game.genre)}>
-                    {game.genre}
-                  </div>
-                )}
-              </div>
+              <div>{game?.genre && <Genre genre={game.genre} />}</div>
             </div>
           </div>
         </div>

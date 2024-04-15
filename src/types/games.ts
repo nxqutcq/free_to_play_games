@@ -40,13 +40,13 @@ export interface GameInfoProps {
   data: GameDetails
   goBack: () => void
 }
+export interface RandomGamesProps {
+  data: Game[] | undefined
+}
 export interface SortingPanelProps {
   onSortChange: (value: string) => void
   onCategoryChange: (value: string) => void
   onPlatformChange: (value: string) => void
-}
-export interface RandomGamesProps {
-  data: Game[] | undefined
 }
 
 export interface SelectOption {
@@ -58,14 +58,12 @@ export interface SortingSelectorsProps {
   onPlatformChange: (newPlatform: string) => void
   onSortChange: (newSortBy: string) => void
   onCategoryChange: (newCategory: string) => void
-  selectOptions: SelectOption[]
 }
 export interface IconProps {
   className?: string
 }
 export type SystemRequirementsProps = Omit<GameInfoProps, 'goBack'>
 export type ScreenshotsProps = Omit<GameInfoProps, 'goBack'>
-
 export interface GamesBunchProps {
   data: Game[]
 }
@@ -73,3 +71,5 @@ export interface GamesCountProps {
   gamesCount: number
   category: string | undefined
 }
+export type PlatformIconsProps = Pick<Game, 'platform'>
+export type GenreProps = Pick<Game, 'genre'>
