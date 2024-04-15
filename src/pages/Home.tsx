@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import FrequentlyAskedQuestions from '@/components/FAQ'
@@ -11,8 +11,11 @@ import Loader from '@/components/shared/Loader'
 import { NoDataComponent } from '@/components/shared/NoDataComponent'
 import usePageTitle from '@/hooks/usePageTitle'
 import { useSortedGames } from '@/services/queries'
+import { Game } from '@/types/games'
+import { getRandomGames } from '@/utils'
 
 const Home: React.FC = () => {
+  const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
   usePageTitle('Home')
 
   const navigate = useNavigate()
@@ -21,7 +24,14 @@ const Home: React.FC = () => {
     navigate(-1)
   }
 
-  const { data, isLoading, isError } = useSortedGames('release-date', 7)
+  const { data, isLoading, isError } = useSortedGames('release-date', 30)
+  const firstSevenGames = data?.slice(0, 7)
+
+  useEffect(() => {
+    if (data) {
+      setRandomGames(getRandomGames(data, 3))
+    }
+  }, [data])
 
   if (isLoading) return <Loader />
 
@@ -34,11 +44,11 @@ const Home: React.FC = () => {
       <div className="flex flex-col w-full">
         <div className="flex flex-col w-full mb-2">
           <div className="min-h-[250px] mb-10">
-            <Recommendations />
+            <Recommendations data={randomGames} />
           </div>
           <div className="flex min-h-[500px] justify-between mb-[80px]">
             <div className="w-[800px]">
-              <NewReleases data={data} />
+              <NewReleases data={firstSevenGames || []} />
               <div className="flex justify-end mt-5">
                 <NavLink
                   to={'/games'}
