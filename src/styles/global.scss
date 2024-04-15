@@ -141,6 +141,7 @@ html {
 
 .youtube path,
 .facebook path,
+.github path,
 .twitter path {
   fill: rgb(75 75 75);
   transition: fill 0.2s ease-in-out;
@@ -156,4 +157,12 @@ html {
 
 .facebook:hover path {
   fill: rgb(6 0 97);
+}
+
+.github:hover path {
+  fill: rgb(0 0 0);
+}
+
+.dark .github:hover path {
+  fill: rgb(255 255 255);
 }

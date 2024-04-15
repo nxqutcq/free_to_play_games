@@ -1,6 +1,11 @@
 import React from 'react'
 
-import { FacebookIcon, TwitterIcon, YouTubeIcon } from '@/components/icons'
+import {
+  FacebookIcon,
+  GithubIcon,
+  TwitterIcon,
+  YouTubeIcon,
+} from '@/components/icons'
 import { Separator } from '@/components/ui/separator'
 
 const Footer: React.FC = () => (
@@ -53,6 +58,15 @@ const Footer: React.FC = () => (
           respective owners.
         </p>
         <div className="flex flex-row gap-10 items-center">
+          <a
+            draggable={false}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={'https://github.com/Vladnel671/free_to_play_games'}
+            className="w-[25px] cursor-pointer"
+          >
+            <GithubIcon className={'github'} />
+          </a>
           <div className="w-[25px] cursor-pointer">
             <YouTubeIcon className={'youtube'} />
           </div>
