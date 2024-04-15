@@ -9,7 +9,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 
 const Footer: React.FC = () => (
-  <footer className="flex w-full mx-auto items-center flex-col">
+  <footer className="flex w-full mx-auto items-center flex-col bg-gray-950">
     <Separator />
     <div className="h-[280px] flex flex-col w-full xl:w-[1200px] not-italic">
       <div className="flex h-[200px] items-center gap-[140px]">

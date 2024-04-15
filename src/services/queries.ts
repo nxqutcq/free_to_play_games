@@ -38,10 +38,10 @@ export function useGamesByPlatform(platform: string) {
   })
 }
 
-export function useSortedGames(sortBy: string) {
+export function useSortedGames(sortBy: string, count: number) {
   return useQuery({
-    queryKey: [`games/sort/${sortBy}`, sortBy],
-    queryFn: () => getSortedGames(sortBy),
+    queryKey: [`games/sort/${sortBy}`, sortBy, count],
+    queryFn: () => getSortedGames(sortBy, count),
   })
 }
 

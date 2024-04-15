@@ -21,7 +21,7 @@ const Home: React.FC = () => {
     navigate(-1)
   }
 
-  const { data, isLoading, isError } = useSortedGames('release-date')
+  const { data, isLoading, isError } = useSortedGames('release-date', 7)
 
   if (isLoading) return <Loader />
 
@@ -30,26 +30,26 @@ const Home: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <main className="mx-auto flex min-h-screen overflow-x-hidden w-full items-start mt-2 p-5;">
+    <main className="mx-auto flex min-h-screen overflow-x-hidden w-full items-start mt-2">
       <div className="flex flex-col w-full">
         <div className="flex flex-col w-full mb-2">
-          <div className="min-h-[250px] bg-gray-700">
+          <div className="min-h-[250px] mb-10">
             <Recommendations />
           </div>
-          <div className="flex min-h-[500px] bg-neutral-600 justify-between mb-[80px]">
-            <div className="w-[800px] bg-orange-400 ">
+          <div className="flex min-h-[500px] justify-between mb-[80px]">
+            <div className="w-[800px]">
               <NewReleases data={data} />
               <div className="flex justify-end mt-5">
                 <NavLink
                   to={'/games'}
-                  className="bg-background border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
+                  className="border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
                 >
                   More Games
                   <ChevronRight />
                 </NavLink>
               </div>
             </div>
-            <div className="bg-slate-500 w-[370px]">
+            <div className="w-[370px]">
               <MostPlayedToday />
             </div>
           </div>

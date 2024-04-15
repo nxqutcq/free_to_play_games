@@ -58,15 +58,14 @@ export const getGamesByPlatform = async (platform: string) => {
   }
 }
 
-export const getSortedGames = async (sortBy: string) => {
+export const getSortedGames = async (sortBy: string, count: number) => {
   try {
     const response = await axiosInstance.get<Game[]>('games', {
       params: {
         'sort-by': sortBy,
-        limit: 7,
       },
     })
-    return response.data.slice(0, 10)
+    return response.data.slice(0, count)
   } catch (error) {
     console.error('Error fetching sorted games:', error)
     throw error
