@@ -33,26 +33,26 @@ const Home: React.FC = () => {
     <main className="mx-auto flex min-h-screen overflow-x-hidden w-full items-start mt-2 p-5;">
       <div className="flex flex-col w-full">
         <div className="flex flex-col w-full mb-2">
-          <div className="min-h-[250px]">
+          <div className="min-h-[250px] bg-gray-700">
             <Recommendations />
           </div>
-          <div className="flex bg-slate-500 min-h-[500px]">
-            <div className="w-[850px] bg-orange-400">
-              <NewReleases />
+          <div className="flex min-h-[500px] bg-neutral-600 justify-between mb-[80px]">
+            <div className="w-[800px] bg-orange-400 ">
+              <NewReleases data={data} />
+              <div className="flex justify-end mt-5">
+                <NavLink
+                  to={'/games'}
+                  className="bg-background border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
+                >
+                  More Games
+                  <ChevronRight />
+                </NavLink>
+              </div>
             </div>
-            <div>
+            <div className="bg-slate-500 w-[370px]">
               <MostPlayedToday />
             </div>
           </div>
-        </div>
-        <div className="flex justify-end mb-[80px]">
-          <NavLink
-            to={'/games'}
-            className="bg-background border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
-          >
-            More Games
-            <ChevronRight />
-          </NavLink>
         </div>
         <div className="flex w-full">
           <FrequentlyAskedQuestions />
