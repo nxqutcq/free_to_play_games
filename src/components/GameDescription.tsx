@@ -3,7 +3,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
+import Screenshots from './Screenshots'
 import GameImage from './shared/GameImage'
+import SystemRequirements from './SystemRequirements'
 
 import { Button } from '@/components/ui/button'
 import { GameInfoProps } from '@/types/games'
@@ -33,12 +35,12 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
         </NavLink>
       )}
     </div>
-    <p className="mb-10 leading-7 items-start [&:not(:first-child)]:mt-10 sm:flex">
+    <p className="mb-5 leading-7 items-start [&:not(:first-child)]:mt-5 sm:flex">
       {data?.short_description}
     </p>
-    <div className="lg:flex lg:justify-between lg:w-full md:w-[360px]">
-      <div className="lg:min-w-[450px] xs:mb-5">
-        <div className="flex xs:min-h-[150px] sm:w-[600px] md:w-[360px] lg:w-full">
+    <div className="lg:flex gap-5 lg:justify-between lg:w-full">
+      <div className="max-w-[350px] min-w-[350px] min-h-[500px]">
+        <div className="flex max-w-[350px] xs:min-h-[190px]">
           <GameImage alt={data?.title} src={data?.thumbnail} />
         </div>
         <Link
@@ -49,13 +51,13 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
         >
           <Button className="mt-5 xs:w-full">PLAY NOW</Button>
         </Link>
+        <SystemRequirements data={data} />
       </div>
-      <div className="ml-5 lg:flex lg:flex-col">
-        <p className="sm:text-justify xs:text-start flex mb-5 leading-7 [&:not(:first-child)]:mt-6 sm:flex sm:w-[full]">
-          {data?.description}
-        </p>
-      </div>
+      <Screenshots data={data} />
     </div>
+    <p className="p-3 sm:text-justify xs:text-start flex leading-7 sm:flex sm:w-[full]">
+      {data?.description}
+    </p>
   </div>
 )
 

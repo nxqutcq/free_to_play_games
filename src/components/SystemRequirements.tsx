@@ -8,7 +8,7 @@ const SystemRequirements: React.FC<SystemRequirementsProps> = ({ data }) => {
     return null
   }
   return (
-    <div>
+    <div className="pt-5">
       <h4 className="scroll-m-20 text-xl font-semibold tracking-tight sm:flex">
         Minimum System Requirements:
       </h4>

@@ -9,7 +9,7 @@ import { GamesBunchItemProps } from '@/types/games'
 import { formatDate, truncateString } from '@/utils'
 
 const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
-  <article className="hover:-translate-y-1 transition h-[max-content] rounded-xl border hover:shadow-soft hover:dark:shadow-soft-dark justify-center flex flex-col items-center overflow-x-hidden">
+  <article className="transition-transform duration-300 transform hover:scale-95 h-[max-content] rounded-xl border hover:shadow-soft hover:dark:shadow-soft-dark justify-center flex flex-col items-center overflow-x-hidden">
     {game?.id && (
       <Link
         draggable="false"
