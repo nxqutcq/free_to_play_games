@@ -40,7 +40,7 @@ const Home: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <main className="mx-auto flex min-h-screen overflow-x-hidden w-full items-start mt-2">
+    <main className="mx-auto flex min-h-screen w-full items-start mt-2">
       <div className="flex flex-col w-full">
         <div className="flex flex-col w-full mb-2">
           <div className="min-h-[250px] mb-10">

@@ -13,14 +13,18 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => {
       <h3 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         New Releases
       </h3>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         {data?.map((game) => (
-          <Link draggable="false" className="" to={`/games/game/${game?.id}`}>
+          <Link
+            draggable="false"
+            className="hover:-translate-y-2 transition"
+            to={`/games/game/${game?.id}`}
+          >
             <article
               className="rounded-xl border h-[120px] justify-between items-center flex"
               key={game?.id}
             >
-              <div className="w-[180px] h-[90px] flex ml-1 items-center justify-center">
+              <div className="w-[180px] min-h-[90px] flex ml-1 items-center justify-center">
                 <GameImage alt={game?.title} src={game?.thumbnail} />
               </div>
               <div className="flex flex-col min-h-[90px] w-[400px] ">
