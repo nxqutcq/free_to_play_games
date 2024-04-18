@@ -73,6 +73,6 @@ export interface GamesCountProps {
 }
 export type PlatformIconsProps = Pick<Game, 'platform'>
 export type GenreProps = Pick<Game, 'genre'>
-export interface GalleryProps {
+export interface CarouselProps {
   images: string[]
 }
