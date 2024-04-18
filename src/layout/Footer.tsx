@@ -12,7 +12,7 @@ const Footer: React.FC = () => (
   <footer className="flex w-full mx-auto items-center flex-col bg-gray-950">
     <Separator />
     <div className="h-[280px] flex flex-col w-full xl:w-[1200px] not-italic">
-      <div className="flex h-[200px] items-center gap-[140px]">
+      <div className="text-white flex h-[200px] items-center gap-[140px]">
         <div className="flex flex-row h-full items-center">
           <nav>
             <ul className="w-[200px] items-start flex flex-col gap-3">
@@ -76,7 +76,7 @@ const Footer: React.FC = () => (
       <div className="flex w-full mb-5">
         <Separator />
       </div>
-      <div className="flex flex-row mb-5 justify-between  items-center">
+      <div className="text-white flex flex-row mb-5 justify-between  items-center">
         <p className="text-xs">
           © 2024 All rights reserved. All trademarks are property of their
           respective owners.

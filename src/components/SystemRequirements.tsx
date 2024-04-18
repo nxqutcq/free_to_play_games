@@ -8,11 +8,8 @@ const SystemRequirements: React.FC<SystemRequirementsProps> = ({ data }) => {
     return null
   }
   return (
-    <div className="pt-5">
-      <h4 className="scroll-m-20 text-xl font-semibold tracking-tight sm:flex">
-        Minimum System Requirements:
-      </h4>
-      <ul className="mb-5 my-6 ml-6 list-disc [&>li]:mt-2  sm:flex sm:flex-col">
+    <div>
+      <ul className="list-none mb-5 my-3 [&>li]:mt-2  sm:flex sm:flex-col">
         {requirements &&
           requirements.map((req) => (
             <li key={req.key}>

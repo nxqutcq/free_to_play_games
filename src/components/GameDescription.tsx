@@ -38,9 +38,9 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
     <p className="mb-5 leading-7 items-start [&:not(:first-child)]:mt-5 sm:flex">
       {data?.short_description}
     </p>
-    <div className="lg:flex gap-5 lg:justify-between lg:w-full">
+    <div className="flex gap-5 between flex-row">
       <div className="max-w-[350px] min-w-[350px] min-h-[500px]">
-        <div className="flex max-w-[350px] xs:min-h-[190px]">
+        <div className="flex max-w-[350px] hover:brightness-110 transition-all xs:min-h-[190px]">
           <GameImage alt={data?.title} src={data?.thumbnail} />
         </div>
         <Link
@@ -49,13 +49,25 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
           rel="noopener noreferrer"
           className="w-[300px]"
         >
-          <Button className="mt-5 xs:w-full">PLAY NOW</Button>
+          <Button className="mt-5 xs:w-full select-none">PLAY NOW</Button>
         </Link>
-        <SystemRequirements data={data} />
+        <div className="min-h-[250px]">
+          <h4 className="pt-5 scroll-m-20 text-xl font-semibold tracking-tight sm:flex">
+            Minimum System Requirements:
+          </h4>
+          {data.minimum_system_requirements &&
+          data.minimum_system_requirements ? (
+            <SystemRequirements data={data} />
+          ) : (
+            <div className="flex justify-center min-h-[210px] items-center">
+              <div>Not specified</div>
+            </div>
+          )}
+        </div>
       </div>
       <Screenshots data={data} />
     </div>
-    <p className="p-3 sm:text-justify xs:text-start flex leading-7 sm:flex sm:w-[full]">
+    <p className="pt-5 sm:text-justify xs:text-start flex leading-7 sm:flex sm:w-[full]">
       {data?.description}
     </p>
   </div>
