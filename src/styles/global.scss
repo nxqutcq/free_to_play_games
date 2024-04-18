@@ -167,3 +167,29 @@ html {
 .dark .github:hover path {
   fill: rgb(255 255 255);
 }
+
+.jumbotron {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.jumbotron img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.8;
+}
+
+.jumbotron .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+}
+
+.jumbotron-image {
+  background-image: url('../assets/images/games.png');
+  width: 100vw;
+}

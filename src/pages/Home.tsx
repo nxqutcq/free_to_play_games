@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import FrequentlyAskedQuestions from '@/components/FAQ'
+import { Jumbotron } from '@/components/Jumbotron'
 import MostPlayedToday from '@/components/MostPlayedToday'
 import NewReleases from '@/components/NewReleases'
 import Recommendations from '@/components/Recommendations'
@@ -15,17 +16,16 @@ import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
 const Home: React.FC = () => {
-  const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
   usePageTitle('Home')
+  const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
+  const { data, isLoading, isError } = useSortedGames('release-date', 30)
+  const firstSevenGames = data?.slice(0, 7)
 
   const navigate = useNavigate()
 
   const goBack = () => {
     navigate(-1)
   }
-
-  const { data, isLoading, isError } = useSortedGames('release-date', 30)
-  const firstSevenGames = data?.slice(0, 7)
 
   useEffect(() => {
     if (data) {
@@ -40,9 +40,10 @@ const Home: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <main className="mx-auto flex min-h-screen w-full items-start mt-2">
-      <div className="flex flex-col w-full">
-        <div className="flex flex-col w-full mb-2">
+    <main className="justify-center flex min-h-screen items-start">
+      <div className="flex flex-col w-full items-center">
+        <Jumbotron />
+        <div className="w-[1200px] mt-5 flex flex-col mb-2">
           <div className="min-h-[250px] mb-10">
             <Recommendations data={randomGames} />
           </div>
@@ -63,9 +64,9 @@ const Home: React.FC = () => {
               <MostPlayedToday />
             </div>
           </div>
-        </div>
-        <div className="flex w-full">
-          <FrequentlyAskedQuestions />
+          <div className="flex w-full">
+            <FrequentlyAskedQuestions />
+          </div>
         </div>
       </div>
     </main>
