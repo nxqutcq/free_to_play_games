@@ -28,7 +28,7 @@ export const getGenreUrl = (genreLabel: string) => {
   return `/games/${genreObject?.value}`
 }
 export const genreStyle = (genre: string) => {
-  const genreInfo = allGenres.find((g) => g.label === genre)
+  const genreInfo = allGenres.find((g) => g.label === genre.trim())
   return {
     color: genreInfo?.color,
     backgroundColor: `${genreInfo?.color}10`,

@@ -27,9 +27,9 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
         <NavLink
           className="genre-style"
           draggable={false}
-          to={getGenreUrl(data.genre)}
+          to={getGenreUrl(data.genre.trim())}
           role="link"
-          style={genreStyle(data.genre)}
+          style={genreStyle(data.genre.trim())}
         >
           {data.genre}
         </NavLink>
