@@ -7,7 +7,7 @@ import {
   usePrevNextButtons,
 } from './EmblaCarouselArrowButtons'
 import { Thumb } from './EmblaCarouselThumbsButton'
-import GameImage from '../shared/GameImage'
+import LazyImage from '../shared/LazyImage'
 
 import { CarouselProps } from '@/types/games'
 
@@ -55,7 +55,7 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
         <div className="embla__container">
           {images.map((image: string, index: number) => (
             <div className="embla__slide min-h-[380px]" key={index}>
-              <GameImage src={image} alt={`Screenshot ${index + 1}`} />
+              <LazyImage src={image} alt={`Screenshot ${index + 1}`} />
             </div>
           ))}
         </div>

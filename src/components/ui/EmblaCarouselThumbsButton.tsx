@@ -1,6 +1,6 @@
 import React from 'react'
 
-import GameImage from '../shared/GameImage'
+import LazyImage from '../shared/LazyImage'
 
 type ThumbProps = {
   selected: boolean
@@ -22,7 +22,7 @@ export const Thumb: React.FC<ThumbProps> = (props) => {
         type="button"
         className="embla-thumbs__slide__number rounded-md"
       >
-        <GameImage src={image} alt={`Thumbnail ${image}`} />
+        <LazyImage src={image} alt={`Thumbnail ${image}`} />
       </button>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import GameImage from './shared/GameImage'
+import LazyImage from './shared/LazyImage'
 
 import { RandomGamesProps } from '@/types/games'
 
@@ -11,7 +11,7 @@ const RandomGames: React.FC<RandomGamesProps> = ({ data }) => (
       <div key={game.id}>
         <div className="transition-transform duration-300 transform hover:scale-105 shadow-lg dark:shadow-soft-dark game-link rounded-md flex min-h-[180px] md:w-[350px] sm:w-[250px] lg:w-[300px] xs:w-[260px] sm:min-h-[160px] game-container">
           <Link to={`/games/game/${game.id}`} draggable="false">
-            <GameImage src={game.thumbnail} alt={game.title} />
+            <LazyImage src={game.thumbnail} alt={game.title} />
             <div className="game-title">{game.title}</div>
           </Link>
         </div>

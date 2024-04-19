@@ -86,15 +86,6 @@ html {
   }
 }
 
-.image-container {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.image-container img {
-  opacity: 1;
-}
-
 .browser-icon,
 .windows-icon {
   width: 20px;

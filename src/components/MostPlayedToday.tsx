@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import GameImage from './shared/GameImage'
+import LazyImage from './shared/LazyImage'
 
 import { useSortedGames } from '@/services/queries'
 
@@ -20,7 +20,7 @@ const MostPlayedToday: React.FC = () => {
             className="transition-transform duration-300 transform hover:scale-95 w-[360px] rounded-md h-[200px] game-link shadow-lg dark:shadow-soft-dark"
           >
             <Link to={`/games/game/${game.id}`} draggable="false">
-              <GameImage alt={game?.title} src={game?.thumbnail} />
+              <LazyImage alt={game?.title} src={game?.thumbnail} />
               <div className="game-title">{game?.title}</div>
             </Link>
           </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Genre from './Genre'
 import PlatformIcons from './PlatformIcons'
-import GameImage from './shared/GameImage'
+import LazyImage from './shared/LazyImage'
 
 import { GamesBunchProps } from '@/types/games'
 
@@ -18,13 +18,11 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
           draggable="false"
           className="hover:-translate-y-2 transition"
           to={`/games/game/${game?.id}`}
+          key={game?.id}
         >
-          <article
-            className="rounded-xl border h-[120px] justify-between items-center flex"
-            key={game?.id}
-          >
+          <article className="rounded-xl border h-[120px] justify-between items-center flex">
             <div className="w-[180px] min-h-[90px] flex ml-1 items-center justify-center">
-              <GameImage alt={game?.title} src={game?.thumbnail} />
+              <LazyImage alt={game?.title} src={game?.thumbnail} />
             </div>
             <div className="flex flex-col min-h-[90px] w-[400px] ">
               <h4 className=" text-2xl tracking-tight flex">{game?.title}</h4>

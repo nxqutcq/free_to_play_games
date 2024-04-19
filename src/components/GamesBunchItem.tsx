@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Genre from './Genre'
 import PlatformIcons from './PlatformIcons'
 
-import GameImage from '@/components/shared/GameImage'
+import LazyImage from '@/components/shared/LazyImage'
 import { GamesBunchItemProps } from '@/types/games'
 import { formatDate, truncateString } from '@/utils'
 
@@ -18,7 +18,7 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
       >
         <div className="bg-hover-neutral-900 transition-all duration-400 flex flex-col w-full xl:w-[290px]">
           <div className="xl:w-[290px] min-h-[150px] items-center rounded-xl">
-            <GameImage alt={game?.title} src={game?.thumbnail} />
+            <LazyImage alt={game?.title} src={game?.thumbnail} />
           </div>
           <div className="p-5 min-h-[180px]">
             <div className="flex flex-row items-center">
