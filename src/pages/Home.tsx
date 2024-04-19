@@ -17,7 +17,7 @@ import { getRandomGames } from '@/utils'
 
 const Home: React.FC = () => {
   usePageTitle('Home')
-  const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
+  const [randomGames, setRandomGames] = useState<Game[]>()
   const { data, isLoading, isError } = useSortedGames('release-date', 30)
   const firstSevenGames = data?.slice(0, 7)
 
