@@ -1,5 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import FrequentlyAskedQuestions from '@/components/FAQ'
@@ -10,13 +11,11 @@ import Recommendations from '@/components/Recommendations'
 import { ErrorComponent } from '@/components/shared/ErrorComponent'
 import Loader from '@/components/shared/Loader'
 import { NoDataComponent } from '@/components/shared/NoDataComponent'
-import usePageTitle from '@/hooks/usePageTitle'
 import { useSortedGames } from '@/services/queries'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
 const Home: React.FC = () => {
-  usePageTitle('Home')
   const [randomGames, setRandomGames] = useState<Game[]>()
   const { data, isLoading, isError } = useSortedGames('release-date', 30)
   const firstSevenGames = data?.slice(0, 7)
@@ -41,6 +40,26 @@ const Home: React.FC = () => {
 
   return (
     <main className="justify-center flex min-h-screen items-start">
+      <Helmet>
+        <title>Discover the best free-to-play games!</title>
+        <meta
+          name="description"
+          content="Track what you've played and search for what to play next!"
+        />
+        <meta
+          property="og:title"
+          content="Discover the best free-to-play games!"
+        />
+        <meta
+          property="og:description"
+          content="Track what you've played and search for what to play next!"
+        />
+        <meta
+          property="og:image"
+          content="https://psv4.userapi.com/c909618/u250373309/docs/d49/951cd3d248ca/games.png?extra=1hDPGpaBgpde0QRpFSGjRgrCvFiKOgtkwFA1Qmq37c2HlvpvO6RxcyhbMNPLlySSqC9zrFmEocAoQbfRzPf2iUP__cLAy5MisGXxb_pO_NyHzPsQs2yjqHf5jlV-qrSWP8AbePpJWiCJWJMT76ws-zk"
+        />
+      </Helmet>
+
       <div className="flex flex-col w-full items-center">
         <Jumbotron />
         <div className="w-[1200px] mt-5 flex flex-col mb-2">
