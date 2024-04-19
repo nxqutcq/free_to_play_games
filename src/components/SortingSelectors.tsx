@@ -32,6 +32,8 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
           >
             {select.options.map((option, index) => (
               <SelectItem
+                id="SelectorButton"
+                aria-label={option.label}
                 key={index}
                 value={option.value}
                 onClick={(event) => {
@@ -60,7 +62,10 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
       </div>
     ))}
     <button
+      aria-label="Advanced Filters"
+      id="FiltersButton"
       type="button"
+      role="button"
       className="hover:bg-accent transition-colors flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 max-w-[max-content]"
     >
       Advanced Filters

@@ -85,6 +85,7 @@ const Footer: React.FC = () => (
           <ul className="flex flex-row gap-10 items-center">
             <li className="w-[25px] cursor-pointer">
               <a
+                aria-label="Repository link"
                 draggable={false}
                 target="_blank"
                 rel="noopener noreferrer"
