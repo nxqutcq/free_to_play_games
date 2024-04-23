@@ -17,7 +17,7 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
         to={`/games/game/${game.id}`}
       >
         <div className="bg-hover-neutral-900 transition-all duration-400 flex flex-col w-full xl:w-[290px]">
-          <div className="xl:w-[290px] min-h-[150px] items-center rounded-xl">
+          <div className="xl:w-[290px] relative min-h-[150px] items-center rounded-xl">
             <LazyImage alt={game?.title} src={game?.thumbnail} />
           </div>
           <div className="p-5 min-h-[180px]">

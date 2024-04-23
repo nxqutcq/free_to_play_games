@@ -54,7 +54,10 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
       <div className="embla__viewport" ref={emblaMainRef}>
         <div className="embla__container">
           {images.map((image: string, index: number) => (
-            <div className="embla__slide min-h-[380px]" key={index}>
+            <div
+              className="embla__slide min-h-[380px] xl:w-[780px] relative"
+              key={index}
+            >
               <LazyImage src={image} alt={`Screenshot ${index + 1}`} />
             </div>
           ))}

@@ -40,7 +40,7 @@ const GameDescription: React.FC<GameInfoProps> = ({ data, goBack }) => (
     </p>
     <div className="flex gap-5 between flex-row">
       <div className="max-w-[350px] min-w-[350px] min-h-[500px]">
-        <div className="flex max-w-[350px] hover:brightness-110 transition-all xs:min-h-[190px]">
+        <div className="flex relative max-w-[350px] hover:brightness-110 transition-all xs:min-h-[190px]">
           <LazyImage alt={data?.title} src={data?.thumbnail} />
         </div>
         <Link

@@ -21,7 +21,7 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
           key={game?.id}
         >
           <article className="rounded-xl border h-[120px] justify-between items-center flex">
-            <div className="w-[180px] min-h-[90px] flex ml-1 items-center justify-center">
+            <div className="w-[180px] min-h-[100px] flex ml-1 relative items-center justify-center">
               <LazyImage alt={game?.title} src={game?.thumbnail} />
             </div>
             <div className="flex flex-col min-h-[90px] w-[400px] ">
