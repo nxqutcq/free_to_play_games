@@ -160,27 +160,6 @@ html {
   fill: rgb(255 255 255);
 }
 
-.jumbotron {
-  position: relative;
-  text-align: center;
-  color: #fff;
-}
-
-.jumbotron img {
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.8;
-}
-
-.jumbotron .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
-}
-
 .jumbotron-image {
   position: relative;
   width: 100vw;
@@ -198,4 +177,10 @@ html {
   z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.game-img {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
 }
