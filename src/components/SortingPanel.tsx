@@ -10,14 +10,14 @@ const SortingPanel: React.FC<SortingPanelProps> = ({
   onSortChange,
   onCategoryChange,
 }) => (
-  <div className="overflow-x-hidden xs:flex xs:flex-col xs:w-[320px] xl:w-[1200px]">
+  <section className="overflow-x-hidden xs:flex xs:flex-col xs:w-[320px] xl:w-[1200px]">
     <SortingSelectors
       onCategoryChange={onCategoryChange}
       onPlatformChange={onPlatformChange}
       onSortChange={onSortChange}
     />
     <Separator className="mb-5" />
-  </div>
+  </section>
 )
 
 export default SortingPanel

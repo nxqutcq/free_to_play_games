@@ -8,7 +8,7 @@ import LazyImage from './shared/LazyImage'
 import { GamesBunchProps } from '@/types/games'
 
 const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
-  <div>
+  <section>
     <h3 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
       New Releases
     </h3>
@@ -40,6 +40,6 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
         </Link>
       ))}
     </div>
-  </div>
+  </section>
 )
 export default NewReleases

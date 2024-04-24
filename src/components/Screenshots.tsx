@@ -5,7 +5,7 @@ import EmblaCarousel from './ui/EmblaCarousel'
 import { ScreenshotsProps } from '@/types/games'
 
 const Screenshots: React.FC<ScreenshotsProps> = ({ data }) => (
-  <div>
+  <section>
     <div className="min-h-[440px] w-[max-content] justify-center flex xs:flex-col sm:flex sm:flex-col lg:flex-row flex-wrap">
       {data?.screenshots && data.screenshots.length > 0 ? (
         <EmblaCarousel
@@ -17,7 +17,7 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ data }) => (
         </p>
       )}
     </div>
-  </div>
+  </section>
 )
 
 export default Screenshots

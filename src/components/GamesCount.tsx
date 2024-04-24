@@ -5,7 +5,7 @@ import { GamesCountProps } from '@/types/games'
 
 const GamesCount: React.FC<GamesCountProps> = ({ gamesCount, category }) => (
   <HelmetProvider>
-    <div className="mt-10 sm:px-5 xl:px-0 xl:w-[1200px]">
+    <section className="mt-10 sm:px-5 xl:px-0 xl:w-[1200px]">
       <Helmet>
         <title>{`${gamesCount} Free-to-play ${category} games found in our games list!`}</title>
       </Helmet>
@@ -20,7 +20,7 @@ const GamesCount: React.FC<GamesCountProps> = ({ gamesCount, category }) => (
           list!
         </p>
       </div>
-    </div>
+    </section>
   </HelmetProvider>
 )
 export default GamesCount

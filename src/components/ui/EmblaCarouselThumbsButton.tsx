@@ -12,7 +12,7 @@ export const Thumb: React.FC<ThumbProps> = (props) => {
   const { selected, image, onClick } = props
 
   return (
-    <div
+    <article
       className={'hover:scale-105 transition embla-thumbs__slide'.concat(
         selected ? ' embla-thumbs__slide--selected' : ''
       )}
@@ -24,6 +24,6 @@ export const Thumb: React.FC<ThumbProps> = (props) => {
       >
         <LazyImage src={image} alt={`Thumbnail ${image}`} />
       </button>
-    </div>
+    </article>
   )
 }

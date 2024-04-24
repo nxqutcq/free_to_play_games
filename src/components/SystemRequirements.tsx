@@ -8,7 +8,7 @@ const SystemRequirements: React.FC<SystemRequirementsProps> = ({ data }) => {
     return null
   }
   return (
-    <div>
+    <section>
       <ul className="list-none mb-5 my-3 [&>li]:mt-2  sm:flex sm:flex-col">
         {requirements &&
           requirements.map((req) => (
@@ -18,7 +18,7 @@ const SystemRequirements: React.FC<SystemRequirementsProps> = ({ data }) => {
             </li>
           ))}
       </ul>
-    </div>
+    </section>
   )
 }
 
