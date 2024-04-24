@@ -184,3 +184,13 @@ html {
   width: 100%;
   object-fit: cover;
 }
+
+::selection {
+  color: beige;
+  background-color: black;
+}
+
+.dark ::selection {
+  color: black;
+  background-color: beige;
+}

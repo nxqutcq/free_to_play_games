@@ -20,7 +20,7 @@ const LazyImage: React.FC<GameImageType> = ({ src, alt }) => {
     <div ref={ref}>
       {inView ? (
         <img
-          className={`rounded-md game-img transition-opacity duration-300 ${
+          className={`game-img transition-opacity duration-300 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
           src={src}

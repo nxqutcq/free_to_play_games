@@ -17,10 +17,10 @@ const MostPlayedToday: React.FC = () => {
         {data?.map((game) => (
           <article
             key={game?.id}
-            className="flex transition-transform duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
+            className="flex transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
           >
             <Link
-              className="relative w-[360px] rounded-md min-h-[200px]"
+              className="relative w-[360px] h-[200px]"
               to={`/games/game/${game.id}`}
               draggable="false"
             >

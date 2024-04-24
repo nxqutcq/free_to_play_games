@@ -20,16 +20,16 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
           to={`/games/game/${game?.id}`}
           key={game?.id}
         >
-          <article className="rounded-xl border h-[120px] justify-between items-center flex">
-            <div className="w-[180px] min-h-[100px] flex ml-1 relative items-center justify-center">
+          <article className="rounded-2xl border h-[120px] justify-between items-center flex">
+            <div className="overflow-hidden w-[150px] rounded-lg h-[84px] ml-3 relative flex items-center justify-center">
               <LazyImage alt={game?.title} src={game?.thumbnail} />
             </div>
-            <div className="flex flex-col min-h-[90px] w-[400px] ">
+            <div className="flex flex-col h-[90px] w-[400px] ">
               <h4 className=" text-2xl tracking-tight flex">{game?.title}</h4>
-              <div className=" flex">{game?.short_description}</div>
+              <div>{game?.short_description}</div>
             </div>
             <div className="flex gap-3 items-center">
-              <div className="flex flex-col min-h-[90px] w-[150px] items-center justify-between ">
+              <div className="flex flex-col h-[90px] w-[150px] items-center justify-between ">
                 <div className="flex flex-row pt-3 items-center h-[min-content]">
                   <PlatformIcons platform={game?.platform} />
                 </div>
