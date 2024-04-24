@@ -7,11 +7,11 @@ import { GamesBunchProps } from '@/types/games'
 const GamesBunchItem = lazy(() => import('./GamesBunchItem'))
 
 const GamesBunch: React.FC<GamesBunchProps> = ({ data }) => (
-  <div className="grid min-h-screen grid-cols-4 gap-3 xl:w-[1200px] flex-row">
+  <section className="grid min-h-screen grid-cols-4 gap-3 xl:w-[1200px] flex-row">
     <Suspense fallback={<FetchingLoader />}>
       {data?.map((game) => <GamesBunchItem key={game.id} game={game} />)}
     </Suspense>
-  </div>
+  </section>
 )
 
 export default GamesBunch
