@@ -15,7 +15,7 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
   onSortChange,
   onCategoryChange,
 }) => (
-  <div className="items-center xs:w-[320px] sm:px-5 xl:px-0 md:px-5 flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 xl:w-[1200px]">
+  <div className="items-center sm:px-5 xl:px-0 md:px-5 flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 w-[full]">
     {selectOptions.map((select) => (
       <div key={select.placeholder}>
         <Select>

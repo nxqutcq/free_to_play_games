@@ -67,7 +67,7 @@ const GamesPage: React.FC = () => {
   if (!data) return <NoDataComponent goBack={goBack} />
 
   return (
-    <section className="mb-10 min-h-screen xl:w-[1200px]">
+    <section className="mb-10 min-h-screen w-[full]">
       <GamesCount category={category} gamesCount={data.length} />
       <RandomGames data={randomGames} />
       <SortingPanel

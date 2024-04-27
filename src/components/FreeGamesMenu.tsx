@@ -15,14 +15,16 @@ const FreeGamesMenu: React.FC = () => (
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Free Games</NavigationMenuTrigger>
-        <NavigationMenuContent>
+        <NavigationMenuTrigger className="text-sm text-white bg-stone-900 border">
+          Free Games
+        </NavigationMenuTrigger>
+        <NavigationMenuContent className="overflow-y-auto max-h-[450px]">
           {GAME_TYPES.map((gameType, index) => (
             <React.Fragment key={index}>
               <NavigationMenuLink
                 draggable={false}
                 href={gameType.url}
-                className="m-2 min-h-[35px] w-[200px] block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                className="m-2 min-h-[35px] w-[200px] block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
               >
                 {gameType.name}
               </NavigationMenuLink>

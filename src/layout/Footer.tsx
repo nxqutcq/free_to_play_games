@@ -11,7 +11,7 @@ import { Separator } from '@/components/ui/separator'
 const Footer: React.FC = () => (
   <footer className="flex w-full mx-auto items-center flex-col bg-stone-900">
     <Separator />
-    <div className="h-[280px] flex flex-col w-full xl:w-[1200px] not-italic">
+    <div className="h-[280px] flex flex-col w-[1200px] not-italic">
       <div className=" flex h-[200px] items-center gap-[140px]">
         <div className="text-white flex flex-row h-full items-center">
           <nav>
