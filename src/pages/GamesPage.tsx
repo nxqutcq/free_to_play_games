@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { useFilteredGames } from '../services/queries'
@@ -16,6 +17,7 @@ import { getRandomGames } from '@/utils'
 const GamesPage: React.FC = () => {
   const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
   const { category } = useParams<{ category: string }>()
+  const [limit, setLimit] = useState(10)
 
   const [sortBy, setSortBy] = useState('alphabetical')
   const [platform, setPlatform] = useState('all')
@@ -25,19 +27,32 @@ const GamesPage: React.FC = () => {
     category || '',
     sortBy
   )
+
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: false,
+  })
+
   const navigate = useNavigate()
 
   const goBack = () => {
     navigate(-1)
   }
+
+  const loadMoreGames = () => {
+    setLimit((oldLimit) => oldLimit + 10)
+  }
+
   useEffect(() => {
     refetch()
     console.log(category)
   }, [category, refetch])
 
-  // const handleCategoryChange = (newCategory: string) => {
-  //   navigate(`/games/${newCategory}`)
-  // }
+  useEffect(() => {
+    if (inView) {
+      loadMoreGames()
+    }
+  }, [inView])
 
   useEffect(() => {
     if (data) {
@@ -64,8 +79,8 @@ const GamesPage: React.FC = () => {
           setPlatform(newPlatform)
         }}
       />
-
-      <GamesBunch data={data} />
+      <GamesBunch data={data.slice(0, limit)} />
+      {limit < data.length && <div ref={ref} className="flex h-[80px]"></div>}
     </section>
   )
 }
