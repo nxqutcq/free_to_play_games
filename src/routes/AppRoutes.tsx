@@ -1,7 +1,14 @@
 import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { Home, GamePage, GamesPage, NotFound } from './LazyComponents'
+import {
+  Home,
+  GamePage,
+  GamesPage,
+  NotFound,
+  Login,
+  Register,
+} from './LazyComponents'
 
 import Loader from '@/components/shared/Loader.tsx'
 import ScrollToTopOnPageChange from '@/hooks/useScrollToTopOnPageChange'
@@ -13,6 +20,8 @@ export const AppRoutes: React.FC = () => (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         <Route path="games" element={<GamesPage />} />
         <Route path="games/game/:id" element={<GamePage />} />
         <Route path="games/:category" element={<GamesPage />} />
