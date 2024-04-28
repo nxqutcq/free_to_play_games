@@ -58,9 +58,11 @@
   }
 }
 
-html {
-  width: 100vw;
-  overflow-x: hidden;
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/ComicNeue-Bold.woff2') format('woff2');
 }
 
 @layer base {
@@ -73,6 +75,7 @@ html {
 
     width: 100vw;
     overflow-x: hidden;
+    font-family: 'Comic Neue', sans-serif;
   }
 }
 
