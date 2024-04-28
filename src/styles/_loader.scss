@@ -4,7 +4,6 @@ $loader-dot-size: 13px;
 .loader-container {
   position: relative;
   height: 200px;
-  width: 100vw;
   font-size: medium;
 
   .loader {
@@ -20,7 +19,6 @@ $loader-dot-size: 13px;
       border-radius: 100%;
       background-color: black;
       position: absolute;
-      border: 1px solid white;
       top: 30%;
 
       &:first-child {
@@ -53,19 +51,6 @@ $loader-dot-size: 13px;
         animation-delay: 0s;
       }
     }
-
-    &-text {
-      left: 0;
-      right: 0;
-      width: 4rem;
-      margin: auto;
-
-      &::after {
-        content: 'Loading';
-        font-weight: bold;
-        animation: loading-text 3s infinite;
-      }
-    }
   }
 }
 
@@ -84,23 +69,5 @@ $loader-dot-size: 13px;
 
   95% {
     transform: translateX(0);
-  }
-}
-
-@keyframes loading-text {
-  0% {
-    content: 'Loading';
-  }
-
-  25% {
-    content: 'Loading.';
-  }
-
-  50% {
-    content: 'Loading..';
-  }
-
-  75% {
-    content: 'Loading...';
   }
 }

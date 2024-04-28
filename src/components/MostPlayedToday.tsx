@@ -9,8 +9,8 @@ const MostPlayedToday: React.FC = () => {
   const { data } = useSortedGames('popularity', 4)
 
   return (
-    <section>
-      <h3 className="ml-2 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+    <section className="w-[360px]">
+      <h3 className="ml-2 scroll-m-20 mb-5 text-3xl font-semibold tracking-tight first:mt-0">
         Most Played Today
       </h3>
       <div className="flex min-h-[700px] w-[360px] flex-col items-center gap-3 pb-3">

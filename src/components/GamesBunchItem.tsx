@@ -8,21 +8,21 @@ import LazyImage from '@/components/shared/LazyImage'
 import { GamesBunchItemProps } from '@/types/games'
 import { formatDate, truncateString } from '@/utils'
 
-const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
-  <article className="transition-transform duration-300 transform hover:scale-95 h-[max-content] rounded-xl border hover:shadow-soft hover:dark:shadow-soft-dark justify-center flex flex-col items-center overflow-x-hidden">
+const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
+  <article className="transition-transform w-[270px] duration-300 transform hover:scale-95 h-[max-content] rounded-xl border hover:shadow-soft hover:dark:shadow-soft-dark justify-center flex flex-col items-center overflow-x-hidden">
     {game?.id && (
       <Link
         draggable="false"
-        className="flex h-full justify-center xl:w-[290px]"
+        className="flex h-full justify-center"
         to={`/games/game/${game.id}`}
       >
-        <div className="bg-hover-neutral-900 transition-all duration-400 flex flex-col w-full xl:w-[290px]">
-          <div className="xl:w-[290px] relative min-h-[150px] items-center rounded-xl">
+        <div className="bg-hover-neutral-900 transition-all duration-400 flex flex-col w-full">
+          <div className="relative h-[140px] w-[full] items-center rounded-xl">
             <LazyImage alt={game?.title} src={game?.thumbnail} />
           </div>
           <div className="p-5 min-h-[180px]">
-            <div className="flex flex-row items-center">
-              <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
+            <div className="flex flex-row  items-center">
+              <h3 className="xs3:mb-0 flex flex-wrap overflow-hidden items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
                 {game?.title}
               </h3>
               <div className="flex flex-row items-center h-[min-content]">
@@ -32,10 +32,12 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
             <p className="xs3:mb-1 leading-7 [&:not(:first-child)]:mt-4">
               {truncateString(game?.short_description, 80)}
             </p>
-            <div className="flex items-center w-full justify-between">
+            <div className="flex items-center gap-3 w-full justify-between">
               <div className="xs3:my-3 my-2 flex flex-col items-start">
-                <p className="mb-1 italic">{game?.publisher}</p>
-                <p>{formatDate(game?.release_date)} </p>
+                <p className="mb-1 italic text-sm flex flex-wrap">
+                  {game?.publisher}
+                </p>
+                <p className="text-sm">{formatDate(game?.release_date)} </p>
               </div>
               <div>{game?.genre && <Genre genre={game.genre} />}</div>
             </div>
@@ -46,4 +48,4 @@ const GamesListItem: React.FC<GamesBunchItemProps> = ({ game }) => (
   </article>
 )
 
-export default GamesListItem
+export default GamesBunchItem

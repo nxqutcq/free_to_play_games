@@ -1,7 +1,6 @@
-import { ChevronRight } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import FrequentlyAskedQuestions from '@/components/FAQ'
 import { Jumbotron } from '@/components/Jumbotron'
@@ -40,7 +39,7 @@ const Home: React.FC = () => {
 
   return (
     <HelmetProvider>
-      <main className="justify-center flex min-h-screen items-start">
+      <main className="w-[full] min-h-screen">
         <Helmet>
           <title>Discover the best free-to-play games!</title>
           <meta
@@ -61,28 +60,13 @@ const Home: React.FC = () => {
           />
         </Helmet>
 
-        <div className="flex flex-col w-full items-center">
+        <div className="flex flex-col w-[full] items-center">
           <Jumbotron />
-          <div className="w-[1200px] mt-5 flex flex-col mb-2">
-            <div className="min-h-[250px] mb-10">
-              <Recommendations data={randomGames} />
-            </div>
-            <div className="flex min-h-[500px] justify-between mb-[80px]">
-              <div className="w-[800px]">
-                <NewReleases data={firstSevenGames || []} />
-                <div className="flex justify-end mt-5">
-                  <NavLink
-                    to={'/games'}
-                    className="border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
-                  >
-                    More Games
-                    <ChevronRight />
-                  </NavLink>
-                </div>
-              </div>
-              <div className="w-[370px]">
-                <MostPlayedToday />
-              </div>
+          <div className="w-[1140px] px-[10px] mt-5 flex flex-col mb-2">
+            <Recommendations data={randomGames} />
+            <div className="flex justify-between flex-row w-[full] min-h-[500px] mb-[80px]">
+              <NewReleases data={firstSevenGames || []} />
+              <MostPlayedToday />
             </div>
             <div className="flex w-full">
               <FrequentlyAskedQuestions />

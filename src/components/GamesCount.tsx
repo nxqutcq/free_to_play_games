@@ -5,7 +5,7 @@ import { GamesCountProps } from '@/types/games'
 
 const GamesCount: React.FC<GamesCountProps> = ({ gamesCount, category }) => (
   <HelmetProvider>
-    <section className="mt-10 sm:px-5 xl:px-0 w-[full]">
+    <section className="mt-10 w-[full]">
       <Helmet>
         <title>{`${gamesCount} Free-to-play ${category} games found in our games list!`}</title>
       </Helmet>

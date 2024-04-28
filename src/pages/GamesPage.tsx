@@ -68,18 +68,20 @@ const GamesPage: React.FC = () => {
 
   return (
     <section className="mb-10 min-h-screen w-[full]">
-      <GamesCount category={category} gamesCount={data.length} />
-      <RandomGames data={randomGames} />
-      <SortingPanel
-        onSortChange={setSortBy}
-        onCategoryChange={(newCategory: string) => {
-          console.log('Category changed:', newCategory)
-        }}
-        onPlatformChange={(newPlatform: string) => {
-          setPlatform(newPlatform)
-        }}
-      />
-      <GamesBunch data={data.slice(0, limit)} />
+      <div className="px-[10px]">
+        <GamesCount category={category} gamesCount={data.length} />
+        <RandomGames data={randomGames} />
+        <SortingPanel
+          onSortChange={setSortBy}
+          onCategoryChange={(newCategory: string) => {
+            console.log('Category changed:', newCategory)
+          }}
+          onPlatformChange={(newPlatform: string) => {
+            setPlatform(newPlatform)
+          }}
+        />
+        <GamesBunch data={data.slice(0, limit)} />
+      </div>
       {limit < data.length && <div ref={ref} className="flex h-[80px]"></div>}
     </section>
   )
