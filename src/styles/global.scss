@@ -63,6 +63,7 @@
   font-style: normal;
   font-weight: 700;
   src: url('../assets/fonts/ComicNeue-Bold.woff2') format('woff2');
+  font-display: swap;
 }
 
 @layer base {
@@ -75,7 +76,7 @@
 
     width: 100vw;
     overflow-x: hidden;
-    font-family: 'Comic Neue', sans-serif;
+    font-family: 'Comic Neue', fallback, sans-serif;
   }
 }
 
@@ -141,6 +142,10 @@
 .twitter path {
   fill: rgb(75 75 75);
   transition: fill 0.2s ease-in-out;
+}
+
+.sign-in path {
+  fill: rgb(255 255 255);
 }
 
 .youtube:hover path {

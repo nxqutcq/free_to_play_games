@@ -21,7 +21,7 @@ const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
             <LazyImage alt={game?.title} src={game?.thumbnail} />
           </div>
           <div className="p-5 min-h-[180px]">
-            <div className="flex flex-row  items-center">
+            <div className="flex flex-row mt-2 items-center">
               <h3 className="xs3:mb-0 flex flex-wrap overflow-hidden items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
                 {game?.title}
               </h3>
