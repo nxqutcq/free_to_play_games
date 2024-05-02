@@ -6,6 +6,7 @@ import Genre from './Genre'
 import PlatformIcons from './PlatformIcons'
 import LazyImage from './shared/LazyImage'
 
+import { ROUTES } from '@/routes'
 import { GamesBunchProps } from '@/types/games'
 
 const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
@@ -18,7 +19,7 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
         <Link
           draggable="false"
           className="hover:-translate-y-2 transition"
-          to={`/games/game/${game?.id}`}
+          to={ROUTES.GAME_ID.replace(':id', game.id.toString())}
           key={game?.id}
         >
           <article className="rounded-2xl border h-[120px] justify-between items-center flex">
@@ -27,7 +28,9 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
             </div>
             <div className="flex flex-col h-[90px] w-[400px] ">
               <h4 className=" text-2xl tracking-tight flex">{game?.title}</h4>
-              <div className="text-sm">{game?.short_description}</div>
+              <div className="text-sm text-[#898989] dark:text-[ #a0a0a0]">
+                {game?.short_description}
+              </div>
             </div>
             <div className="flex gap-3 items-center">
               <div className="flex flex-col h-[90px] w-[150px] items-center justify-between ">
@@ -43,7 +46,7 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
     </div>
     <div className="flex justify-end mt-5">
       <NavLink
-        to={'/games'}
+        to={ROUTES.GAMES}
         className="border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
       >
         More Games

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import LazyImage from './shared/LazyImage'
 
+import { ROUTES } from '@/routes'
 import { useSortedGames } from '@/services/queries'
 
 const MostPlayedToday: React.FC = () => {
@@ -21,7 +22,7 @@ const MostPlayedToday: React.FC = () => {
           >
             <Link
               className="relative w-[360px] h-[200px]"
-              to={`/games/game/${game.id}`}
+              to={ROUTES.GAME_ID.replace(':id', game.id.toString())}
               draggable="false"
             >
               <LazyImage alt={game?.title} src={game?.thumbnail} />

@@ -9,6 +9,7 @@ import {
   Login,
   Register,
 } from './LazyComponents'
+import { ROUTES } from '../routes/index'
 
 import Loader from '@/components/shared/Loader.tsx'
 import ScrollToTopOnPageChange from '@/hooks/useScrollToTopOnPageChange'
@@ -18,14 +19,14 @@ export const AppRoutes: React.FC = () => (
   <Suspense fallback={<Loader />}>
     <ScrollToTopOnPageChange />
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path={ROUTES.HOME} element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="games" element={<GamesPage />} />
-        <Route path="games/game/:id" element={<GamePage />} />
-        <Route path="games/:category" element={<GamesPage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path={ROUTES.LOGIN} element={<Login />} />
+        <Route path={ROUTES.REGISTER} element={<Register />} />
+        <Route path={ROUTES.GAMES} element={<GamesPage />} />
+        <Route path={ROUTES.GAME_ID} element={<GamePage />} />
+        <Route path={ROUTES.GAMES_CATEGORY} element={<GamesPage />} />
+        <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
       </Route>
     </Routes>
   </Suspense>
