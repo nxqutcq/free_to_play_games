@@ -50,6 +50,7 @@ const Register: React.FC = () => {
           <Input
             {...register('username', { required: true })}
             placeholder="Username"
+            autoComplete="username"
           />
           {errors.username && <p>This field is required</p>}
 

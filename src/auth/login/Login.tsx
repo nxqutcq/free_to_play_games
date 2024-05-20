@@ -60,6 +60,7 @@ const Login: React.FC = () => {
           <Input
             {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
             placeholder="Email"
+            autoComplete="email"
           />
           {errors.email && <p>This field is required</p>}
 
