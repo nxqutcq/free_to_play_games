@@ -69,6 +69,7 @@ const Login: React.FC = () => {
             value={password}
             onChange={handleChangePassword}
             placeholder="Password"
+            autoComplete="current-password"
           />
           <button onClick={handleTogglePassword}>
             {showPassword ? 'Hide Password' : 'Show Password'}
