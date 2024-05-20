@@ -2,10 +2,13 @@ import './styles/global.scss'
 import { AppRoutes } from './routes/AppRoutes'
 
 import { ThemeProvider } from '@/components/theme-provider'
+import { AuthProvider } from '@/contexts/authContext'
 
 const App = () => (
   <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-    <AppRoutes />
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
   </ThemeProvider>
 )
 export default App
