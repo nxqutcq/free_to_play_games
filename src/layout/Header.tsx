@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import FreeGamesMenu from '@/components/FreeGamesMenu'
-import SearchBar from '@/components/SearchBar'
 import SignInMenu from '@/components/SignInMenu'
 import { ROUTES } from '@/routes'
 
@@ -18,7 +17,6 @@ const Header: React.FC = () => (
         <FreeGamesMenu />
       </div>
       <div className="flex items-center gap-5 justify-end w-full flex-row">
-        <SearchBar />
         <SignInMenu />
       </div>
     </nav>
