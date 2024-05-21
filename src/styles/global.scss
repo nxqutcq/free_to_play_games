@@ -92,7 +92,7 @@
 
 .browser-icon,
 .windows-icon {
-  width: 20px;
+  width: 1.2rem;
 }
 
 .windows-icon path {
@@ -145,6 +145,14 @@
 }
 
 .sign-in path {
+  fill: rgb(255 255 255);
+}
+
+.apple-icon path {
+  fill: rgb(0 0 0);
+}
+
+.dark .apple-icon path {
   fill: rgb(255 255 255);
 }
 
