@@ -14,7 +14,7 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
     <h3 className="scroll-m-20 mb-5 text-3xl font-semibold tracking-tight first:mt-0">
       New Releases
     </h3>
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-y-3">
       {data?.map((game) => (
         <Link
           draggable="false"
@@ -22,18 +22,20 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
           to={ROUTES.GAME_ID.replace(':id', game.id.toString())}
           key={game?.id}
         >
-          <article className="rounded-2xl border h-[120px] justify-between items-center flex">
-            <div className="overflow-hidden mr-3 w-[150px] rounded-lg h-[84px] ml-3 relative flex items-center justify-center">
-              <LazyImage alt={game?.title} src={game?.thumbnail} />
-            </div>
-            <div className="flex flex-col h-[90px] w-[400px] ">
-              <h4 className=" text-2xl tracking-tight flex">{game?.title}</h4>
-              <div className="text-sm text-[#898989] dark:text-[ #a0a0a0]">
-                {game?.short_description}
+          <article className="rounded-2xl bg-accent h-[7rem] p-4 justify-between items-center flex">
+            <div className="flex gap-5 flex-row">
+              <div className="overflow-hidden w-[10rem] rounded-lg h-[84px] relative flex items-center justify-center">
+                <LazyImage alt={game?.title} src={game?.thumbnail} />
+              </div>
+              <div className="flex flex-col h-[5rem] w-[27rem] ">
+                <h4 className=" text-2xl tracking-tight flex">{game?.title}</h4>
+                <div className="text-sm flex flex-wrap text-[#898989] dark:text-[ #a0a0a0]">
+                  {game?.short_description}
+                </div>
               </div>
             </div>
-            <div className="flex gap-3 items-center">
-              <div className="flex flex-col h-[90px] w-[150px] items-center justify-between ">
+            <div className="flex items-end">
+              <div className="flex flex-col h-[90px] w-[max-content] items-center justify-between ">
                 <div className="flex flex-row pt-3 items-center h-[min-content]">
                   <PlatformIcons platform={game?.platform} />
                 </div>

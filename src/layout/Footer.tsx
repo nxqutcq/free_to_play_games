@@ -83,7 +83,7 @@ const Footer: React.FC = () => (
         </p>
         <address>
           <ul className="flex flex-row gap-10 items-center">
-            <li className="w-[25px] cursor-pointer">
+            <li className="icon-container  w-[1.45rem] cursor-pointer">
               <a
                 aria-label="Repository link"
                 draggable={false}
@@ -94,13 +94,13 @@ const Footer: React.FC = () => (
                 <GithubIcon className={'github'} />
               </a>
             </li>
-            <li className="w-[25px] cursor-pointer">
+            <li className="w-[1.45rem] cursor-pointer">
               <YouTubeIcon className={'youtube'} />
             </li>
-            <li className="w-[25px] cursor-pointer">
+            <li className="w-[1.45rem] cursor-pointer">
               <TwitterIcon className={'twitter'} />
             </li>
-            <li className="w-[25px] cursor-pointer">
+            <li className="w-[1.45rem] cursor-pointer">
               <FacebookIcon className={'facebook'} />
             </li>
           </ul>

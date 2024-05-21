@@ -10,18 +10,18 @@ const MostPlayedToday: React.FC = () => {
   const { data } = useSortedGames('popularity', 4)
 
   return (
-    <section className="w-[360px]">
+    <section className="w-[full]">
       <h3 className="ml-2 scroll-m-20 mb-5 text-3xl font-semibold tracking-tight first:mt-0">
         Most Played Today
       </h3>
-      <div className="flex min-h-[700px] w-[360px] flex-col items-center gap-3 pb-3">
+      <div className="flex min-h-[700px] w-[full] flex-col items-center gap-3 pb-3">
         {data?.map((game) => (
           <article
             key={game?.id}
             className="flex transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
           >
             <Link
-              className="relative w-[360px] h-[200px]"
+              className="relative w-[full] max-h-[200px]"
               to={ROUTES.GAME_ID.replace(':id', game.id.toString())}
               draggable="false"
             >
