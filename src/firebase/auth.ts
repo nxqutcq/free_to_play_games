@@ -4,6 +4,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendEmailVerification,
+  OAuthProvider,
+  GithubAuthProvider,
 } from 'firebase/auth'
 
 import { auth } from '@/firebase/firebase'
@@ -40,4 +42,15 @@ export const doSendEmailVerification = () => {
   } else {
     console.log('No user is currently signed in.')
   }
+}
+
+export const doSignInWithApple = async () => {
+  const provider = new OAuthProvider('apple.com')
+  const result = await signInWithPopup(auth, provider)
+  return result
+}
+export const doSignInWithGitHub = async () => {
+  const provider = new GithubAuthProvider()
+  const result = await signInWithPopup(auth, provider)
+  return result
 }
