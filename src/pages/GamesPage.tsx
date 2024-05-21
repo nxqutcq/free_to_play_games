@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { useFilteredGames } from '../services/queries'
 
@@ -33,12 +33,6 @@ const GamesPage: React.FC = () => {
     triggerOnce: false,
   })
 
-  const navigate = useNavigate()
-
-  const goBack = () => {
-    navigate(-1)
-  }
-
   const loadMoreGames = () => {
     setLimit((oldLimit) => oldLimit + 10)
   }
@@ -62,9 +56,9 @@ const GamesPage: React.FC = () => {
 
   if (isLoading) return <Loader />
 
-  if (isError) return <ErrorComponent reload={() => window.location.reload()} />
+  if (isError) return <ErrorComponent />
 
-  if (!data) return <NoDataComponent goBack={goBack} />
+  if (!data) return <NoDataComponent />
 
   return (
     <section className="mb-10 min-h-screen w-[full]">
