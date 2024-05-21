@@ -5,7 +5,7 @@ import GameDescription from './GameDescription'
 
 import { GameInfoProps } from '@/types/games'
 
-const GameInfo: React.FC<GameInfoProps> = ({ data, goBack }) => (
+const GameInfo: React.FC<GameInfoProps> = ({ data }) => (
   <HelmetProvider>
     <article className="mt-10 p-10 min-h-[max-content] mb-10 w-[full] rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark sm:flex sm:flex-col sm:items-start">
       <Helmet>
@@ -18,7 +18,7 @@ const GameInfo: React.FC<GameInfoProps> = ({ data, goBack }) => (
         <meta property="og:description" content={data.short_description} />
         <meta property="og:image" content={data.thumbnail} />
       </Helmet>
-      <GameDescription data={data} goBack={goBack} />
+      <GameDescription data={data} />
     </article>
   </HelmetProvider>
 )

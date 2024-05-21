@@ -38,7 +38,6 @@ export interface GamesBunchItemProps {
 }
 export interface GameInfoProps {
   data: GameDetails
-  goBack: () => void
 }
 export interface RandomGamesProps {
   data: Game[] | undefined

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import { useNavigate } from 'react-router-dom'
 
 import FrequentlyAskedQuestions from '@/components/FAQ'
 import { Jumbotron } from '@/components/Jumbotron'
@@ -19,12 +18,6 @@ const Home: React.FC = () => {
   const { data, isLoading, isError } = useSortedGames('release-date', 30)
   const firstSevenGames = data?.slice(0, 7)
 
-  const navigate = useNavigate()
-
-  const goBack = () => {
-    navigate(-1)
-  }
-
   useEffect(() => {
     if (data) {
       setRandomGames(getRandomGames(data, 3))
@@ -33,9 +26,9 @@ const Home: React.FC = () => {
 
   if (isLoading) return <Loader />
 
-  if (isError) return <ErrorComponent reload={() => window.location.reload()} />
+  if (isError) return <ErrorComponent />
 
-  if (!data) return <NoDataComponent goBack={goBack} />
+  if (!data) return <NoDataComponent />
 
   return (
     <HelmetProvider>
@@ -64,7 +57,7 @@ const Home: React.FC = () => {
           <Jumbotron />
           <div className="w-[1140px] px-[10px] mt-5 flex flex-col mb-2">
             <Recommendations data={randomGames} />
-            <div className="flex justify-between flex-row w-[full] min-h-[500px] mb-[80px]">
+            <div className="flex justify-between gap-5 flex-row w-[full] min-h-[500px] mb-[80px]">
               <NewReleases data={firstSevenGames || []} />
               <MostPlayedToday />
             </div>
