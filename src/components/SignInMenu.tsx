@@ -79,23 +79,23 @@ const SignInMenu: React.FC = () => {
         </div>
         {userLoggedIn ? (
           <div className=" items-center flex flex-col">
-            <DropdownMenuItem className="w-full flex">
+            <DropdownMenuItem className="cursor-pointer w-full flex">
               <List className="mr-[1rem] w-[1rem]" />
-              <span className="">All My Games</span>
+              <span>All My Games</span>
             </DropdownMenuItem>
-            <DropdownMenuItem className="w-full">
+            <DropdownMenuItem className="cursor-pointer w-full">
               <Clock className="mr-[1rem] w-[1rem]" />
               Play later
             </DropdownMenuItem>
-            <DropdownMenuItem className="w-full">
+            <DropdownMenuItem className="cursor-pointer w-full">
               <Gamepad2 className="mr-[1rem] w-[1rem]" />
               Current playing
             </DropdownMenuItem>
-            <DropdownMenuItem className="w-full">
+            <DropdownMenuItem className="cursor-pointer w-full">
               <Check className="mr-[1rem] w-[1rem]" />
               Played
             </DropdownMenuItem>
-            <DropdownMenuItem className="w-full">
+            <DropdownMenuItem className="cursor-pointer w-full">
               <div className="h-[1rem] mr-[1rem]">
                 <CupIcon />
               </div>
@@ -110,7 +110,7 @@ const SignInMenu: React.FC = () => {
                 })
               }}
             >
-              <div className="h-[1.5rem] items-center gap-2 flex">
+              <div className="h-[1.5rem] cursor-pointer items-center gap-2 flex">
                 <LogOut />
                 <span>Sign Out</span>
               </div>
@@ -119,13 +119,13 @@ const SignInMenu: React.FC = () => {
         ) : (
           <div>
             <NavLink to={ROUTES.LOGIN}>
-              <DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
                 <KeyRound className="mr-[1rem] w-[1rem]" />
                 Login
               </DropdownMenuItem>
             </NavLink>
             <NavLink to={ROUTES.REGISTER}>
-              <DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
                 <UserRoundPlus className="mr-[1rem] w-[1rem]" />
                 Register
               </DropdownMenuItem>
