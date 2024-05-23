@@ -148,11 +148,19 @@
   fill: rgb(255 255 255);
 }
 
+.cup-icon path {
+  fill: rgb(0 0 0);
+}
+
 .apple-icon path {
   fill: rgb(0 0 0);
 }
 
 .dark .apple-icon path {
+  fill: rgb(255 255 255);
+}
+
+.dark .cup-icon path {
   fill: rgb(255 255 255);
 }
 

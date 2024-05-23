@@ -1,7 +1,16 @@
+import {
+  List,
+  Clock,
+  Gamepad2,
+  Check,
+  LogOut,
+  KeyRound,
+  UserRoundPlus,
+} from 'lucide-react'
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-import SignOutIcon from './icons/SignOutIcon'
+import CupIcon from './icons/CupIcon'
 
 import UserFallbackIcon from '@/components/icons/UserFallbackIcon'
 import { ModeToggle } from '@/components/mode-toggle'
@@ -28,7 +37,7 @@ const SignInMenu: React.FC = () => {
       <DropdownMenuTrigger asChild>
         <div className="flex items-center gap-2">
           <Button
-            className="bg-stone-900 w-[2.5rem] h-[2.5rem] rounded-full hover:bg-stone-800"
+            className="bg-stone-900 aspect-square rounded-full hover:bg-stone-800"
             variant="outline"
           >
             <Avatar>
@@ -39,7 +48,7 @@ const SignInMenu: React.FC = () => {
             </Avatar>
           </Button>
           {userLoggedIn ? (
-            <div className="cursor-pointer">
+            <div className="cursor-pointer text-white">
               {currentUser?.displayName
                 ? currentUser.displayName
                 : currentUser?.email}
@@ -48,37 +57,78 @@ const SignInMenu: React.FC = () => {
         </div>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="flex flex-col" align="end">
-        <div className="ml-2 flex items-center justify-center">
+      <DropdownMenuContent
+        className="flex px-2 py-2 flex-col w-[200px]"
+        align="end"
+      >
+        {userLoggedIn ? (
+          <div className="my-3 flex flex-col items-center">
+            <Avatar className="mb-5 h-[3.5rem] w-[3.5rem]">
+              <AvatarImage src={currentUser?.photoURL || undefined} />
+              <AvatarFallback>
+                <UserFallbackIcon className="rounded-full absolute h-[0.8rem] w-[0.8rem] sign-in" />
+              </AvatarFallback>
+            </Avatar>
+            {currentUser?.displayName
+              ? currentUser.displayName
+              : currentUser?.email}
+          </div>
+        ) : null}
+        <div className="flex items-center justify-start">
           <ModeToggle />
         </div>
         {userLoggedIn ? (
-          <div className="w-[500px] items-center flex flex-col">
-            <div>All My Games</div>
-            <div>Play later</div>
-            <div>Current playing</div>
-            <div>Played</div>
-            <div>Completed</div>
-            <hr className="w-full" />
+          <div className=" items-center flex flex-col">
+            <DropdownMenuItem className="w-full flex">
+              <List className="mr-[1rem] w-[1rem]" />
+              <span className="">All My Games</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="w-full">
+              <Clock className="mr-[1rem] w-[1rem]" />
+              Play later
+            </DropdownMenuItem>
+            <DropdownMenuItem className="w-full">
+              <Gamepad2 className="mr-[1rem] w-[1rem]" />
+              Current playing
+            </DropdownMenuItem>
+            <DropdownMenuItem className="w-full">
+              <Check className="mr-[1rem] w-[1rem]" />
+              Played
+            </DropdownMenuItem>
+            <DropdownMenuItem className="w-full">
+              <div className="h-[1rem] mr-[1rem]">
+                <CupIcon />
+              </div>
+              Completed
+            </DropdownMenuItem>
+            <hr className="w-full mt-[1rem] mb-[1rem]" />
             <Button
-              className="gap-3"
+              className="w-full"
               onClick={() => {
                 doSignOut().then(() => {
                   navigate(ROUTES.LOGIN)
                 })
               }}
             >
-              <SignOutIcon />
-              <span>SignOut</span>
+              <div className="h-[1.5rem] items-center gap-2 flex">
+                <LogOut />
+                <span>Sign Out</span>
+              </div>
             </Button>
           </div>
         ) : (
           <div>
             <NavLink to={ROUTES.LOGIN}>
-              <DropdownMenuItem>Login</DropdownMenuItem>
+              <DropdownMenuItem>
+                <KeyRound className="mr-[1rem] w-[1rem]" />
+                Login
+              </DropdownMenuItem>
             </NavLink>
             <NavLink to={ROUTES.REGISTER}>
-              <DropdownMenuItem>Register</DropdownMenuItem>
+              <DropdownMenuItem>
+                <UserRoundPlus className="mr-[1rem] w-[1rem]" />
+                Register
+              </DropdownMenuItem>
             </NavLink>
           </div>
         )}

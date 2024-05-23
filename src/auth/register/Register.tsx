@@ -1,9 +1,8 @@
+import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react'
 import React, { ChangeEvent, useState } from 'react'
 import { useForm, FieldValues } from 'react-hook-form'
 import { Navigate, useNavigate } from 'react-router-dom'
 
-import EyeCloseIcon from '@/components/icons/EyeCloseIcon'
-import EyeOpenIcon from '@/components/icons/EyeOpenIcon'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
@@ -42,9 +41,12 @@ const Register: React.FC = () => {
       await doCreateUserWithEmailAndPassword(data.email, data.password)
       await doSendEmailVerification()
       navigate(ROUTES.HOME)
+      toast({
+        description: '✔️ You have successfully logged in!',
+      })
     } catch (error) {
       toast({
-        description: String(error),
+        description: `❌ ${String(error)}`,
         variant: 'destructive',
       })
     }
@@ -55,35 +57,50 @@ const Register: React.FC = () => {
       {userLoggedIn && <Navigate to={ROUTES.HOME} replace={true} />}
       <div className="flex flex-col items-center gap-5 p-5 rounded-lg h-[600px] w-[600px]">
         <h2 className="text-4xl">Let's create your account!</h2>
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            {...register('username', { required: true })}
-            placeholder="Username"
-            autoComplete="username"
-          />
+        <form
+          className="flex flex-col gap-5 w-[300px]"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="flex items-center gap-3">
+            <User />
+            <Input
+              {...register('username', { required: true })}
+              placeholder="Username"
+              autoComplete="username"
+            />
+          </div>
           {errors.username && <p>This field is required</p>}
-
-          <Input
-            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-            placeholder="Email"
-          />
+          <div className="flex items-center gap-3">
+            <Mail className="w-[1rem]" />
+            <Input
+              {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
+              placeholder="Email"
+            />
+          </div>
           {errors.email && <p>This field is required</p>}
           <div className="flex gap-3">
-            <Input
-              {...register('password', { required: true })}
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={handleChangePassword}
-              placeholder="Password"
-              autoComplete="current-password"
-            />
-            <Button
-              type="button"
-              className="rounded-full"
-              onClick={handleTogglePassword}
-            >
-              {showPassword ? <EyeCloseIcon /> : <EyeOpenIcon />}
-            </Button>
+            <div className="flex items-center gap-3">
+              <Lock className="w-[1.5rem]" />
+              <Input
+                {...register('password', { required: true })}
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={handleChangePassword}
+                placeholder="Password"
+                autoComplete="current-password"
+              />
+              <Button
+                type="button"
+                className="rounded-full"
+                onClick={handleTogglePassword}
+              >
+                {showPassword ? (
+                  <Eye className="w-[1rem]" />
+                ) : (
+                  <EyeOff className="w-[1rem]" />
+                )}
+              </Button>
+            </div>
           </div>
           {errors.password && <p>This field is required</p>}
           <Input

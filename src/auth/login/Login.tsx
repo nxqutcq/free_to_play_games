@@ -1,11 +1,10 @@
+import { Eye, EyeOff, Lock, Mail, Rocket } from 'lucide-react'
 import React, { ChangeEvent, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 
 import { GithubIcon } from '@/components/icons'
 import AppleIcon from '@/components/icons/AppleIcon'
-import EyeCloseIcon from '@/components/icons/EyeCloseIcon'
-import EyeOpenIcon from '@/components/icons/EyeOpenIcon'
 import GoogleIcon from '@/components/icons/GoogleIcon'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -47,11 +46,11 @@ const Login: React.FC = () => {
       await doSignInWithEmailAndPassword(data.email, data.password)
       navigate(ROUTES.HOME)
       toast({
-        description: 'You have successfully logged in!',
+        description: '✔️ You have successfully logged in!',
       })
     } catch (error) {
       toast({
-        description: String(error),
+        description: `❌ ${String(error)}`,
         variant: 'destructive',
       })
     }
@@ -63,11 +62,11 @@ const Login: React.FC = () => {
       await doSignInWithGoogle()
       navigate(ROUTES.HOME)
       toast({
-        description: 'You have successfully logged in!',
+        description: '✔️ You have successfully logged in!',
       })
     } catch (error) {
       toast({
-        description: String(error),
+        description: `❌ ${String(error)}`,
         variant: 'destructive',
       })
     }
@@ -79,11 +78,11 @@ const Login: React.FC = () => {
       await doSignInWithApple()
       navigate(ROUTES.HOME)
       toast({
-        description: 'You have successfully logged in!',
+        description: '✔️ You have successfully logged in!',
       })
     } catch (error) {
       toast({
-        description: String(error),
+        description: `❌ ${String(error)}`,
         variant: 'destructive',
       })
     }
@@ -94,11 +93,11 @@ const Login: React.FC = () => {
       await doSignInWithGitHub()
       navigate(ROUTES.HOME)
       toast({
-        description: 'You have successfully logged in!',
+        description: '✔️ You have successfully logged in!',
       })
     } catch (error) {
       toast({
-        description: String(error),
+        description: `❌ ${String(error)}`,
         variant: 'destructive',
       })
     }
@@ -109,37 +108,52 @@ const Login: React.FC = () => {
       {userLoggedIn && <Navigate to={ROUTES.HOME} replace={true} />}
       <div className="flex flex-col items-center gap-5 rounded-lg h-[600px] w-[600px]">
         <h2 className="text-4xl">Welcome back!</h2>
-        <form className="gap-5 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-            placeholder="Email"
-            autoComplete="email"
-          />
+        <form
+          className="gap-5 w-[300px] flex flex-col"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="flex items-center gap-3">
+            <Mail className="w-[1rem]" />
+            <Input
+              {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
+              placeholder="Email"
+              autoComplete="email"
+            />
+          </div>
           {errors.email && <p>This field is required</p>}
           <div className="flex gap-3">
-            <Input
-              {...register('password', { required: true })}
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={handleChangePassword}
-              placeholder="Password"
-              autoComplete="current-password"
-            />
-            <Button
-              type="button"
-              className="rounded-full"
-              onClick={handleTogglePassword}
-            >
-              {showPassword ? <EyeCloseIcon /> : <EyeOpenIcon />}
-            </Button>
+            <div className="flex items-center gap-3">
+              <Lock className="w-[1.5rem]" />
+              <Input
+                {...register('password', { required: true })}
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={handleChangePassword}
+                placeholder="Password"
+                autoComplete="current-password"
+              />
+              <Button
+                type="button"
+                className="rounded-full"
+                onClick={handleTogglePassword}
+              >
+                {showPassword ? (
+                  <Eye className="w-[1rem]" />
+                ) : (
+                  <EyeOff className="w-[1rem]" />
+                )}
+              </Button>
+            </div>
           </div>
           {errors.password && <p>This field is required</p>}
-
-          <Input
-            className="cursor-pointer w-[fit-content]"
-            value="Login"
-            type="submit"
-          />
+          <div className="border flex items-center w-[fit-content] rounded-lg px-4">
+            <Rocket className="w-[1rem]" />
+            <Input
+              className="border-none cursor-pointer w-[fit-content]"
+              value="Login"
+              type="submit"
+            ></Input>
+          </div>
         </form>
 
         <div className="flex flex-col w-full gap-3 items-center">
