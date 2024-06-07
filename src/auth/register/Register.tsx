@@ -63,12 +63,11 @@ const Register: React.FC = () => {
         {userLoggedIn && <Navigate to={ROUTES.HOME} replace={true} />}
         <div className="flex flex-col items-center gap-5 p-5 rounded-lg xs:h-[fit-content] w-[full]">
           <div className="w-full mb-5">
-            <div className="border h-[2.7rem] w-[fit-content] rounded-lg cursor-pointer flex p-2 gap-2 items-center">
-              <ArrowLeft
-                className="xs:h-[1.3rem]"
-                onClick={() => navigate(ROUTES.HOME)}
-                strokeWidth={1.7}
-              />
+            <div
+              onClick={() => navigate(ROUTES.HOME)}
+              className="border h-[2.7rem] w-[fit-content] rounded-lg cursor-pointer flex p-2 gap-2 items-center"
+            >
+              <ArrowLeft className="xs:h-[1.3rem]" strokeWidth={1.7} />
               <span className="pr-[0.8rem]">Home</span>
             </div>
           </div>
