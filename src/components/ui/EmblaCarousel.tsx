@@ -50,12 +50,12 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
   }, [emblaMainApi, onSelect])
 
   return (
-    <div className="embla max-w-[43rem]">
+    <div className="embla xl:max-w-[43rem] xs:max-w-[17rem] xs4:max-w-[21rem]">
       <div className="embla__viewport max-w-[full]" ref={emblaMainRef}>
         <div className="embla__container">
           {images.map((image: string, index: number) => (
             <article
-              className="embla__slide min-h-[380px] max-w-[full] relative"
+              className="embla__slide xl:min-h-[380px] xs:min-h-[200px] max-w-[full] relative"
               key={index}
             >
               <LazyImage src={image} alt={`Screenshot ${index + 1}`} />

@@ -1,5 +1,7 @@
+import { ChevronRight } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { NavLink } from 'react-router-dom'
 
 import FrequentlyAskedQuestions from '@/components/FAQ'
 import { Jumbotron } from '@/components/Jumbotron'
@@ -9,6 +11,7 @@ import Recommendations from '@/components/Recommendations'
 import { ErrorComponent } from '@/components/shared/ErrorComponent'
 import Loader from '@/components/shared/Loader'
 import { NoDataComponent } from '@/components/shared/NoDataComponent'
+import { ROUTES } from '@/routes'
 import { useSortedGames } from '@/services/queries'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
@@ -39,31 +42,25 @@ const Home: React.FC = () => {
             name="description"
             content="Track what you've played and search for what to play next!"
           />
-          <meta
-            property="og:title"
-            content="Discover the best free-to-play games!"
-          />
-          <meta
-            property="og:description"
-            content="Track what you've played and search for what to play next!"
-          />
-          <meta
-            property="og:image"
-            content="https://psv4.userapi.com/c909618/u250373309/docs/d49/951cd3d248ca/games.png?extra=1hDPGpaBgpde0QRpFSGjRgrCvFiKOgtkwFA1Qmq37c2HlvpvO6RxcyhbMNPLlySSqC9zrFmEocAoQbfRzPf2iUP__cLAy5MisGXxb_pO_NyHzPsQs2yjqHf5jlV-qrSWP8AbePpJWiCJWJMT76ws-zk"
-          />
         </Helmet>
-
         <div className="flex flex-col w-[full] items-center">
           <Jumbotron />
-          <div className="w-[1140px] px-[10px] mt-5 flex flex-col mb-2">
+          <div className="max-w-[1140px] w-full mt-5 flex flex-col mb-2">
             <Recommendations data={randomGames} />
-            <div className="flex justify-between gap-5 flex-row w-[full] min-h-[500px] mb-[80px]">
+            <div className="flex justify-between xs:flex-col md:flex-row gap-5 flex-row w-[full] min-h-[500px]">
               <NewReleases data={firstSevenGames || []} />
               <MostPlayedToday />
             </div>
-            <div className="flex w-full">
-              <FrequentlyAskedQuestions />
+            <div className="flex justify-end mb-[5rem]">
+              <NavLink
+                to={ROUTES.GAMES}
+                className="border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
+              >
+                More Games
+                <ChevronRight />
+              </NavLink>
             </div>
+            <FrequentlyAskedQuestions />
           </div>
         </div>
       </main>

@@ -15,7 +15,7 @@ import { genreStyle, getGenreUrl } from '@/utils'
 const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
   const navigate = useNavigate()
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col xs:w-[full]">
       <div className="flex flex-row items-center justify-between">
         <ArrowLeft
           className="p-[10px] border rounded-lg cursor-pointer"
@@ -41,9 +41,9 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
       <p className="mb-5 leading-7 items-start [&:not(:first-child)]:mt-5 sm:flex">
         {data?.short_description}
       </p>
-      <div className="flex gap-5 between flex-row">
-        <div className="max-w-[350px] min-w-[350px] min-h-[500px]">
-          <div className="flex relative max-w-[350px] hover:brightness-110 transition-all xs:min-h-[190px]">
+      <div className="flex gap-5 between flex-row xs:flex-col">
+        <div className="xl:max-w-[350px] w-full min-h-[500px]">
+          <div className="flex relative hover:brightness-110 transition-all xs:min-h-[190px]">
             <LazyImage alt={data?.title} src={data?.thumbnail} />
           </div>
           <Link

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { generatePath } from 'react-router-dom'
 
 import Genre from './Genre'
 import PlatformIcons from './PlatformIcons'
@@ -15,7 +16,7 @@ const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
       <Link
         draggable="false"
         className="flex h-full justify-center"
-        to={ROUTES.GAME_ID}
+        to={generatePath(ROUTES.GAME_ID, { id: game.id })}
       >
         <div className="bg-hover-neutral-900 transition-all duration-400 flex flex-col w-full">
           <div className="relative h-[9rem] w-[full] items-center rounded-xl">
@@ -30,7 +31,7 @@ const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
                 <PlatformIcons platform={game.platform} />
               </div>
             </div>
-            <p className="xs3:mb-1 leading-7 text-[#898989] dark:text-[ #a0a0a0] [&:not(:first-child)]:mt-4">
+            <p className="xs3:mb-1 leading-7 text-[#898989] dark:text-[#a0a0a0] [&:not(:first-child)]:mt-4">
               {truncateString(game?.short_description, 80)}
             </p>
             <div className="flex items-center gap-3 w-full justify-between">

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { generatePath } from 'react-router-dom'
 
 import LazyImage from './shared/LazyImage'
 
@@ -7,13 +8,13 @@ import { ROUTES } from '@/routes'
 import { RandomGamesProps } from '@/types/games'
 
 const RandomGames: React.FC<RandomGamesProps> = ({ data }) => (
-  <section className="flex lg:h-[200px] items-center xs2:h-[750px] md:flex-row xs4:h-[800px] xs3:h-[860px] xs:h-[600px] xs1:h-[680px] sm:flex-row sm:flex-wrap md:flex-wrap justify-between w-[full] xs:flex-col md:h-[450px]">
+  <section className="flex xs:min-h-[520px] items-center xs:flex-col xs:w-full justify-between md:flex-row gap-5">
     {data?.map((game) => (
-      <article key={game.id}>
-        <div className="transition-transform duration-300 transform hover:scale-105 shadow-lg dark:shadow-soft-dark game-link rounded-md flex game-container">
+      <article key={game.id} className="xs:w-full xs:min-h-[160px]">
+        <div className="items-center justify-center transition-transform duration-300 transform hover:scale-105 shadow-lg dark:shadow-soft-dark game-link rounded-md flex game-container">
           <Link
-            to={ROUTES.GAME_ID.replace(':id', game.id.toString())}
-            className="relative h-[168px] w-[300px]"
+            to={generatePath(ROUTES.GAME_ID, { id: game.id })}
+            className="relative h-[fit-content] md:max-w-[300px] xs:max-w-[full]"
             draggable="false"
           >
             <LazyImage src={game.thumbnail} alt={game.title} />

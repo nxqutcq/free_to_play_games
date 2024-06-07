@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, generatePath } from 'react-router-dom'
 
 import LazyImage from './shared/LazyImage'
 
@@ -10,19 +10,19 @@ const MostPlayedToday: React.FC = () => {
   const { data } = useSortedGames('popularity', 4)
 
   return (
-    <section className="w-[full]">
+    <section>
       <h3 className="ml-2 scroll-m-20 mb-5 text-3xl font-semibold tracking-tight first:mt-0">
         Most Played Today
       </h3>
-      <div className="flex min-h-[700px] w-[full] flex-col items-center gap-3 pb-3">
+      <div className="flex flex-col min-h-[700px] min-w-1/2 items-center gap-y-3 pb-3">
         {data?.map((game) => (
           <article
             key={game?.id}
-            className="flex transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
+            className="h-full first-line:transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
           >
             <Link
-              className="relative w-[full] max-h-[200px]"
-              to={ROUTES.GAME_ID.replace(':id', game.id.toString())}
+              className="relative h-full"
+              to={generatePath(ROUTES.GAME_ID, { id: game.id })}
               draggable="false"
             >
               <LazyImage alt={game?.title} src={game?.thumbnail} />

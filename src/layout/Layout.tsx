@@ -7,7 +7,7 @@ import Header from './Header'
 const Layout: React.FC = () => (
   <div className="flex items-center overflow-hidden flex-col">
     <Header />
-    <div className="min-h-screen w-[1140px]">
+    <div className="min-h-screen w-full max-w-[1140px] px-[1rem]">
       <Outlet />
     </div>
     <Footer />

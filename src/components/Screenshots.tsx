@@ -6,7 +6,7 @@ import { ScreenshotsProps } from '@/types/games'
 
 const Screenshots: React.FC<ScreenshotsProps> = ({ data }) => (
   <section>
-    <div className="min-h-[440px] w-[max-content] justify-center flex xs:flex-col sm:flex sm:flex-col lg:flex-row flex-wrap">
+    <div className="min-h-[440px] xs4:min-h-[350px] w-[max-content] justify-center flex xs:flex-col sm:flex sm:flex-col lg:flex-row flex-wrap">
       {data?.screenshots && data.screenshots.length > 0 ? (
         <EmblaCarousel
           images={data.screenshots.map((screenshot) => screenshot.image)}

@@ -48,7 +48,7 @@ const SignInMenu: React.FC = () => {
             </Avatar>
           </Button>
           {userLoggedIn ? (
-            <div className="cursor-pointer text-white">
+            <div className="cursor-pointer text-white xs:hidden">
               {currentUser?.displayName
                 ? currentUser.displayName
                 : currentUser?.email}
