@@ -1,3 +1,5 @@
+import { User } from 'firebase/auth'
+
 export interface Game {
   id: number
   title: string
@@ -74,4 +76,9 @@ export type PlatformIconsProps = Pick<Game, 'platform'>
 export type GenreProps = Pick<Game, 'genre'>
 export interface CarouselProps {
   images: string[]
+}
+
+export type UserType = {
+  currentUser: User | null | undefined
+  userLoggedIn: boolean | undefined
 }

@@ -34,11 +34,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     setLoading(false)
   }
+
   const value = {
     currentUser,
     userLoggedIn,
     loading,
   }
+
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

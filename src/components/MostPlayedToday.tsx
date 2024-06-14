@@ -14,22 +14,24 @@ const MostPlayedToday: React.FC = () => {
       <h3 className="ml-2 scroll-m-20 mb-5 text-3xl font-semibold tracking-tight first:mt-0">
         Most Played Today
       </h3>
-      <div className="flex flex-col min-h-[700px] min-w-1/2 items-center gap-y-3 pb-3">
-        {data?.map((game) => (
-          <article
-            key={game?.id}
-            className="h-full first-line:transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
-          >
-            <Link
-              className="relative h-full"
-              to={generatePath(ROUTES.GAME_ID, { id: game.id })}
-              draggable="false"
+      <div className="flex min-h-[800px] items-center flex-col w-full">
+        <div className="flex flex-col w-full min-h-[160px] items-center gap-y-3 pb-3">
+          {data?.map((game) => (
+            <article
+              key={game?.id}
+              className="w-full min-w-[200px] min-h-[160px] flex max-w-[350px] first-line:transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
             >
-              <LazyImage alt={game?.title} src={game?.thumbnail} />
-              <div className="game-title">{game?.title}</div>
-            </Link>
-          </article>
-        ))}
+              <Link
+                className="relative h-full"
+                to={generatePath(ROUTES.GAME_ID, { id: game.id })}
+                draggable="false"
+              >
+                <LazyImage alt={game?.title} src={game?.thumbnail} />
+                <div className="game-title">{game?.title}</div>
+              </Link>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
