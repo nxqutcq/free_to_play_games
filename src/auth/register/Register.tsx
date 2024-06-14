@@ -95,6 +95,7 @@ const Register: React.FC = () => {
                   pattern: /^\S+@\S+$/i,
                 })}
                 placeholder="Email"
+                autoComplete="email"
               />
             </div>
             {errors.email && <p>This field is required</p>}
