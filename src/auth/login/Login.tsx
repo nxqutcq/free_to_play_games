@@ -6,7 +6,6 @@ import { FieldValues, useForm } from 'react-hook-form'
 import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 
 import { GithubIcon } from '@/components/icons'
-import AppleIcon from '@/components/icons/AppleIcon'
 import GoogleIcon from '@/components/icons/GoogleIcon'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,6 +13,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { useAuth } from '@/contexts/authContext'
 import {
   doSignInWithEmailAndPassword,
+  doSignInWithGitHub,
   doSignInWithGoogle,
 } from '@/firebase/auth'
 import { ROUTES } from '@/routes'
@@ -72,23 +72,39 @@ const Login: React.FC = () => {
     }
   }
 
+  const onGitHubSignIn = async (e: React.MouseEvent) => {
+    e.preventDefault()
+    try {
+      await doSignInWithGitHub()
+      navigate(ROUTES.HOME)
+      toast({
+        description: '✔️ You have successfully logged in with GitHub!',
+      })
+    } catch (error) {
+      toast({
+        description: `❌ ${String(error)}`,
+        variant: 'destructive',
+      })
+    }
+  }
+
   return (
     <HelmetProvider>
-      <div className="w-[full] flex items-center justify-center">
+      <div className="w-[full] flex-col flex items-center justify-center">
         <Helmet>
           <title>Login</title>
         </Helmet>
         {userLoggedIn && <Navigate to={ROUTES.HOME} replace={true} />}
-        <div className="flex flex-col items-center gap-5 p-5 xs1:w-[375px]  rounded-lg xs:h-[fit-content]">
-          <div className="w-full">
-            <div
-              onClick={() => navigate(ROUTES.HOME)}
-              className="border h-[2.7rem] w-[fit-content] rounded-lg cursor-pointer flex p-2 gap-2 items-center"
-            >
-              <ArrowLeft className="xs:h-[1.3rem]" strokeWidth={1.7} />
-              <span className="pr-[0.8rem]">Home</span>
-            </div>
+        <div className="w-full mt-5">
+          <div
+            onClick={() => navigate(ROUTES.HOME)}
+            className="border h-[2.7rem] w-[fit-content] rounded-lg cursor-pointer flex p-2 gap-2 items-center"
+          >
+            <ArrowLeft className="xs:h-[1.3rem]" strokeWidth={1.7} />
+            <span className="pr-[0.8rem]">Home</span>
           </div>
+        </div>
+        <div className="flex flex-col items-center gap-5 p-5 xs1:w-[375px]  rounded-lg xs:h-[fit-content]">
           <h2 className="text-4xl my-5">Welcome back!</h2>
           <form
             className="gap-5 items-start flex flex-col"
@@ -165,13 +181,7 @@ const Login: React.FC = () => {
                 <GoogleIcon />
               </div>
               <div
-                // onClick={onAppleSignIn}
-                className="w-10 h-10 cursor-pointer hover:bg-accent transition-colors rounded-full p-2"
-              >
-                <AppleIcon className="apple-icon" />
-              </div>
-              <div
-                // onClick={onGitHubSignIn}
+                onClick={onGitHubSignIn}
                 className="w-10 h-10 cursor-pointer hover:bg-accent transition-colors rounded-full p-2"
               >
                 <GithubIcon className={'github'} />

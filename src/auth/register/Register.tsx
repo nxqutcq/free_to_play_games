@@ -59,18 +59,18 @@ const Register: React.FC = () => {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <div className="w-[full] flex items-center justify-center">
+      <div className="w-[full] flex-col flex items-center justify-center">
         {userLoggedIn && <Navigate to={ROUTES.HOME} replace={true} />}
-        <div className="flex flex-col items-center gap-5 p-5 rounded-lg xs:h-[fit-content] w-[full]">
-          <div className="w-full mb-5">
-            <div
-              onClick={() => navigate(ROUTES.HOME)}
-              className="border h-[2.7rem] w-[fit-content] rounded-lg cursor-pointer flex p-2 gap-2 items-center"
-            >
-              <ArrowLeft className="xs:h-[1.3rem]" strokeWidth={1.7} />
-              <span className="pr-[0.8rem]">Home</span>
-            </div>
+        <div className="w-full mt-5">
+          <div
+            onClick={() => navigate(ROUTES.HOME)}
+            className="border h-[2.7rem] w-[fit-content] rounded-lg cursor-pointer flex p-2 gap-2 items-center"
+          >
+            <ArrowLeft className="xs:h-[1.3rem]" strokeWidth={1.7} />
+            <span className="pr-[0.8rem]">Home</span>
           </div>
+        </div>
+        <div className="flex flex-col items-center gap-5 p-5 rounded-lg xs:h-[fit-content] w-[full]">
           <h2 className="text-4xl mb-5">Let's create your account!</h2>
           <form
             className="flex flex-col gap-5 items-start"
