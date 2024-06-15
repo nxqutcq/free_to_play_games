@@ -58,7 +58,7 @@ const SignInMenu: React.FC<UserType> = ({ currentUser, userLoggedIn }) => (
       <div className="flex items-center justify-start">
         <ModeToggle />
       </div>
-      <UserMenu userLoggedIn={userLoggedIn} />
+      <UserMenu userLoggedIn={userLoggedIn} currentUser={currentUser} />
     </DropdownMenuContent>
   </DropdownMenu>
 )

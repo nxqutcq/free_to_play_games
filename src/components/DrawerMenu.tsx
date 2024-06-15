@@ -4,8 +4,6 @@ import React from 'react'
 
 import UserMenu from './UserMenu'
 
-import UserFallbackIcon from '@/components/icons/UserFallbackIcon'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   Drawer,
   DrawerClose,
@@ -18,7 +16,7 @@ import {
 } from '@/components/ui/drawer'
 import { UserType } from '@/types/games'
 
-const DrawerMenu: React.FC<UserType> = ({ userLoggedIn }) => (
+const DrawerMenu: React.FC<UserType> = ({ userLoggedIn, currentUser }) => (
   <Drawer direction="left">
     <DrawerTrigger className="md:hidden">
       <Menu />
@@ -29,15 +27,9 @@ const DrawerMenu: React.FC<UserType> = ({ userLoggedIn }) => (
           <X />
         </DrawerClose>
       </DrawerHeader>
-      <Avatar className="mt-5">
-        <AvatarImage />
-        <AvatarFallback>
-          <UserFallbackIcon className="rounded-full absolute h-[0.8rem] w-[0.8rem] sign-in" />
-        </AvatarFallback>
-      </Avatar>
       <DrawerTitle className="my-5">Name Surname</DrawerTitle>
       <DrawerDescription>This action cannot be undone.</DrawerDescription>
-      <UserMenu userLoggedIn={userLoggedIn} />
+      <UserMenu userLoggedIn={userLoggedIn} currentUser={currentUser} />
       <DrawerFooter></DrawerFooter>
     </DrawerContent>
   </Drawer>
