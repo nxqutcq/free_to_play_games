@@ -4,7 +4,6 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendEmailVerification,
-  OAuthProvider,
   GithubAuthProvider,
 } from 'firebase/auth'
 
@@ -44,11 +43,6 @@ export const doSendEmailVerification = () => {
   }
 }
 
-export const doSignInWithApple = async () => {
-  const provider = new OAuthProvider('apple.com')
-  const result = await signInWithPopup(auth, provider)
-  return result
-}
 export const doSignInWithGitHub = async () => {
   const provider = new GithubAuthProvider()
   const result = await signInWithPopup(auth, provider)
