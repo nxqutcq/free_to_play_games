@@ -27,6 +27,7 @@ export const getGenreUrl = (genreLabel: string) => {
   const genreObject = allGenres.find((genre) => genre.label === genreLabel)
   return `/games/${genreObject?.value}`
 }
+
 export const genreStyle = (genre: string) => {
   const genreInfo = allGenres.find((g) => g.label === genre.trim())
   return {
@@ -34,4 +35,12 @@ export const genreStyle = (genre: string) => {
     backgroundColor: `${genreInfo?.color}10`,
     border: `1px solid ${genreInfo?.color}`,
   }
+}
+
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  })
 }
