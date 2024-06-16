@@ -29,7 +29,7 @@ const Library: React.FC = () => {
         <title>Library</title>
       </Helmet>
       <div className="flex min-h-screen flex-row  my-10 gap-3 rounded-md">
-        <div className="w-1/3 h-fit rounded-lg gap-y-1 p-3 border flex flex-col">
+        <div className="w-1/3 text-sm h-fit rounded-lg gap-y-1 p-3 border flex flex-col">
           <div
             className={`cursor-pointer selected-item rounded-t border-b hover:bg-accent transition-colors p-3 ${
               selectedList === 'all' ? 'side-stripe' : ''

@@ -240,9 +240,13 @@
 .selected-item:hover::after {
   width: 4px;
   background-color: rgb(26 129 79);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .selected-item.side-stripe::after {
   width: 4px;
   background-color: rgb(251 255 1);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
