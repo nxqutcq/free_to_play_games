@@ -31,31 +31,41 @@ const Library: React.FC = () => {
       <div className="flex min-h-screen flex-row  my-10 gap-3 rounded-md">
         <div className="w-1/3 h-fit rounded-lg gap-y-1 p-3 border flex flex-col">
           <div
-            className="cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3"
+            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+              selectedList === 'all' ? 'side-stripe' : ''
+            }`}
             onClick={() => handleSelection('all')}
           >
             All My Games
           </div>
           <div
-            className="cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3"
+            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+              selectedList === 'playLater' ? 'side-stripe' : ''
+            }`}
             onClick={() => handleSelection('playLater')}
           >
             Play later
           </div>
           <div
-            className="cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3"
+            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+              selectedList === 'currentPlaying' ? 'side-stripe' : ''
+            }`}
             onClick={() => handleSelection('currentPlaying')}
           >
             Current playing
           </div>
           <div
-            className="cursor-pointer rounded-t hover:bg-accent transition-colors border-b p-3"
+            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+              selectedList === 'played' ? 'side-stripe' : ''
+            }`}
             onClick={() => handleSelection('played')}
           >
             Played
           </div>
           <div
-            className="cursor-pointer rounded-t hover:bg-accent transition-colors border-b p-3"
+            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+              selectedList === 'completed' ? 'side-stripe' : ''
+            }`}
             onClick={() => handleSelection('completed')}
           >
             Completed

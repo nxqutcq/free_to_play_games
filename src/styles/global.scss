@@ -217,3 +217,32 @@
   color: black;
   background-color: beige;
 }
+
+.cursor-pointer {
+  position: relative;
+}
+
+.cursor-pointer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: chartreuse;
+}
+
+.cursor-pointer:hover::after,
+.cursor-pointer.side-stripe::after {
+  width: 4px;
+}
+
+.cursor-pointer:hover::after {
+  width: 4px;
+  background-color: rgb(26 129 79);
+}
+
+.cursor-pointer.side-stripe::after {
+  width: 4px;
+  background-color: rgb(251 255 1);
+}
