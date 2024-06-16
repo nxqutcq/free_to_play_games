@@ -13,7 +13,7 @@ const Footer: React.FC = () => (
     <Separator />
     <div className="h-[280px] xs:h-[fit-content] flex xs:pt-5 xs:items-center md:items-start px-[1rem] flex-col w-full max-w-[1140px] not-italic">
       <div className=" flex h-[200px] xs:h-[fit-content] md:min-h-[200px] mb-5 items-center gap-[140px] overflow-hidden">
-        <div className="text-white xs:text-xl flex md:flex-row xs:flex-col xs:gap-y-3 h-full items-center">
+        <div className="text-white text-base flex md:flex-row xs:flex-col xs:gap-y-3 h-full items-center">
           <nav className="flex flex-col">
             <ul className="w-[200px] md:items-start xs:items-center flex flex-col gap-3">
               <li>
