@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Library: React.FC = () => {
   const [selectedList, setSelectedList] = useState('all')
 
+  const navigate = useNavigate()
   const location = useLocation()
+
   const queryParams = new URLSearchParams(location.search)
   const selectedListFromURL = queryParams.get('selectedList')
 
@@ -16,6 +19,7 @@ const Library: React.FC = () => {
 
   const handleSelection = (listName: string) => {
     setSelectedList(listName)
+    navigate(`?selectedList=${listName}`)
   }
 
   return (
