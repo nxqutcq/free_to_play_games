@@ -8,7 +8,10 @@ import {
   NotFound,
   Login,
   Register,
+  Filters,
+  Library,
 } from './LazyComponents'
+import PrivateRoute from './PrivateRoute'
 import { ROUTES } from '../routes/index'
 
 import Loader from '@/components/shared/Loader.tsx'
@@ -24,6 +27,15 @@ export const AppRoutes: React.FC = () => (
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
         <Route path={ROUTES.GAMES} element={<GamesPage />} />
+        <Route
+          path={ROUTES.LIBRARY}
+          element={
+            <PrivateRoute>
+              <Library />
+            </PrivateRoute>
+          }
+        />
+        <Route path={ROUTES.FILTERS} element={<Filters />} />
         <Route path={ROUTES.GAME_ID} element={<GamePage />} />
         <Route path={ROUTES.GAMES_CATEGORY} element={<GamesPage />} />
         <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
