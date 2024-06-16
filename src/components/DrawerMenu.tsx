@@ -8,10 +8,8 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import { UserType } from '@/types/games'
@@ -27,8 +25,6 @@ const DrawerMenu: React.FC<UserType> = ({ userLoggedIn, currentUser }) => (
           <X />
         </DrawerClose>
       </DrawerHeader>
-      <DrawerTitle className="my-5">Name Surname</DrawerTitle>
-      <DrawerDescription>This action cannot be undone.</DrawerDescription>
       <UserMenu userLoggedIn={userLoggedIn} currentUser={currentUser} />
       <DrawerFooter></DrawerFooter>
     </DrawerContent>

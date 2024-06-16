@@ -3,7 +3,6 @@ import React from 'react'
 import UserMenu from './UserMenu'
 
 import UserFallbackIcon from '@/components/icons/UserFallbackIcon'
-import { ModeToggle } from '@/components/mode-toggle'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -39,25 +38,9 @@ const SignInMenu: React.FC<UserType> = ({ currentUser, userLoggedIn }) => (
     </DropdownMenuTrigger>
 
     <DropdownMenuContent
-      className="flex px-2 py-2 flex-col w-[200px]"
+      className="flex px-2 items-center py-2 flex-col w-[200px]"
       align="end"
     >
-      {userLoggedIn ? (
-        <div className="my-3 flex flex-col items-center">
-          <Avatar className="mb-5 h-[3.5rem] w-[3.5rem]">
-            <AvatarImage src={currentUser?.photoURL || undefined} />
-            <AvatarFallback>
-              <UserFallbackIcon className="rounded-full absolute h-[0.8rem] w-[0.8rem] sign-in" />
-            </AvatarFallback>
-          </Avatar>
-          {currentUser?.displayName
-            ? currentUser.displayName
-            : currentUser?.email}
-        </div>
-      ) : null}
-      <div className="flex items-center justify-start">
-        <ModeToggle />
-      </div>
       <UserMenu userLoggedIn={userLoggedIn} currentUser={currentUser} />
     </DropdownMenuContent>
   </DropdownMenu>
