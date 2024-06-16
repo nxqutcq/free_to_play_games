@@ -3,7 +3,10 @@ export const ROUTES = {
   LOGIN: 'login',
   REGISTER: 'register',
   GAMES: 'games',
-  GAME_ID: 'games/game/:id',
+  LIBRARY: 'library',
+  FILTERS: 'filters',
+  GAME_ID: 'game/:id',
   GAMES_CATEGORY: 'games/:category',
+  GAMES_CATEGORY_ID: 'games/:category/game/:id',
   NOT_FOUND: '*',
 }
