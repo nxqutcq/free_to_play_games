@@ -31,7 +31,7 @@ const Library: React.FC = () => {
       <div className="flex min-h-screen flex-row  my-10 gap-3 rounded-md">
         <div className="w-1/3 h-fit rounded-lg gap-y-1 p-3 border flex flex-col">
           <div
-            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+            className={`cursor-pointer selected-item rounded-t border-b hover:bg-accent transition-colors p-3 ${
               selectedList === 'all' ? 'side-stripe' : ''
             }`}
             onClick={() => handleSelection('all')}
@@ -39,7 +39,7 @@ const Library: React.FC = () => {
             All My Games
           </div>
           <div
-            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+            className={`cursor-pointer selected-item rounded-t border-b hover:bg-accent transition-colors p-3 ${
               selectedList === 'playLater' ? 'side-stripe' : ''
             }`}
             onClick={() => handleSelection('playLater')}
@@ -47,7 +47,7 @@ const Library: React.FC = () => {
             Play later
           </div>
           <div
-            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+            className={`cursor-pointer selected-item rounded-t border-b hover:bg-accent transition-colors p-3 ${
               selectedList === 'currentPlaying' ? 'side-stripe' : ''
             }`}
             onClick={() => handleSelection('currentPlaying')}
@@ -55,7 +55,7 @@ const Library: React.FC = () => {
             Current playing
           </div>
           <div
-            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+            className={`cursor-pointer selected-item rounded-t border-b hover:bg-accent transition-colors p-3 ${
               selectedList === 'played' ? 'side-stripe' : ''
             }`}
             onClick={() => handleSelection('played')}
@@ -63,7 +63,7 @@ const Library: React.FC = () => {
             Played
           </div>
           <div
-            className={`cursor-pointer rounded-t border-b hover:bg-accent transition-colors p-3 ${
+            className={`cursor-pointer selected-item rounded-t border-b hover:bg-accent transition-colors p-3 ${
               selectedList === 'completed' ? 'side-stripe' : ''
             }`}
             onClick={() => handleSelection('completed')}

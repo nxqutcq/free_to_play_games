@@ -218,11 +218,11 @@
   background-color: beige;
 }
 
-.cursor-pointer {
+.selected-item {
   position: relative;
 }
 
-.cursor-pointer::after {
+.selected-item::after {
   content: '';
   position: absolute;
   left: 0;
@@ -232,17 +232,17 @@
   background-color: chartreuse;
 }
 
-.cursor-pointer:hover::after,
-.cursor-pointer.side-stripe::after {
+.selected-item:hover::after,
+.selected-item.side-stripe::after {
   width: 4px;
 }
 
-.cursor-pointer:hover::after {
+.selected-item:hover::after {
   width: 4px;
   background-color: rgb(26 129 79);
 }
 
-.cursor-pointer.side-stripe::after {
+.selected-item.side-stripe::after {
   width: 4px;
   background-color: rgb(251 255 1);
 }
