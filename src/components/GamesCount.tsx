@@ -7,7 +7,7 @@ const GamesCount: React.FC<GamesCountProps> = ({ gamesCount, category }) => (
   <HelmetProvider>
     <section className="mt-10 w-[full]">
       <Helmet>
-        <title>{`${gamesCount} Free-to-play ${category} games found in our games list!`}</title>
+        <title>{`${gamesCount} Free-to-play ${category === 'undefined' || category === undefined ? '' : category} games found in our games list!`}</title>
       </Helmet>
       <div>
         <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
