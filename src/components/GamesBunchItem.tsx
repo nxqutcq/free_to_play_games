@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { generatePath } from 'react-router-dom'
 
+import AddGameButton from './AddGameButton'
 import Genre from './Genre'
 import PlatformIcons from './PlatformIcons'
 
@@ -21,6 +22,7 @@ const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
         <div className="bg-hover-neutral-900 transition-all duration-400 flex flex-col w-full">
           <div className="relative h-[9rem] w-[full] items-center rounded-xl">
             <LazyImage alt={game?.title} src={game?.thumbnail} />
+            <AddGameButton />
           </div>
           <div className="p-5 min-h-[11.5rem]">
             <div className="flex flex-row mt-2 items-center">
