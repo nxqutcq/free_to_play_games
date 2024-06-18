@@ -32,7 +32,7 @@ export const genreStyle = (genre: string) => {
   const genreInfo = allGenres.find((g) => g.label === genre.trim())
   return {
     color: genreInfo?.color,
-    backgroundColor: `${genreInfo?.color}10`,
+    backgroundColor: `${genreInfo?.color}15`,
     border: `1px solid ${genreInfo?.color}`,
   }
 }

@@ -12,7 +12,19 @@ export const GAME_TYPES = [
   { name: 'Fighting', url: '/games/fighting' },
   { name: 'Social', url: '/games/social' },
   { name: 'Sports', url: '/games/sports' },
-  { name: 'Free To PlayGames Games', url: '/games' },
+  { name: 'Free To Play Games', url: '/games' },
+]
+export const BROWSER_GAMES = [
+  { name: 'MMORPG', url: '/games/mmorpg' },
+  { name: 'Shooter', url: '/games/shooter' },
+  { name: 'Anime', url: '/games/anime' },
+  { name: 'Strategy', url: '/games/strategy' },
+  { name: 'Fantasy', url: '/games/fantasy' },
+  { name: 'Sci-Fi', url: '/games/sci-fi' },
+  { name: 'Racing', url: '/games/racing' },
+  { name: 'Social', url: '/games/social' },
+  { name: 'Sports', url: '/games/sports' },
+  { name: 'Browser Games', url: '/games' },
 ]
 
 export const faqData = [

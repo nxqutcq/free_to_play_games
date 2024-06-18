@@ -59,7 +59,7 @@ const Register: React.FC = () => {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <div className="w-[full] flex-col flex items-center justify-center">
+      <div className="w-[full] text-sm flex-col flex items-center justify-center">
         {userLoggedIn && <Navigate to={ROUTES.HOME} replace={true} />}
         <div className="w-full mt-5">
           <div

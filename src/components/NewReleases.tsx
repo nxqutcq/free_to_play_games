@@ -22,7 +22,7 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
           key={game?.id}
         >
           <article className="rounded-2xl bg-accent md:justify-start md:max-h-[120px] xs:flex-col md:flex-row  overflow-hidden justify-between items-center flex">
-            <div className="overflow-hidden w-full xs:min-h-[160px] xs1:min-h-[190px] md:max-w-[200px] rounded-lg xs:rounded-b-none md:rounded-r-none relative flex items-center justify-center">
+            <div className="overflow-hidden w-full md:max-w-[200px] md:max-h-[120px] rounded-lg xs:rounded-b-none md:rounded-r-none relative flex items-center justify-center">
               <LazyImage alt={game?.title} src={game?.thumbnail} />
             </div>
             <div className="flex flex-row w-full items-center xs:p-3 h-[fit-content]">

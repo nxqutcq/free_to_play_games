@@ -90,7 +90,7 @@ const Login: React.FC = () => {
 
   return (
     <HelmetProvider>
-      <div className="w-[full] flex-col flex items-center justify-center">
+      <div className="w-[full] text-sm flex-col flex items-center justify-center">
         <Helmet>
           <title>Login</title>
         </Helmet>

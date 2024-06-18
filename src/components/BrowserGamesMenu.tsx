@@ -9,26 +9,26 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
 import { Separator } from '@/components/ui/separator'
-import { GAME_TYPES } from '@/constants'
+import { BROWSER_GAMES } from '@/constants'
 
-const FreeGamesMenu: React.FC = () => (
+const BrowserGamesMenu: React.FC = () => (
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>
         <NavigationMenuTrigger className="text-sm text-white bg-stone-900 border">
-          Free Games
+          Browser Games
         </NavigationMenuTrigger>
         <NavigationMenuContent className="overflow-y-auto max-h-[450px]">
-          {GAME_TYPES.map((gameType, index) => (
+          {BROWSER_GAMES.map((gameType, index) => (
             <React.Fragment key={index}>
               <NavigationMenuLink
                 draggable={false}
                 href={gameType.url}
-                className="m-2 text-sm min-h-[35px] xs:min-w-[fit-content] md:w-[200px] block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                className="m-2 max-h-max text-sm min-h-[35px] xs:min-w-[fit-content] md:w-[200px] block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
               >
                 {gameType.name}
               </NavigationMenuLink>
-              {index === GAME_TYPES.length - 2 && <Separator />}
+              {index === BROWSER_GAMES.length - 2 && <Separator />}
             </React.Fragment>
           ))}
         </NavigationMenuContent>
@@ -37,4 +37,4 @@ const FreeGamesMenu: React.FC = () => (
   </NavigationMenu>
 )
 
-export default FreeGamesMenu
+export default BrowserGamesMenu
