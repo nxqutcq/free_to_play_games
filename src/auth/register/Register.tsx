@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { useForm, FieldValues } from 'react-hook-form'
 import { Navigate, useNavigate } from 'react-router-dom'
 
+import SocialAuth from '@/components/SocialAuth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
@@ -129,6 +130,14 @@ const Register: React.FC = () => {
               value="Create account"
               type="submit"
             />
+            <div className="mt-10 flex flex-col w-full gap-3 items-center">
+              <div className="flex w-full gap-5 flex-row items-center">
+                <hr className="w-full" />
+                <span className="flex flex-shrink-0">or Sign Up Using</span>
+                <hr className="w-full" />
+              </div>
+              <SocialAuth />
+            </div>
           </form>
         </div>
       </div>

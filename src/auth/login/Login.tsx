@@ -5,17 +5,12 @@ import { HelmetProvider } from 'react-helmet-async'
 import { FieldValues, useForm } from 'react-hook-form'
 import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 
-import { GithubIcon } from '@/components/icons'
-import GoogleIcon from '@/components/icons/GoogleIcon'
+import SocialAuth from '@/components/SocialAuth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
 import { useAuth } from '@/contexts/authContext'
-import {
-  doSignInWithEmailAndPassword,
-  doSignInWithGitHub,
-  doSignInWithGoogle,
-} from '@/firebase/auth'
+import { doSignInWithEmailAndPassword } from '@/firebase/auth'
 import { ROUTES } from '@/routes'
 
 const Login: React.FC = () => {
@@ -44,38 +39,6 @@ const Login: React.FC = () => {
   const onSubmit = async (data: FieldValues) => {
     try {
       await doSignInWithEmailAndPassword(data.email, data.password)
-      navigate(ROUTES.HOME)
-      toast({
-        description: '✔️ You have successfully logged in!',
-      })
-    } catch (error) {
-      toast({
-        description: `❌ ${String(error)}`,
-        variant: 'destructive',
-      })
-    }
-  }
-
-  const onGoogleSignIn = async (e: React.MouseEvent) => {
-    e.preventDefault()
-    try {
-      await doSignInWithGoogle()
-      navigate(ROUTES.HOME)
-      toast({
-        description: '✔️ You have successfully logged in!',
-      })
-    } catch (error) {
-      toast({
-        description: `❌ ${String(error)}`,
-        variant: 'destructive',
-      })
-    }
-  }
-
-  const onGitHubSignIn = async (e: React.MouseEvent) => {
-    e.preventDefault()
-    try {
-      await doSignInWithGitHub()
       navigate(ROUTES.HOME)
       toast({
         description: '✔️ You have successfully logged in!',
@@ -170,23 +133,10 @@ const Login: React.FC = () => {
             </div>
             <div className="flex w-full gap-5 flex-row items-center">
               <hr className="w-full" />
-              <span className="flex flex-shrink-0">or Sign Up Using</span>
+              <span className="flex flex-shrink-0">or Sign In Using</span>
               <hr className="w-full" />
             </div>
-            <div className="flex gap-3 flex-row">
-              <div
-                className="w-10 h-10 cursor-pointer hover:bg-accent transition-colors rounded-full p-2"
-                onClick={onGoogleSignIn}
-              >
-                <GoogleIcon />
-              </div>
-              <div
-                onClick={onGitHubSignIn}
-                className="w-10 h-10 cursor-pointer hover:bg-accent transition-colors rounded-full p-2"
-              >
-                <GithubIcon className={'github'} />
-              </div>
-            </div>
+            <SocialAuth />
           </div>
         </div>
       </div>
