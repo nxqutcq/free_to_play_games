@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
@@ -21,13 +21,13 @@ const BrowserGamesMenu: React.FC = () => (
         <NavigationMenuContent className="overflow-y-auto max-h-[450px]">
           {BROWSER_GAMES.map((gameType, index) => (
             <React.Fragment key={index}>
-              <NavigationMenuLink
+              <Link
                 draggable={false}
-                href={gameType.url}
+                to={gameType.url}
                 className="m-2 max-h-max text-sm min-h-[35px] xs:min-w-[fit-content] md:w-[200px] block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
               >
                 {gameType.name}
-              </NavigationMenuLink>
+              </Link>
               {index === BROWSER_GAMES.length - 2 && <Separator />}
             </React.Fragment>
           ))}
