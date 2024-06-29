@@ -18,7 +18,7 @@ const Header: React.FC = () => {
       <nav className="flex items-center max-w-[1140px] w-full px-[1rem] justify-between h-[60px] flex-row">
         <div className="flex gap-10 xs:gap-0 flex-row items-center">
           <NavLink draggable={false} to={ROUTES.HOME} role="link">
-            <h1 className="xs4:pr-5 md:pr-10 select-none text-white font-extrabold tracking-tight text-4xl sm:flex logo">
+            <h1 className="xs4:pr-5 md:pr-10 select-none text-white font-extrabold tracking-tight text-3xl sm:flex logo">
               FreeToGame
             </h1>
           </NavLink>

@@ -15,16 +15,16 @@ export const GAME_TYPES = [
   { name: 'Free To Play Games', url: '/games' },
 ]
 export const BROWSER_GAMES = [
-  { name: 'MMORPG', url: '/games/mmorpg' },
-  { name: 'Shooter', url: '/games/shooter' },
-  { name: 'Anime', url: '/games/anime' },
-  { name: 'Strategy', url: '/games/strategy' },
-  { name: 'Fantasy', url: '/games/fantasy' },
-  { name: 'Sci-Fi', url: '/games/sci-fi' },
-  { name: 'Racing', url: '/games/racing' },
-  { name: 'Social', url: '/games/social' },
-  { name: 'Sports', url: '/games/sports' },
-  { name: 'Browser Games', url: '/games' },
+  { name: 'MMORPG', url: '/browser/mmorpg' },
+  { name: 'Shooter', url: '/browser/shooter' },
+  { name: 'Anime', url: '/browser/anime' },
+  { name: 'Strategy', url: '/browser/strategy' },
+  { name: 'Fantasy', url: '/browser/fantasy' },
+  { name: 'Sci-Fi', url: '/browser/sci-fi' },
+  { name: 'Racing', url: '/browser/racing' },
+  { name: 'Social', url: '/browser/social' },
+  { name: 'Sports', url: '/browser/sports' },
+  { name: 'Browser Games', url: '/browser' },
 ]
 
 export const faqData = [
@@ -122,7 +122,7 @@ export const selectOptions = [
   {
     placeholder: 'Platform',
     options: [
-      { value: 'all', label: 'All' },
+      { value: 'all', label: 'All platforms' },
       { value: 'pc', label: 'PC (Windows)' },
       { value: 'browser', label: 'Browser (Web)' },
     ],

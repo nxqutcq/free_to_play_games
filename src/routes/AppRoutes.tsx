@@ -26,7 +26,6 @@ export const AppRoutes: React.FC = () => (
         <Route index element={<Home />} />
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
-        <Route path={ROUTES.GAMES} element={<GamesPage />} />
         <Route
           path={ROUTES.LIBRARY}
           element={
@@ -37,7 +36,12 @@ export const AppRoutes: React.FC = () => (
         />
         <Route path={ROUTES.FILTERS} element={<Filters />} />
         <Route path={ROUTES.GAME_ID} element={<GamePage />} />
+        <Route path={ROUTES.GAMES} element={<GamesPage />} />
         <Route path={ROUTES.GAMES_CATEGORY} element={<GamesPage />} />
+        <Route path={ROUTES.GAMES_CATEGORY_GAMEID} element={<GamePage />} />
+        <Route path={ROUTES.BROWSER} element={<GamesPage />} />
+        <Route path={ROUTES.BROWSER_CATEGORY} element={<GamesPage />} />
+        <Route path={ROUTES.BROWSER_CATEGORY_GAMEID} element={<GamePage />} />
         <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
       </Route>
     </Routes>

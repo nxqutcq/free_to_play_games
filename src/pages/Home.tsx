@@ -47,7 +47,7 @@ const Home: React.FC = () => {
           <Jumbotron />
           <div className="max-w-[1140px] w-full mt-5 flex flex-col mb-2">
             <Recommendations data={randomGames} />
-            <div className="flex justify-between xs:flex-col md:flex-row gap-5 flex-row w-[full] min-h-[500px]">
+            <div className="flex justify-between mt-5 xs:flex-col md:flex-row gap-5 flex-row w-[full] min-h-[500px]">
               <NewReleases data={firstSevenGames || []} />
               <MostPlayedToday />
             </div>
