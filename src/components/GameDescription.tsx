@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Plus } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
@@ -41,19 +41,24 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
       <p className="mb-5 leading-7 items-start [&:not(:first-child)]:mt-5 sm:flex">
         {data?.short_description}
       </p>
-      <div className="flex gap-5 between flex-row xs:flex-col">
+      <div className="flex gap-5 between flex-row xs:flex-col md:flex-row">
         <div className="xl:max-w-[350px] w-full min-h-[500px]">
           <div className="flex relative hover:brightness-110 transition-all xs:min-h-[190px]">
             <LazyImage alt={data?.title} src={data?.thumbnail} />
           </div>
-          <Link
-            to={data.game_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-[300px]"
-          >
-            <Button className="mt-5 xs:w-full select-none">PLAY NOW</Button>
-          </Link>
+          <div className="flex gap-2 max-w-[350px]">
+            <Link
+              to={data.game_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex"
+            >
+              <Button className="mt-5 w-full select-none">PLAY NOW</Button>
+            </Link>
+            <Button className="mt-5 w-0.5/3 select-none">
+              <Plus />
+            </Button>
+          </div>
           <div className="min-h-[250px]">
             <h4 className="pt-5 scroll-m-20 text-xl font-semibold tracking-tight sm:flex">
               Minimum System Requirements:

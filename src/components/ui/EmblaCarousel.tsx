@@ -1,5 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import React, { useState, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 
 import {
   NextButton,
@@ -10,6 +11,16 @@ import { Thumb } from './EmblaCarouselThumbsButton'
 import LazyImage from '../shared/LazyImage'
 
 import { CarouselProps } from '@/types/games'
+
+interface ModalContainerProps {
+  children: React.ReactNode
+}
+
+const modalRoot = document.getElementById('modal-root')
+
+const ModalContainer: React.FC<ModalContainerProps> = ({ children }) => {
+  return createPortal(children, modalRoot!)
+}
 
 const EmblaCarousel: React.FC<CarouselProps> = (props) => {
   const { images } = props
@@ -49,18 +60,43 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
     emblaMainApi.on('reInit', onSelect)
   }, [emblaMainApi, onSelect])
 
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  const openModal = (image: string) => {
+    setSelectedImage(image)
+    document.body.classList.add('modal-open')
+  }
+
+  const closeModal = () => {
+    setSelectedImage(null)
+    document.body.classList.remove('modal-open')
+  }
+
   return (
     <div className="embla xl:max-w-[43rem] xs:max-w-[17rem] xs4:max-w-[21rem]">
       <div className="embla__viewport max-w-[full]" ref={emblaMainRef}>
         <div className="embla__container">
           {images.map((image: string, index: number) => (
             <article
-              className="embla__slide xl:min-h-[380px] xs:min-h-[200px] max-w-[full] relative"
+              onClick={() => openModal(image)}
+              className="hover:cursor-zoom-in embla__slide xl:min-h-[380px] xs:min-h-[200px] max-w-[full] relative"
               key={index}
             >
               <LazyImage src={image} alt={`Screenshot ${index + 1}`} />
             </article>
           ))}
+          {selectedImage && (
+            <ModalContainer>
+              <div onClick={closeModal} className="modal-overlay">
+                <button className="close-button" onClick={closeModal}>
+                  &times;
+                </button>
+                <div className="modal-content">
+                  <img src={selectedImage} alt="Modal Image" />
+                </div>
+              </div>
+            </ModalContainer>
+          )}
         </div>
       </div>
       <div className="embla__controls">
