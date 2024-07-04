@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { NavLink } from 'react-router-dom'
 
@@ -19,8 +19,8 @@ import { getRandomGames } from '@/utils'
 const Home: React.FC = () => {
   const [randomGames, setRandomGames] = useState<Game[]>()
   const { data, isLoading, isError } = useSortedGames('release-date', 30)
-  const firstSevenGames = data?.slice(0, 7)
-
+  const { data: mostPlayedGames } = useSortedGames('popularity', 4)
+  const firstSevenGames = useMemo(() => data?.slice(0, 7) || [], [data])
   useEffect(() => {
     if (data) {
       setRandomGames(getRandomGames(data, 3))
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             <Recommendations data={randomGames} />
             <div className="flex justify-between mt-5 xs:flex-col md:flex-row gap-5 flex-row w-[full] min-h-[500px]">
               <NewReleases data={firstSevenGames || []} />
-              <MostPlayedToday />
+              <MostPlayedToday mostPlayedGames={mostPlayedGames} />
             </div>
             <div className="flex justify-end mb-[5rem]">
               <NavLink
@@ -68,4 +68,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default React.memo(Home)

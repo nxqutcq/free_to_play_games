@@ -46,4 +46,4 @@ const SignInMenu: React.FC<UserType> = ({ currentUser, userLoggedIn }) => (
   </DropdownMenu>
 )
 
-export default SignInMenu
+export default React.memo(SignInMenu)

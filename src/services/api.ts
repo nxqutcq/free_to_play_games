@@ -20,6 +20,7 @@ export const getGamesList = async () => {
     throw error
   }
 }
+
 export const getGameDetails = async (id: string) => {
   try {
     const response = await axiosInstance.get<GameDetails>(`game?id=${id}`)
@@ -78,13 +79,16 @@ export const getFilteredGames = async (
   sortBy: string
 ) => {
   try {
-    const response = await axiosInstance.get<Game[]>('games', {
-      params: {
+    let params = undefined
+    if (platform !== 'web' || category !== '' || sortBy !== 'alphabetical') {
+      params = {
         platform: platform,
         category: category,
         'sort-by': sortBy,
-      },
-    })
+      }
+    }
+    const response = await axiosInstance.get<Game[]>('games', { params })
+    console.log(response)
     return response.data
   } catch (error) {
     console.error('Error fetching filtered games:', error)

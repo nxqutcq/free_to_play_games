@@ -13,4 +13,4 @@ const Recommendations: React.FC<RandomGamesProps> = ({ data }) => (
   </section>
 )
 
-export default Recommendations
+export default React.memo(Recommendations)

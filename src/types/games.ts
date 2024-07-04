@@ -30,6 +30,7 @@ interface SystemRequirements {
 export type GameImageType = {
   src: string
   alt: string
+  className?: string
 }
 interface Screenshot {
   id: number
@@ -44,6 +45,14 @@ export interface GameInfoProps {
 export interface RandomGamesProps {
   data: Game[] | undefined
 }
+export interface MostPlayedGamesProps {
+  mostPlayedGames: Game[] | undefined
+}
+
+export interface SearchBarProps {
+  data: Game[]
+}
+
 export interface SortingPanelProps {
   onSortChange: (value: string) => void
   onCategoryChange: (value: string) => void

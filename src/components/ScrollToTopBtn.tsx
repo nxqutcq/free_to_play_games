@@ -21,7 +21,7 @@ const ScrollToTopBtn = () => {
 
   return (
     <div
-      className="bg-background p-3.5 border rounded-full hover:bg-accent transition-colors"
+      className="bg-background z-10 p-3.5 border rounded-full hover:bg-accent transition-colors"
       onClick={scrollToTop}
       style={{
         position: 'fixed',

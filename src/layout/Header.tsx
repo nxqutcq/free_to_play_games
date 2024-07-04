@@ -4,13 +4,15 @@ import { NavLink } from 'react-router-dom'
 import BrowserGamesMenu from '@/components/BrowserGamesMenu'
 import DrawerMenu from '@/components/DrawerMenu'
 import FreeGamesMenu from '@/components/FreeGamesMenu'
+import SearchBar from '@/components/SearchBar'
 import SignInMenu from '@/components/SignInMenu'
 import { useAuth } from '@/contexts/authContext'
 import { ROUTES } from '@/routes'
+import { useGamesList } from '@/services/queries'
 
 const Header: React.FC = () => {
   const auth = useAuth()
-
+  const { data: gamesData } = useGamesList()
   const { currentUser, userLoggedIn } = auth || {}
 
   return (
@@ -28,6 +30,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="flex items-center gap-5 justify-end w-full flex-row">
+          <SearchBar data={gamesData || []} />
           <SignInMenu currentUser={currentUser} userLoggedIn={userLoggedIn} />
           <DrawerMenu currentUser={currentUser} userLoggedIn={userLoggedIn} />
         </div>
@@ -35,4 +38,5 @@ const Header: React.FC = () => {
     </header>
   )
 }
-export default Header
+
+export default React.memo(Header)

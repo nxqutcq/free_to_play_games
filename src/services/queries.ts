@@ -11,9 +11,11 @@ import {
 } from './api'
 
 export function useGamesList() {
+  console.log('Fetching games list')
   return useQuery({
     queryKey: ['games'],
     queryFn: getGamesList,
+    staleTime: Infinity,
   })
 }
 

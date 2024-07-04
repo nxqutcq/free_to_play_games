@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import { Skeleton } from '@/components/ui/skeleton'
 import { GameImageType } from '@/types/games'
 
-const LazyImage: React.FC<GameImageType> = ({ src, alt }) => {
+const LazyImage: React.FC<GameImageType> = ({ src, alt, className }) => {
   const [loaded, setLoaded] = useState(false)
 
   const { ref, inView } = useInView({
@@ -20,7 +20,7 @@ const LazyImage: React.FC<GameImageType> = ({ src, alt }) => {
     <div ref={ref}>
       {inView ? (
         <img
-          className={`game-img transition-opacity duration-300 ${
+          className={`game-img transition-opacity duration-300 ${className} ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
           src={src}

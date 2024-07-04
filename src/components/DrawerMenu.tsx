@@ -31,4 +31,4 @@ const DrawerMenu: React.FC<UserType> = ({ userLoggedIn, currentUser }) => (
   </Drawer>
 )
 
-export default DrawerMenu
+export default React.memo(DrawerMenu)

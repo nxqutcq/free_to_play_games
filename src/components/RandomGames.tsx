@@ -29,4 +29,4 @@ const RandomGames: React.FC<RandomGamesProps> = ({ data }) => (
   </section>
 )
 
-export default RandomGames
+export default React.memo(RandomGames)
