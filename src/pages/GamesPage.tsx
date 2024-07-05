@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 
 import { useFilteredGames } from '../services/queries'
 
@@ -10,7 +10,7 @@ import RandomGames from '@/components/RandomGames'
 import { ErrorComponent } from '@/components/shared/ErrorComponent'
 import Loader from '@/components/shared/Loader'
 import { NoDataComponent } from '@/components/shared/NoDataComponent'
-import SortingPanel from '@/components/SortingPanel'
+import SortingSelectors from '@/components/SortingSelectors'
 import { Game } from '@/types/games'
 import { getRandomGames } from '@/utils'
 
@@ -18,9 +18,11 @@ const GamesPage: React.FC = () => {
   const [randomGames, setRandomGames] = useState<Game[] | undefined>(undefined)
   const { category } = useParams<{ category: string }>()
   const [limit, setLimit] = useState(10)
-
   const [sortBy, setSortBy] = useState('alphabetical')
   const [platform, setPlatform] = useState('all')
+
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const { refetch, isLoading, isError, data } = useFilteredGames(
     platform,
@@ -38,9 +40,17 @@ const GamesPage: React.FC = () => {
   }
 
   useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    if (platform !== 'all') params.set('platform', platform)
+    if (category) params.set('category', category)
+    params.set('sortBy', sortBy)
+
+    navigate({ pathname: location.pathname, search: params.toString() })
+  }, [platform, category, sortBy, navigate, location.pathname, location.search])
+
+  useEffect(() => {
     refetch()
-    console.log(category)
-  }, [category, refetch])
+  }, [category, platform, sortBy, refetch])
 
   useEffect(() => {
     if (inView) {
@@ -55,24 +65,20 @@ const GamesPage: React.FC = () => {
   }, [data])
 
   if (isLoading) return <Loader />
-
   if (isError) return <ErrorComponent />
-
   if (!data) return <NoDataComponent />
 
   return (
-    <section className="mb-10 min-h-screen w-[full]">
+    <section className="mb-10 min-h-screen w-full">
       <div className="px-[10px]">
         <GamesCount category={category} gamesCount={data.length} />
         <RandomGames data={randomGames} />
-        <SortingPanel
+        <SortingSelectors
           onSortChange={setSortBy}
           onCategoryChange={(newCategory: string) => {
-            console.log('Category changed:', newCategory)
+            navigate(`/games/${newCategory}`)
           }}
-          onPlatformChange={(newPlatform: string) => {
-            setPlatform(newPlatform)
-          }}
+          onPlatformChange={setPlatform}
         />
         <GamesBunch data={data.slice(0, limit)} />
       </div>

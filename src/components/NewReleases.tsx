@@ -32,7 +32,7 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
                     {game?.title}
                   </h4>
                 </div>
-                <div className="text-sm flex flex-wrap text-[#898989] dark:text-[#a0a0a0]">
+                <div className="text-sm flex pr-3 flex-wrap text-[#898989] dark:text-[#a0a0a0]">
                   {game?.short_description}
                 </div>
               </div>

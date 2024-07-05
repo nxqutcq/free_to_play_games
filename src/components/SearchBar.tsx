@@ -49,7 +49,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
     }
   }
 
-  console.log(filteredGames)
   return (
     <div className="relative cursor-pointer rounded-full" onBlur={handleBlur}>
       <span className="absolute inset-y-0 left-4 flex items-center cursor-pointer">
@@ -58,7 +57,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
         />
       </span>
       <Input
-        className={`pl-10 pr-3 py-2 rounded-full border transition-all duration-300}`}
+        className={`pl-10 pr-3 py-2 rounded-md border transition-all duration-300}`}
         onFocus={handleFocus}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleSearchChange(e.target.value)
@@ -74,15 +73,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
           {filteredGames.length > 0 ? (
             filteredGames.map((game) => (
               <Link
+                key={game.id}
                 onClick={() => {
                   setFocused(false)
                 }}
                 to={generatePath(ROUTES.GAME_ID, { id: game.id })}
               >
-                <div
-                  key={game.id}
-                  className="hover:bg-accent min-h-[fit] flex rounded-md items-center"
-                >
+                <div className="hover:bg-accent min-h-[fit] flex rounded-md items-center">
                   <div className="relative mr-3 min-w-[70px] overflow-hidden rounded-md rounded-r-none max-w-[100px]">
                     <LazyImage src={game.thumbnail} alt={game.title} />
                   </div>

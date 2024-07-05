@@ -118,35 +118,66 @@ export const allGenres = [
   { value: 'action-game', label: 'Action Game', color: '#5c308c' },
 ]
 
-export const selectOptions = [
-  {
-    placeholder: 'Platform',
-    options: [
-      { value: 'all', label: 'All platforms' },
-      { value: 'pc', label: 'PC (Windows)' },
-      { value: 'browser', label: 'Browser (Web)' },
-    ],
-    onChange: (value: string) => {
-      console.log('Platform changed:', value)
-    },
-  },
-  {
-    placeholder: 'Genre/Tag',
-    options: allGenres,
-    onChange: (value: string) => {
-      console.log('Category changed:', value)
-    },
-  },
-  {
-    placeholder: 'Sort By',
-    options: [
-      { value: 'release-date', label: 'Release date' },
-      { value: 'popularity', label: 'Popularity' },
-      { value: 'alphabetical', label: 'Alphabetical' },
-      { value: 'relevance', label: 'Relevance' },
-    ],
-    onChange: (value: string) => {
-      console.log('Sort changed:', value)
-    },
-  },
+export const sortOptions = [
+  { value: 'release-date', label: 'Release date' },
+  { value: 'popularity', label: 'Popularity' },
+  { value: 'alphabetical', label: 'Alphabetical' },
+  { value: 'relevance', label: 'Relevance' },
+]
+
+export const platformOptions = [
+  { value: 'all', label: 'All platforms' },
+  { value: 'pc', label: 'PC (Windows)' },
+  { value: 'browser', label: 'Browser (Web)' },
+]
+
+export const genreOptions = [
+  { value: '2d', label: '2D' },
+  { value: '3d', label: '3D' },
+  { value: 'action', label: 'Action' },
+  { value: 'action-game', label: 'Action Game' },
+  { value: 'action-rpg', label: 'Action RPG' },
+  { value: 'anime', label: 'Anime' },
+  { value: 'arpg', label: 'ARPG' },
+  { value: 'battle-royale', label: 'Battle Royale' },
+  { value: 'card', label: 'Card Game' },
+  { value: 'fantasy', label: 'Fantasy' },
+  { value: 'fighting', label: 'Fighting' },
+  { value: 'first-person', label: 'First Person' },
+  { value: 'flight', label: 'Flight' },
+  { value: 'horror', label: 'Horror' },
+  { value: 'low-spec', label: 'Low Spec' },
+  { value: 'martial-arts', label: 'Martial Arts' },
+  { value: 'military', label: 'Military' },
+  { value: 'mmo', label: 'MMO' },
+  { value: 'mmoarpg', label: 'MMOARPG' },
+  { value: 'mmofps', label: 'MMOFPS' },
+  { value: 'mmorpg', label: 'MMORPG' },
+  { value: 'mmorts', label: 'MMORTS' },
+  { value: 'mmotps', label: 'MMOTPS' },
+  { value: 'moba', label: 'MOBA' },
+  { value: 'open-world', label: 'Open World' },
+  { value: 'permadeath', label: 'Permadeath' },
+  { value: 'pixel', label: 'Pixel' },
+  { value: 'pve', label: 'PvE' },
+  { value: 'pvp', label: 'PvP' },
+  { value: 'racing', label: 'Racing' },
+  { value: 'sailing', label: 'Sailing' },
+  { value: 'sandbox', label: 'Sandbox' },
+  { value: 'sci-fi', label: 'Sci-Fi' },
+  { value: 'shooter', label: 'Shooter' },
+  { value: 'side-scroller', label: 'Side-scroller' },
+  { value: 'social', label: 'Social' },
+  { value: 'space', label: 'Space' },
+  { value: 'sports', label: 'Sports' },
+  { value: 'strategy', label: 'Strategy' },
+  { value: 'superhero', label: 'Superhero' },
+  { value: 'survival', label: 'Survival' },
+  { value: 'tank', label: 'Tank' },
+  { value: 'third-person', label: 'Third Person' },
+  { value: 'top-down', label: 'Top-down' },
+  { value: 'tower-defense', label: 'Tower Defense' },
+  { value: 'turn-based', label: 'Turn-based' },
+  { value: 'voxel', label: 'Voxel' },
+  { value: 'zombie', label: 'Zombie' },
 ]

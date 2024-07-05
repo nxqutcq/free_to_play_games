@@ -30,9 +30,15 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="flex items-center gap-5 justify-end w-full flex-row">
-          <SearchBar data={gamesData || []} />
+          <div className="xs:hidden xs4:block">
+            <SearchBar data={gamesData || []} />
+          </div>
           <SignInMenu currentUser={currentUser} userLoggedIn={userLoggedIn} />
-          <DrawerMenu currentUser={currentUser} userLoggedIn={userLoggedIn} />
+          <DrawerMenu
+            gamesData={gamesData || []}
+            currentUser={currentUser}
+            userLoggedIn={userLoggedIn}
+          />
         </div>
       </nav>
     </header>
