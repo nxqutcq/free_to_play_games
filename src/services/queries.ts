@@ -10,6 +10,8 @@ import {
   getSortedGames,
 } from './api'
 
+import { Game } from '@/types/games'
+
 export function useGamesList() {
   console.log('Fetching games list')
   return useQuery({
@@ -52,13 +54,8 @@ export function useFilteredGames(
   category: string,
   sortBy: string
 ) {
-  return useQuery({
-    queryKey: [
-      `games?{platform}/${category}/${sortBy}`,
-      platform,
-      category,
-      sortBy,
-    ],
+  return useQuery<Game[], Error>({
+    queryKey: ['games', platform, category, sortBy],
     queryFn: () => getFilteredGames(platform, category, sortBy),
   })
 }

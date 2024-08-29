@@ -43,7 +43,7 @@ const GamesPage: React.FC = () => {
     const params = new URLSearchParams(location.search)
     if (platform !== 'all') params.set('platform', platform)
     if (category) params.set('category', category)
-    params.set('sortBy', sortBy)
+    params.set('sort-by', sortBy)
 
     navigate({ pathname: location.pathname, search: params.toString() })
   }, [platform, category, sortBy, navigate, location.pathname, location.search])

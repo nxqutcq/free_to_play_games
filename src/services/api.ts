@@ -73,22 +73,24 @@ export const getSortedGames = async (sortBy: string, count: number) => {
   }
 }
 
+interface FilterParams {
+  platform?: string
+  category?: string
+  'sort-by'?: string
+}
+
 export const getFilteredGames = async (
   platform: string,
   category: string,
   sortBy: string
-) => {
+): Promise<Game[]> => {
   try {
-    let params = undefined
-    if (platform !== 'web' || category !== '' || sortBy !== 'alphabetical') {
-      params = {
-        platform: platform,
-        category: category,
-        'sort-by': sortBy,
-      }
-    }
+    const params: FilterParams = {}
+    if (platform && platform !== 'all') params.platform = platform
+    if (category && category !== '') params.category = category
+    if (sortBy && sortBy !== 'alphabetical') params['sort-by'] = sortBy
+
     const response = await axiosInstance.get<Game[]>('games', { params })
-    console.log(response)
     return response.data
   } catch (error) {
     console.error('Error fetching filtered games:', error)
