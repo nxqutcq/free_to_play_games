@@ -5,14 +5,14 @@ import { BrowserIcon, WindowsIcon } from './icons'
 import { PlatformIconsProps } from '@/types/games'
 
 const PlatformIcons: React.FC<PlatformIconsProps> = ({ platform }) => (
-  <div className="flex flex-row w-4 aspect-square">
+  <div className="flex flex-row aspect-square px-2 gap-2">
     {platform?.includes('PC (Windows)') && (
-      <div title="Available on Windows" className="">
+      <div title="Available on Windows" className="w-4 flex">
         <WindowsIcon className="windows-icon" />
       </div>
     )}
     {platform?.includes('Web Browser') && (
-      <div title="Available on Browser" className="">
+      <div title="Available on Browser" className="w-4 flex">
         <BrowserIcon className="browser-icon" />
       </div>
     )}
