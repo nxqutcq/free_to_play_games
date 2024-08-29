@@ -10,14 +10,14 @@ import { faqData } from '@/constants'
 
 const FAQ: React.FC = () => (
   <div className="flex w-full flex-col mb-10">
-    <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
+    <h3 className="xs3:mb-0 mt-1 flex items-start w-full scroll-m-20 text-xl font-semibold tracking-tight">
       Frequently Asked Questions:
     </h3>
     <Accordion type="single" collapsible>
       {faqData.map((faq, index) => (
         <AccordionItem key={index} value={`item-${index}`}>
           <AccordionTrigger>
-            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            <h4 className="scroll-m-20 text-lg font-semibold tracking-tight">
               {faq.question}
             </h4>
           </AccordionTrigger>

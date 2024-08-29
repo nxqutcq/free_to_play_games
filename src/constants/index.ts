@@ -181,3 +181,21 @@ export const genreOptions = [
   { value: 'voxel', label: 'Voxel' },
   { value: 'zombie', label: 'Zombie' },
 ]
+
+export const footerNavItems1 = [
+  { label: 'About Us' },
+  { label: 'API' },
+  { label: 'Contact Us' },
+]
+
+export const footerNavItems2 = [
+  { label: 'Help/FAQ' },
+  { label: 'Support & Bugs' },
+  { label: 'Sitemap' },
+]
+
+export const footerNavItems3 = [
+  { label: 'Privacy Policy' },
+  { label: 'Cookies Policy' },
+  { label: 'Terms of Use' },
+]

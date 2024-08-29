@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             <div className="flex justify-end mb-[5rem]">
               <NavLink
                 to={ROUTES.GAMES}
-                className="border w-[max-content] rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
+                className="border w-[max-content] text-sm rounded-md p-3 leading-none transition-colors hover:bg-accent flex items-center justify-center gap-2"
               >
                 More Games
                 <ChevronRight />
