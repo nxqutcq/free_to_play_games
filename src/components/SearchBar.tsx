@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react'
-import React, { useState, useEffect, useRef, useCallback, memo } from 'react'
+import React, { useState, useEffect, useCallback, memo } from 'react'
 import { generatePath, Link, useNavigate } from 'react-router-dom'
 
 import LazyImage from './shared/LazyImage'
@@ -11,7 +11,6 @@ import { Game, SearchBarProps } from '@/types/games'
 
 const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
   const navigate = useNavigate()
-  const searchTextRef = useRef<string>('')
   const [searchText, setSearchText] = useState<string>('')
   const [focused, setFocused] = useState(false)
   const [filteredGames, setFilteredGames] = useState<Game[]>(data)
@@ -31,16 +30,22 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
 
   useEffect(() => {
     filterGames()
-    navigate(`?search=${debouncedSearchText}`, { replace: true })
-  }, [debouncedSearchText, navigate, filterGames])
+  }, [debouncedSearchText, filterGames])
 
   const handleSearchChange = (text: string) => {
-    searchTextRef.current = text
     setSearchText(text)
+    if (text) {
+      navigate(`?search=${text}`, { replace: true })
+    } else {
+      navigate('', { replace: true })
+    }
   }
 
   const handleFocus = () => {
     setFocused(true)
+    if (searchText) {
+      navigate(`?search=${searchText}`, { replace: true })
+    }
   }
 
   const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
@@ -57,7 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
         />
       </span>
       <Input
-        className={`pl-10 pr-3 py-2 rounded-md border transition-all duration-300}`}
+        className={`text-sm text-center rounded-md border transition-all duration-300}`}
         onFocus={handleFocus}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleSearchChange(e.target.value)
@@ -66,9 +71,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
         name="search"
         type="search"
         placeholder="Search game"
-        defaultValue={searchTextRef.current}
+        value={searchText}
       />
-      {focused && searchTextRef.current && (
+      {focused && searchText && (
         <div className="overflow-y-auto max-h-[450px] gap-1 flex flex-col min-w-[320px] absolute mt-5 rounded-md bg-background shadow-lg z-10">
           {filteredGames.length > 0 ? (
             filteredGames.map((game) => (
@@ -76,6 +81,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
                 key={game.id}
                 onClick={() => {
                   setFocused(false)
+                  setSearchText('')
                 }}
                 to={generatePath(ROUTES.GAME_ID, { id: game.id })}
               >
