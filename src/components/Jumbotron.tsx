@@ -8,10 +8,10 @@ export const Jumbotron: React.FC = () => (
     <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-black/80 bg-fixed">
       <div className="flex h-full items-center justify-center">
         <div className="text-white xs:px-3">
-          <h2 className="select-none mb-4 text-4xl font-semibold">
+          <h2 className="select-none mb-4 text-3xl font-semibold">
             Discover the best free-to-play games!
           </h2>
-          <p className="select-none mb-6 text-lg font-semibold">
+          <p className="select-none mb-6 text-base font-semibold">
             Track what you've played and search for what to play next!
           </p>
           <NavLink to={ROUTES.GAMES}>
