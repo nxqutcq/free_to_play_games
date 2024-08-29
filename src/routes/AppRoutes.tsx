@@ -38,7 +38,7 @@ export const AppRoutes: React.FC = () => (
         <Route path={ROUTES.GAME_ID} element={<GamePage />} />
         <Route path={ROUTES.GAMES} element={<GamesPage />} />
         <Route path={ROUTES.GAMES_CATEGORY} element={<GamesPage />} />
-        <Route path={ROUTES.GAMES_GAMEID} element={<GamesPage />} />
+        <Route path={ROUTES.GAMES_GAMEID} element={<GamePage />} />
         <Route path={ROUTES.GAMES_CATEGORY_GAMEID} element={<GamePage />} />
         <Route path={ROUTES.BROWSER} element={<GamesPage />} />
         <Route path={ROUTES.BROWSER_CATEGORY} element={<GamesPage />} />
