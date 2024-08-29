@@ -12,7 +12,7 @@ const MostPlayedToday: React.FC<MostPlayedGamesProps> = ({
   if (!mostPlayedGames || mostPlayedGames.length === 0) return null
   return (
     <section>
-      <h3 className="ml-2 scroll-m-20 mb-5 text-3xl font-semibold tracking-tight first:mt-0">
+      <h3 className="ml-2 scroll-m-20 mb-5 text-2xl font-semibold tracking-tight first:mt-0">
         Most Played Today
       </h3>
       <div className="flex min-h-[800px] items-center flex-col w-full">
@@ -20,14 +20,16 @@ const MostPlayedToday: React.FC<MostPlayedGamesProps> = ({
           {mostPlayedGames?.map((game) => (
             <article
               key={game?.id}
-              className="w-full min-w-[200px] min-h-[160px] flex max-w-[350px] first-line:transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
+              className="w-full min-h-[160px] flex max-w-[350px] first-line:transition-transform rounded-md duration-300 transform hover:scale-95 game-link shadow-lg dark:shadow-soft-dark"
             >
               <Link
-                className="relative h-full"
+                className="relative flex w-full"
                 to={generatePath(ROUTES.GAME_ID, { id: game.id })}
                 draggable="false"
               >
-                <LazyImage alt={game?.title} src={game?.thumbnail} />
+                <div className="flex w-full">
+                  <LazyImage alt={game?.title} src={game?.thumbnail} />
+                </div>
                 <div className="game-title">{game?.title}</div>
               </Link>
             </article>
