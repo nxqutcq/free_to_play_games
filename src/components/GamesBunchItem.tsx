@@ -11,7 +11,7 @@ import { GamesBunchItemProps } from '@/types/games'
 import { formatDate, truncateString } from '@/utils'
 
 const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
-  <article className="transition-transform w-[17rem] duration-300 transform hover:scale-95 h-[max-content] rounded-xl border hover:shadow-soft hover:dark:shadow-soft-dark justify-center flex flex-col items-center overflow-x-hidden">
+  <article className="transition-transform w-[16rem] duration-300 transform hover:scale-95 h-[max-content] rounded-xl border hover:shadow-soft hover:dark:shadow-soft-dark justify-center flex flex-col items-center overflow-x-hidden">
     {game?.id && (
       <Link
         draggable="false"
