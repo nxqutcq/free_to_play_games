@@ -25,22 +25,22 @@ const GamesBunchItem: React.FC<GamesBunchItemProps> = ({ game }) => (
           </div>
           <div className="p-5 min-h-[11.5rem]">
             <div className="flex flex-row mt-2 items-center">
-              <h3 className="xs3:mb-0 flex flex-wrap overflow-hidden items-start w-full scroll-m-20 text-2xl font-semibold tracking-tight">
+              <h3 className="xs3:mb-0 flex flex-wrap overflow-hidden items-start w-full scroll-m-20 text-xl font-semibold tracking-tight">
                 {game?.title}
               </h3>
               <div className="flex flex-row items-center h-[min-content]">
                 <PlatformIcons platform={game.platform} />
               </div>
             </div>
-            <p className="xs3:mb-1 leading-7 text-[#898989] dark:text-[#a0a0a0] [&:not(:first-child)]:mt-4">
+            <p className="xs3:mb-1 text-sm text-[#898989] dark:text-[#a0a0a0] [&:not(:first-child)]:mt-4">
               {truncateString(game?.short_description, 80)}
             </p>
-            <div className="flex items-center gap-3 w-full justify-between">
+            <div className="flex text-sm items-center gap-3 w-full justify-between">
               <div className="xs3:my-3 my-2 flex flex-col items-start">
-                <p className="mb-1 text-[#898989] dark:text-[ #a0a0a0] italic text-sm flex flex-wrap">
+                <p className="mb-1 text-[#898989] dark:text-[ #a0a0a0] italic flex flex-wrap">
                   {game?.publisher}
                 </p>
-                <p className="text-sm text-[#898989] dark:text-[ #a0a0a0]">
+                <p className="text-[#898989] dark:text-[ #a0a0a0]">
                   {formatDate(game?.release_date)}{' '}
                 </p>
               </div>
