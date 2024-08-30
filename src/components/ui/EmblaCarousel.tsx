@@ -73,7 +73,7 @@ const EmblaCarousel: React.FC<CarouselProps> = (props) => {
   }
 
   return (
-    <div className="embla xl:max-w-[43rem] xs:max-w-[17rem] xs4:max-w-[21rem]">
+    <div className="embla w-full">
       <div className="embla__viewport max-w-[full]" ref={emblaMainRef}>
         <div className="embla__container">
           {images.map((image: string, index: number) => (

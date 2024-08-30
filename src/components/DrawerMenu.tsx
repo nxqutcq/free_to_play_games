@@ -25,15 +25,17 @@ const DrawerMenu: React.FC<DrawerType> = ({
       <Menu />
     </DrawerTrigger>
     <DrawerContent className="flex flex-col items-center">
-      <DrawerHeader className="w-full justify-end">
-        <DrawerClose>
-          <X />
-        </DrawerClose>
+      <DrawerHeader className="w-full flex flex-col">
+        <div className="w-full flex justify-end mb-5">
+          <DrawerClose>
+            <X />
+          </DrawerClose>
+        </div>
+        <div className="xs:block w-full xs4:hidden">
+          <SearchBar data={gamesData || []} />
+        </div>
       </DrawerHeader>
       <UserMenu userLoggedIn={userLoggedIn} currentUser={currentUser} />
-      <div className="xs:block xs4:hidden">
-        <SearchBar data={gamesData || []} />
-      </div>
       <DrawerFooter></DrawerFooter>
     </DrawerContent>
   </Drawer>

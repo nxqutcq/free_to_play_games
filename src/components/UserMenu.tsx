@@ -32,7 +32,7 @@ const UserMenu: React.FC<UserType> = ({ userLoggedIn, currentUser }) => {
     <div className="flex w-full flex-col items-center text-sm">
       <div className="flex w-full justify-center items-center flex-row">
         <div className="flex flex-col w-full gap-y-4 items-center">
-          <div className="flex w-full items-center md:hidden mt-5 flex-col gap-2">
+          <div className="flex w-full items-center md:hidden mt-5 flex-row gap-2">
             <FreeGamesMenu />
             <BrowserGamesMenu />
           </div>
@@ -111,7 +111,7 @@ const UserMenu: React.FC<UserType> = ({ userLoggedIn, currentUser }) => {
           </div>
         </div>
       ) : (
-        <div className="w-fit xs:px-5 md:px-0 flex flex-col">
+        <div className="w-fit xs:px-5 md:px-0 flex flex-row">
           <NavLink to={ROUTES.LOGIN}>
             <div className="cursor-pointer items-center flex w-full hover:bg-accent transition-colors rounded-sm py-2 px-3">
               <KeyRound className="mr-[0.5rem] w-[1rem]" />

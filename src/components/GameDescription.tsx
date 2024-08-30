@@ -19,12 +19,12 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
     <div className="flex flex-col xs:w-[full]">
       <div className="flex flex-row items-center justify-between">
         <ArrowLeft
-          className="p-[10px] border rounded-lg cursor-pointer"
+          className="border p-1 rounded-lg cursor-pointer"
           onClick={() => navigate(ROUTES.HOME)}
-          size={50}
+          size={40}
           strokeWidth={1.75}
         />
-        <h2 className="ml-10 scroll-m-20 text-4xl font-semibold tracking-tight mb-1 first:mb-0">
+        <h2 className="scroll-m-20 text-4xl font-semibold tracking-tight mb-1 first:mb-0">
           {data?.title}
         </h2>
         {data?.genre && (
