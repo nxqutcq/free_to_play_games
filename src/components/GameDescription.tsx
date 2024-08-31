@@ -17,19 +17,19 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
   const navigate = useNavigate()
   return (
     <div className="flex flex-col xs:w-[full]">
-      <div className="flex flex-row items-center justify-between flex-wrap gap-2">
+      <div className="flex items-center justify-between gap-5 w-full">
         <ArrowLeft
-          className="border flex flex-shrink-0 p-1 rounded-lg cursor-pointer"
+          className="border flex-shrink-0 p-1 rounded-lg cursor-pointer"
           onClick={() => navigate(ROUTES.HOME)}
           size={40}
           strokeWidth={1.75}
         />
-        <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mb-0">
+        <h2 className="scroll-m-20 md:text-3xl xs:text-2xl font-semibold tracking-tight first:mb-0 text-center flex-grow">
           {data?.title}
         </h2>
         {data?.genre && (
           <NavLink
-            className="genre-style"
+            className="genre-style flex-shrink-0"
             draggable={false}
             to={getGenreUrl(data.genre.trim())}
             role="link"
