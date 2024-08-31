@@ -9,7 +9,7 @@ const SystemRequirements: React.FC<SystemRequirementsProps> = ({ data }) => {
   }
   return (
     <section>
-      <ul className="list-none mb-5 my-3 [&>li]:mt-2  sm:flex sm:flex-col">
+      <ul className="list-none mb-5 my-3 [&>li]:mt-2 text-sm sm:flex sm:flex-col">
         {requirements &&
           requirements.map((req) => (
             <li key={req.key}>

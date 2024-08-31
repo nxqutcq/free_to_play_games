@@ -17,14 +17,14 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
   const navigate = useNavigate()
   return (
     <div className="flex flex-col xs:w-[full]">
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex flex-row items-center justify-between flex-wrap gap-2">
         <ArrowLeft
-          className="border p-1 rounded-lg cursor-pointer"
+          className="border flex flex-shrink-0 p-1 rounded-lg cursor-pointer"
           onClick={() => navigate(ROUTES.HOME)}
           size={40}
           strokeWidth={1.75}
         />
-        <h2 className="scroll-m-20 text-4xl font-semibold tracking-tight mb-1 first:mb-0">
+        <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mb-0">
           {data?.title}
         </h2>
         {data?.genre && (
@@ -39,11 +39,11 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
           </NavLink>
         )}
       </div>
-      <p className="mb-5 leading-7 items-start [&:not(:first-child)]:mt-5 sm:flex">
+      <p className="mb-5 leading-7 text-base items-start [&:not(:first-child)]:mt-5 sm:flex">
         {data?.short_description}
       </p>
       <div className="flex gap-5 between flex-row xs:flex-col md:flex-row">
-        <div className="xl:max-w-[350px] w-full min-h-[500px]">
+        <div className="min-w-[300px] min-h-[500px]">
           <div className="flex relative hover:brightness-110 transition-all xs:min-h-[190px]">
             <LazyImage alt={data?.title} src={data?.thumbnail} />
           </div>
@@ -61,7 +61,7 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
             </Button>
           </div>
           <div className="min-h-[250px]">
-            <h4 className="pt-5 scroll-m-20 text-xl font-semibold tracking-tight sm:flex">
+            <h4 className="pt-5 scroll-m-20 text-lg font-semibold tracking-tight sm:flex">
               Minimum System Requirements:
             </h4>
             {data.minimum_system_requirements &&
@@ -76,7 +76,7 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
         </div>
         <Screenshots data={data} />
       </div>
-      <p className="pt-5 sm:text-justify xs:text-start flex leading-7 sm:flex sm:w-[full]">
+      <p className="pt-5 sm:text-justify text-sm xs:text-start flex leading-7 sm:flex sm:w-[full]">
         {data?.description}
       </p>
     </div>

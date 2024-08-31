@@ -86,7 +86,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
                 to={generatePath(ROUTES.GAME_ID, { id: game.id })}
               >
                 <div className="hover:bg-accent min-h-[fit] flex rounded-md items-center">
-                  <div className="relative mr-3 min-w-[70px] z-[10655200] overflow-hidden rounded-md rounded-r-none max-w-[100px]">
+                  <div className="relative mr-3 min-w-[70px] overflow-hidden rounded-md rounded-r-none max-w-[100px]">
                     <LazyImage src={game.thumbnail} alt={game.title} />
                   </div>
                   <span>{game.title}</span>
