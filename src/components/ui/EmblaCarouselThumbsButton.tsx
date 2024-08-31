@@ -20,7 +20,7 @@ export const Thumb: React.FC<ThumbProps> = (props) => {
       <button
         onClick={onClick}
         type="button"
-        className="embla-thumbs__slide__number z-20 overflow-hidden rounded-md relative xl:min-h-[auto]"
+        className="embla-thumbs__slide__number z-20 overflow-hidden rounded-md aspect-video relative max-h-[80px]"
       >
         <LazyImage src={image} alt={`Thumbnail ${image}`} />
       </button>

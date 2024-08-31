@@ -44,7 +44,7 @@
 }
 .embla-thumbs__slide {
   flex: 0 0 22%;
-  min-width: 0;
+  min-width: 120px;
   padding-left: var(--thumbs-slide-spacing);
 }
 @media (min-width: 576px) {
