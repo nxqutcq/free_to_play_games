@@ -43,11 +43,11 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
         {data?.short_description}
       </p>
       <div className="flex gap-5 between flex-row xs:flex-col md:flex-row">
-        <div className="min-w-[300px] min-h-[500px]">
-          <div className="flex relative hover:brightness-110 transition-all xs:min-h-[190px]">
+        <div className="min-w-[300px]">
+          <div className="relative hover:brightness-110 transition-all xs:min-h-[190px]">
             <LazyImage alt={data?.title} src={data?.thumbnail} />
           </div>
-          <div className="flex gap-2 max-w-[350px]">
+          <div className="flex gap-2">
             <Link
               to={data.game_url}
               target="_blank"
@@ -60,7 +60,7 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
               <Plus />
             </Button>
           </div>
-          <div className="min-h-[250px]">
+          <div className="">
             <h4 className="pt-5 scroll-m-20 text-lg font-semibold tracking-tight sm:flex">
               Minimum System Requirements:
             </h4>
