@@ -13,8 +13,8 @@ import { footerNavItems1, footerNavItems2, footerNavItems3 } from '@/constants'
 const Footer: React.FC = () => (
   <footer className="flex w-full mx-auto items-center flex-col bg-stone-900">
     <Separator />
-    <div className="h-[280px] xs:h-[fit-content] flex xs:pt-5 xs:items-center md:items-start px-[1rem] flex-col w-full max-w-[1140px] not-italic">
-      <div className="flex w-full items-center xs3:justify-start xs:justify-center flex-wrap gap-5 text-sm xs:h-[fit-content] md:min-h-[180px] mb-5 overflow-hidden">
+    <div className="flex xs:pt-5 px-[1rem] flex-col w-full max-w-[1140px] not-italic">
+      <div className="flex my-10 w-full xs:justify-center md:justify-start flex-wrap gap-x-[100px] gap-y-[50px] text-sm overflow-hidden">
         <FooterNav items={footerNavItems1} />
         <FooterNav items={footerNavItems2} />
         <FooterNav items={footerNavItems3} />
