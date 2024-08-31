@@ -14,7 +14,7 @@ const Footer: React.FC = () => (
   <footer className="flex w-full mx-auto items-center flex-col bg-stone-900">
     <Separator />
     <div className="flex xs:pt-5 px-[1rem] flex-col w-full max-w-[1140px] not-italic">
-      <div className="flex my-10 w-full xs:justify-center md:justify-start flex-wrap gap-x-[100px] gap-y-[50px] text-sm overflow-hidden">
+      <div className="flex my-10 w-full xs:justify-start md:justify-start flex-wrap gap-x-[100px] gap-y-[50px] text-sm overflow-hidden">
         <FooterNav items={footerNavItems1} />
         <FooterNav items={footerNavItems2} />
         <FooterNav items={footerNavItems3} />
