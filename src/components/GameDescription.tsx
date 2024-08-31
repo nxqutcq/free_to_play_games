@@ -43,20 +43,20 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
         {data?.short_description}
       </p>
       <div className="flex gap-5 between flex-row xs:flex-col md:flex-row">
-        <div className="min-w-[300px]">
-          <div className="relative hover:brightness-110 transition-all xs:min-h-[190px]">
+        <div className="md:min-w-[320px] xs:miw-w-[280px]">
+          <div className="relative hover:brightness-110 transition-all md:min-h-[160px] xs:min-h-[190px]">
             <LazyImage alt={data?.title} src={data?.thumbnail} />
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-5">
             <Link
               to={data.game_url}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex"
             >
-              <Button className="mt-5 w-full select-none">PLAY NOW</Button>
+              <Button className="w-full select-none">PLAY NOW</Button>
             </Link>
-            <Button className="mt-5 w-0.5/3 select-none">
+            <Button className="w-0.5/3 select-none">
               <Plus />
             </Button>
           </div>
