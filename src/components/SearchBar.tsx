@@ -62,6 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
         />
       </span>
       <Input
+        autoComplete="off"
         className={`text-sm text-center rounded-md border transition-all duration-300}`}
         onFocus={handleFocus}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
