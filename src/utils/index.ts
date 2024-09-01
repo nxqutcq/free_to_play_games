@@ -2,11 +2,15 @@ import { allGenres } from '@/constants'
 import { Game } from '@/types/games'
 
 export const getRandomGames = (data: Game[], count: number): Game[] => {
+  if (data.length <= count) {
+    return [...data]
+  }
+
   const randomIndices = new Set<number>()
   while (randomIndices.size < count) {
     randomIndices.add(Math.floor(Math.random() * data.length))
   }
-  return Array.from(randomIndices).map((index) => data[index as number])
+  return Array.from(randomIndices).map((index) => data[index])
 }
 
 export const formatDate = (dateString: string): string => {

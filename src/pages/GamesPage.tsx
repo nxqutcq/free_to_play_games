@@ -35,10 +35,6 @@ const GamesPage: React.FC = () => {
     triggerOnce: false,
   })
 
-  const loadMoreGames = () => {
-    setLimit((oldLimit) => oldLimit + 10)
-  }
-
   useEffect(() => {
     const params = new URLSearchParams(location.search)
     if (platform !== 'all') params.set('platform', platform)
@@ -49,30 +45,36 @@ const GamesPage: React.FC = () => {
   }, [platform, category, sortBy, navigate, location.pathname, location.search])
 
   useEffect(() => {
-    refetch()
+    if (
+      category !== undefined &&
+      platform !== undefined &&
+      sortBy !== undefined
+    ) {
+      refetch()
+    }
   }, [category, platform, sortBy, refetch])
 
   useEffect(() => {
-    if (inView) {
-      loadMoreGames()
+    if (inView && data && limit < data.length) {
+      setLimit((prevLimit) => prevLimit + 10)
     }
-  }, [inView])
+  }, [inView, data, limit])
 
   useEffect(() => {
-    if (data) {
+    if (data && data.length > 0) {
       setRandomGames(getRandomGames(data, 3))
     }
   }, [data])
 
   if (isLoading) return <Loader />
   if (isError) return <ErrorComponent />
-  if (!data) return <NoDataComponent />
+  if (!data || data.length === 0) return <NoDataComponent />
 
   return (
     <section className="mb-10 min-h-screen w-full">
       <div className="px-[10px]">
         <GamesCount category={category} gamesCount={data.length} />
-        <RandomGames data={randomGames} />
+        {randomGames && <RandomGames data={randomGames} />}
         <SortingSelectors
           onSortChange={setSortBy}
           onCategoryChange={(newCategory: string) => {
