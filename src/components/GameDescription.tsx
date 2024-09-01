@@ -17,7 +17,7 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
   const navigate = useNavigate()
   return (
     <div className="flex flex-col xs:w-[full]">
-      <div className="flex items-center justify-between gap-5 w-full">
+      <div className="flex items-center justify-between gap-5 flex-wrap w-full">
         <ArrowLeft
           className="border flex-shrink-0 p-1 rounded-lg cursor-pointer"
           onClick={() => navigate(ROUTES.HOME)}
