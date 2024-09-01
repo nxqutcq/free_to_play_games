@@ -9,7 +9,6 @@ import LazyImage from './shared/LazyImage'
 import SystemRequirements from './SystemRequirements'
 
 import { Button } from '@/components/ui/button'
-import { ROUTES } from '@/routes'
 import { GameInfoProps } from '@/types/games'
 import { genreStyle, getGenreUrl } from '@/utils'
 
@@ -20,7 +19,7 @@ const GameDescription: React.FC<GameInfoProps> = ({ data }) => {
       <div className="flex items-center justify-between gap-5 flex-wrap w-full">
         <ArrowLeft
           className="border flex-shrink-0 p-1 rounded-lg cursor-pointer"
-          onClick={() => navigate(ROUTES.HOME)}
+          onClick={() => navigate(-1)}
           size={40}
           strokeWidth={1.75}
         />
