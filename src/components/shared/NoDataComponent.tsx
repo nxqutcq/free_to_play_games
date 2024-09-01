@@ -10,7 +10,12 @@ export const NoDataComponent: React.FC = () => {
       <h3 className="mt-1 scroll-m-20 text-2xl font-semibold tracking-tight">
         No games found.
       </h3>
-      <Button className="mt-10" onClick={() => navigate(-1)}>
+      <Button
+        className="mt-10"
+        onClick={() => {
+          navigate(-1), { replace: true }
+        }}
+      >
         Back
       </Button>
     </div>

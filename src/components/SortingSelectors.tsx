@@ -21,6 +21,10 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
 }) => {
   const navigate = useNavigate()
 
+  const handleSelectItemClick = (event: React.MouseEvent) => {
+    event.stopPropagation()
+  }
+
   return (
     <div className="items-center mt-5 sm:px-5 xl:px-0 md:px-5 flex justify-between min-h-[70px] xs:flex-row xs:flex-wrap xs:pb-5 w-full">
       <Select onValueChange={(value) => onPlatformChange(value)}>
@@ -29,7 +33,11 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
         </SelectTrigger>
         <SelectContent>
           {platformOptions.map((option) => (
-            <SelectItem key={option.value} value={option.value}>
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              onClick={handleSelectItemClick}
+            >
               {option.label}
             </SelectItem>
           ))}
@@ -42,7 +50,11 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
         </SelectTrigger>
         <SelectContent>
           {genreOptions.map((option) => (
-            <SelectItem key={option.value} value={option.value}>
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              onClick={handleSelectItemClick}
+            >
               {option.label}
             </SelectItem>
           ))}
@@ -55,7 +67,11 @@ const SortingSelectors: React.FC<SortingSelectorsProps> = ({
         </SelectTrigger>
         <SelectContent>
           {sortOptions.map((option) => (
-            <SelectItem key={option.value} value={option.value}>
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              onClick={handleSelectItemClick}
+            >
               {option.label}
             </SelectItem>
           ))}

@@ -14,9 +14,7 @@ export const Jumbotron: React.FC = () => (
           <p className="select-none mb-6 text-base font-semibold">
             Track what you've played and search for what to play next!
           </p>
-          <NavLink
-            to={`${ROUTES.GAMES}?platform=all&category=all&sort-by=alphabetical`}
-          >
+          <NavLink to={ROUTES.GAMES}>
             <button
               type="button"
               className="select-none bg-stone-900/80 inline-block border-2 border-neutral-50 px-[2.5rem] py-[1rem] items-center uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-300 hover:text-neutral-200 focus:border-neutral-300 focus:text-neutral-200 focus:outline-none focus:ring-0 active:border-neutral-300 active:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"

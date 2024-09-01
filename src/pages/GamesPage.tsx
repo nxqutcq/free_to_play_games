@@ -41,7 +41,10 @@ const GamesPage: React.FC = () => {
     if (category) params.set('category', category)
     params.set('sort-by', sortBy)
 
-    navigate({ pathname: location.pathname, search: params.toString() })
+    navigate(
+      { pathname: location.pathname, search: params.toString() },
+      { replace: true }
+    )
   }, [platform, category, sortBy, navigate, location.pathname, location.search])
 
   useEffect(() => {
@@ -68,7 +71,8 @@ const GamesPage: React.FC = () => {
 
   if (isLoading) return <Loader />
   if (isError) return <ErrorComponent />
-  if (!data || data.length === 0) return <NoDataComponent />
+  if (!data || !Array.isArray(data) || data.length === 0)
+    return <NoDataComponent />
 
   return (
     <section className="mb-10 min-h-screen w-full">
