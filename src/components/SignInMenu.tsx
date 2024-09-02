@@ -14,7 +14,7 @@ import { UserType } from '@/types/games'
 
 const SignInMenu: React.FC<UserType> = ({ currentUser, userLoggedIn }) => (
   <DropdownMenu>
-    <DropdownMenuTrigger className=" xxs:hidden xs:hidden md:block" asChild>
+    <DropdownMenuTrigger className="" asChild>
       <div className="flex items-center gap-2">
         <Button
           className="bg-stone-900 h-[0.8rem] w-[0.8rem] flex rounded-full hover:bg-stone-800"

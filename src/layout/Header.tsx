@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import BrowserGamesMenu from '@/components/BrowserGamesMenu'
-import DrawerMenu from '@/components/DrawerMenu'
 import FreeGamesMenu from '@/components/FreeGamesMenu'
 import SearchBar from '@/components/SearchBar'
 import SignInMenu from '@/components/SignInMenu'
@@ -16,11 +15,16 @@ const Header: React.FC = () => {
   const { currentUser, userLoggedIn } = auth || {}
 
   return (
-    <header className="bg-stone-900 flex h-[3.75rem] w-full mx-auto items-center flex-col z-40">
+    <header className="bg-stone-900 fixed flex h-[3.75rem] w-screen mx-auto items-center flex-col z-40">
       <nav className="flex items-center max-w-[1140px] w-full px-[1rem] justify-between h-[3.75rem] xxs:items-center xxs:flex-wrap flex-row">
         <div className="flex gap-10 xs:gap-0 flex-row items-center">
-          <NavLink draggable={false} to={ROUTES.HOME} role="link">
-            <h1 className="xs4:pr-5 xxs:pr-0 xxs:text-xl md:pr-10 select-none text-white font-extrabold tracking-tight text-3xl sm:flex logo">
+          <NavLink
+            className="xxs:hidden md:block xs:hidden md"
+            draggable={false}
+            to={ROUTES.HOME}
+            role="link"
+          >
+            <h1 className="xs4:pr-5 xxs:pr-0 md:pr-10 select-none text-white font-extrabold tracking-tight text-3xl sm:flex logo">
               Free2Game
             </h1>
           </NavLink>
@@ -29,16 +33,11 @@ const Header: React.FC = () => {
             <BrowserGamesMenu />
           </div>
         </div>
-        <div className="flex items-center gap-5 justify-end w-full xxs:w-fit flex-row">
-          <div className="xxs:hidden xs:hidden xs4:block">
+        <div className="flex items-center gap-5 md:justify-end xxs:justify-between xs:justify-between w-full xxs:w-fit flex-row">
+          <div className="xs:w-full xxs:w-full md:w-fit">
             <SearchBar data={gamesData || []} />
           </div>
           <SignInMenu currentUser={currentUser} userLoggedIn={userLoggedIn} />
-          <DrawerMenu
-            gamesData={gamesData || []}
-            currentUser={currentUser}
-            userLoggedIn={userLoggedIn}
-          />
         </div>
       </nav>
     </header>

@@ -8,7 +8,7 @@ const ScrollToTopBtn = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 1000) {
         setIsVisible(true)
       } else {
         setIsVisible(false)
@@ -25,7 +25,7 @@ const ScrollToTopBtn = () => {
       onClick={scrollToTop}
       style={{
         position: 'fixed',
-        bottom: '2rem',
+        bottom: '5rem',
         right: '2rem',
         opacity: isVisible ? 1 : 0,
         visibility: isVisible ? 'visible' : 'hidden',

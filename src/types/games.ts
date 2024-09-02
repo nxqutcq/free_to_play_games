@@ -94,5 +94,4 @@ export type UserType = {
 export type DrawerType = {
   currentUser: User | null | undefined
   userLoggedIn: boolean | undefined
-  gamesData: Game[]
 }

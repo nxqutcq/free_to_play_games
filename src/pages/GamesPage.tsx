@@ -75,7 +75,7 @@ const GamesPage: React.FC = () => {
     return <NoDataComponent />
 
   return (
-    <section className="mb-10 min-h-screen w-full">
+    <section className="mb-10 xxs:pt-[3rem] xs:pt-[3rem] md:pt-[0rem] min-h-screen w-full">
       <div className="px-[10px]">
         <GamesCount category={category} gamesCount={data.length} />
         {randomGames && <RandomGames data={randomGames} />}

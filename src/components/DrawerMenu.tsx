@@ -2,7 +2,6 @@ import { Menu } from 'lucide-react'
 import { X } from 'lucide-react'
 import React from 'react'
 
-import SearchBar from './SearchBar'
 import UserMenu from './UserMenu'
 
 import {
@@ -15,11 +14,7 @@ import {
 } from '@/components/ui/drawer'
 import { DrawerType } from '@/types/games'
 
-const DrawerMenu: React.FC<DrawerType> = ({
-  userLoggedIn,
-  currentUser,
-  gamesData,
-}) => (
+const DrawerMenu: React.FC<DrawerType> = ({ userLoggedIn, currentUser }) => (
   <Drawer direction="left">
     <DrawerTrigger className="md:hidden">
       <Menu />
@@ -30,9 +25,6 @@ const DrawerMenu: React.FC<DrawerType> = ({
           <DrawerClose>
             <X />
           </DrawerClose>
-        </div>
-        <div className="xs:block w-full xs4:hidden">
-          <SearchBar data={gamesData || []} />
         </div>
       </DrawerHeader>
       <UserMenu userLoggedIn={userLoggedIn} currentUser={currentUser} />
