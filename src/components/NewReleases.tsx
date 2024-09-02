@@ -17,20 +17,20 @@ const NewReleases: React.FC<GamesBunchProps> = ({ data }) => (
       {data?.map((game) => (
         <Link
           draggable="false"
-          className="hover:-translate-y-2 transition"
+          className="md:hover:-translate-y-2 transition"
           to={generatePath(ROUTES.GAME_ID, { id: game.id })}
           key={game?.id}
         >
-          <article className="rounded-2xl bg-accent md:justify-start md:max-h-[120px] xs:flex-col md:flex-row  overflow-hidden justify-between items-center flex">
-            <div className="overflow-hidden w-full md:max-w-[200px] md:max-h-[120px] rounded-lg xs:rounded-b-none md:rounded-r-none relative flex items-center justify-center">
+          <article className="rounded-2xl bg-accent md:justify-start xxs:flex-col xs:flex-col xs3:flex-row overflow-hidden justify-between items-center flex">
+            <div className="overflow-hidden aspect-video w-full xs:w-[full] sm:max-w-[12rem] md:max-w-[12rem] relative items-center justify-center">
               <LazyImage alt={game?.title} src={game?.thumbnail} />
             </div>
-            <div className="flex flex-row w-full items-center xs:p-3 h-[fit-content]">
+            <div className="flex flex-row xxs:flex-col w-full items-center xxs:p-3 xs:p-3">
               <div className="flex flex-col w-full">
                 <div className="xs:w-[full]">
                   <h4 className="text-xl tracking-tight flex">{game?.title}</h4>
                 </div>
-                <div className="text-sm flex pr-3 flex-wrap text-[#898989] dark:text-[#a0a0a0]">
+                <div className="text-sm flex pr-3 flex-wrap flex-grow text-[#898989] dark:text-[#a0a0a0]">
                   {game?.short_description}
                 </div>
               </div>

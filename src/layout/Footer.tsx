@@ -22,13 +22,13 @@ const Footer: React.FC = () => (
       <div className="flex w-full mb-5">
         <Separator />
       </div>
-      <div className="text-white flex md:flex-row mb-5 xs:flex-col xs:gap-5 justify-between w-full items-center">
+      <div className="text-white flex md:flex-row mb-5 xs:flex-col xxs:flex-col xs:gap-5 justify-between w-full items-center">
         <p className="text-xs my-3 xs:px-5 md:px-0">
           © 2024 All rights reserved. All trademarks are property of their
           respective owners.
         </p>
         <address>
-          <ul className="flex flex-row gap-10 items-center">
+          <ul className="flex xxs:gap-10 xxs:flex-wrap flex-row gap-10 items-center">
             <li className="icon-container w-[1.45rem] cursor-pointer">
               <a
                 aria-label="Repository link"

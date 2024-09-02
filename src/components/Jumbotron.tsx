@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { ROUTES } from '@/routes'
 
 export const Jumbotron: React.FC = () => (
-  <section className="relative select-none h-[450px] overflow-hidden jumbotron-image bg-cover bg-no-repeat p-12 text-center text-white">
+  <section className="relative select-none h-[34rem] overflow-hidden jumbotron-image bg-cover bg-no-repeat p-12 text-center text-white">
     <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-black/80 bg-fixed">
       <div className="flex h-full items-center justify-center">
         <div className="text-white xs:px-3">

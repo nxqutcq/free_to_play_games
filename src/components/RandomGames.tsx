@@ -8,16 +8,16 @@ import { ROUTES } from '@/routes'
 import { RandomGamesProps } from '@/types/games'
 
 const RandomGames: React.FC<RandomGamesProps> = ({ data }) => (
-  <section className="flex xs:min-h-[600px] md:min-h-[fit-content] items-center xs:flex-col xs:w-full justify-between md:flex-row gap-5">
+  <section className="flex min-h-[fit-content] items-center xxs:flex-col xs:flex-col xs:w-full justify-between xs3:flex-row gap-5">
     {data?.map((game) => (
       <article
         key={game.id}
-        className="xs:w-full min-w-[200px] max-w-[350px] xs:min-h-[160px]"
+        className="xs:w-full aspect-video xs3:max-w-[350px]"
       >
         <div className="items-center justify-center transition-transform duration-300 transform hover:scale-105 shadow-lg dark:shadow-soft-dark game-link rounded-md flex game-container">
           <Link
             to={generatePath(ROUTES.GAME_ID, { id: game.id })}
-            className="relative md:min-h-[fit-content] md:max-w-[full] xs:w-full"
+            className="relative w-full"
             draggable="false"
           >
             <LazyImage src={game.thumbnail} alt={game.title} />

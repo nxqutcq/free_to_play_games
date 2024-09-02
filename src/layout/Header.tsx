@@ -16,21 +16,21 @@ const Header: React.FC = () => {
   const { currentUser, userLoggedIn } = auth || {}
 
   return (
-    <header className="bg-stone-900 flex h-[60px] w-full mx-auto items-center flex-col z-40">
-      <nav className="flex items-center max-w-[1140px] w-full px-[1rem] justify-between h-[60px] flex-row">
+    <header className="bg-stone-900 flex h-[3.75rem] w-full mx-auto items-center flex-col z-40">
+      <nav className="flex items-center max-w-[1140px] w-full px-[1rem] justify-between h-[3.75rem] xxs:items-center xxs:flex-wrap flex-row">
         <div className="flex gap-10 xs:gap-0 flex-row items-center">
           <NavLink draggable={false} to={ROUTES.HOME} role="link">
-            <h1 className="xs4:pr-5 md:pr-10 select-none text-white font-extrabold tracking-tight text-3xl sm:flex logo">
+            <h1 className="xs4:pr-5 xxs:pr-0 xxs:text-xl md:pr-10 select-none text-white font-extrabold tracking-tight text-3xl sm:flex logo">
               Free2Game
             </h1>
           </NavLink>
-          <div className="flex flex-row gap-2 xs:hidden md:flex">
+          <div className="flex flex-row gap-2 xxs:hidden xs:hidden md:flex">
             <FreeGamesMenu />
             <BrowserGamesMenu />
           </div>
         </div>
-        <div className="flex items-center gap-5 justify-end w-full flex-row">
-          <div className="xs:hidden xs4:block">
+        <div className="flex items-center gap-5 justify-end w-full xxs:w-fit flex-row">
+          <div className="xxs:hidden xs:hidden xs4:block">
             <SearchBar data={gamesData || []} />
           </div>
           <SignInMenu currentUser={currentUser} userLoggedIn={userLoggedIn} />

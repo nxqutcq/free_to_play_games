@@ -128,13 +128,19 @@
   align-items: center;
   justify-content: center;
   padding-block: 0.3rem;
-  padding-inline: 0.8rem;
+  padding-inline: 0.6rem;
   border-radius: 0.6rem;
   width: max-content;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-block: 0.5rem;
   background-color: rgb(128 128 128 / 10%);
   border: 1px solid gray;
+}
+
+@media (width <= 425px) {
+  .genre-style {
+    font-size: 0.7rem;
+  }
 }
 
 .youtube path,
