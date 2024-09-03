@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import {
@@ -14,12 +13,11 @@ import {
 import PrivateRoute from './PrivateRoute'
 import { ROUTES } from '../routes/index'
 
-import Loader from '@/components/shared/Loader.tsx'
 import ScrollToTopOnPageChange from '@/hooks/useScrollToTopOnPageChange'
 import Layout from '@/layout/Layout'
 
 export const AppRoutes: React.FC = () => (
-  <Suspense fallback={<Loader />}>
+  <>
     <ScrollToTopOnPageChange />
     <Routes>
       <Route path={ROUTES.HOME} element={<Layout />}>
@@ -47,5 +45,5 @@ export const AppRoutes: React.FC = () => (
         <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
       </Route>
     </Routes>
-  </Suspense>
+  </>
 )

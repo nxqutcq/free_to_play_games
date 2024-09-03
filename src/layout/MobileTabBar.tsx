@@ -11,7 +11,7 @@ const MobileTabBar = () => {
   const auth = useAuth()
   const { currentUser, userLoggedIn } = auth || {}
   return (
-    <div className="md:hidden items-center fixed bottom-0 flex justify-between bg-black w-full h-[4rem]">
+    <div className="md:hidden z-[51] items-center fixed bottom-0 flex justify-between bg-black w-full h-[4rem]">
       <div className="h-full items-center flex">
         <NavLink
           className="h-[1.6rem] justify-center flex items-center px-6"

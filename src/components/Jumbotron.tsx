@@ -7,7 +7,7 @@ export const Jumbotron: React.FC = () => (
   <section className="relative select-none h-[34rem] overflow-hidden jumbotron-image bg-cover bg-no-repeat p-12 text-center text-white">
     <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-black/80 bg-fixed">
       <div className="flex h-full items-center justify-center">
-        <div className="text-white xs:px-3">
+        <div className="text-white xs:px-3 pt-[3.75rem]">
           <h2 className="select-none mb-4 text-3xl font-semibold">
             Discover the best free-to-play games!
           </h2>

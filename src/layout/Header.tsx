@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   const { currentUser, userLoggedIn } = auth || {}
 
   return (
-    <header className="bg-stone-900 fixed flex h-[3.75rem] w-screen mx-auto items-center flex-col z-40">
+    <header className="bg-stone-900 z-[51] fixed flex top-0 h-[3.75rem] w-screen mx-auto items-center flex-col">
       <nav className="flex items-center max-w-[1140px] w-full px-[1rem] justify-between h-[3.75rem] xxs:items-center xxs:flex-wrap flex-row">
         <div className="flex gap-10 xs:gap-0 flex-row items-center">
           <NavLink
