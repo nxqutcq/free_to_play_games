@@ -10,6 +10,7 @@ import { ROUTES } from '@/routes'
 import { Game, SearchBarProps } from '@/types/games'
 
 const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
+  const [showResults, setShowResults] = useState(false)
   const navigate = useNavigate()
   const [searchText, setSearchText] = useState<string>('')
   const [focused, setFocused] = useState(false)
@@ -18,14 +19,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
   const debouncedSearchText = useDebounce(searchText, 400)
 
   const filterGames = useCallback(() => {
-    if (debouncedSearchText === '') {
-      setFilteredGames(data)
-    } else {
-      const filtered = data.filter((game) =>
-        game.title.toLowerCase().includes(debouncedSearchText.toLowerCase())
-      )
-      setFilteredGames(filtered)
-    }
+    const timer = setTimeout(() => {
+      if (debouncedSearchText === '') {
+        setFilteredGames(data)
+        setShowResults(false)
+      } else {
+        const filtered = data.filter((game) =>
+          game.title.toLowerCase().includes(debouncedSearchText.toLowerCase())
+        )
+        setFilteredGames(filtered)
+        setShowResults(true)
+      }
+    }, 400)
+    return () => clearTimeout(timer)
   }, [data, debouncedSearchText])
 
   useEffect(() => {
@@ -74,7 +80,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
         placeholder="Search game"
         value={searchText}
       />
-      {focused && searchText && (
+      {focused && showResults && searchText && (
         <div className="overflow-y-auto max-h-[450px] gap-1 flex flex-col min-w-[320px] absolute mt-5 rounded-md bg-background shadow-lg z-10">
           {filteredGames.length > 0 ? (
             filteredGames.map((game) => (
@@ -87,7 +93,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ data }) => {
                 to={generatePath(ROUTES.GAME_ID, { id: game.id })}
               >
                 <div className="hover:bg-accent min-h-[fit] flex rounded-md items-center">
-                  <div className="relative mr-3 min-w-[70px] overflow-hidden rounded-md rounded-r-none max-w-[100px]">
+                  <div className="relative aspect-video mr-3 w-full overflow-hidden rounded-md rounded-r-none max-w-[100px]">
                     <LazyImage src={game.thumbnail} alt={game.title} />
                   </div>
                   <span>{game.title}</span>
