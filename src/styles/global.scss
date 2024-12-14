@@ -5,6 +5,16 @@
 @import 'image-modal';
 @import 'loader';
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -163,6 +173,16 @@
   fill: rgb(0 0 0);
 }
 
+.tab-bar-icon path {
+  fill: rgb(148 148 148);
+  stroke: rgb(148 148 148);
+}
+
+.tab-bar-icon.active path {
+  fill: rgb(255 255 255);
+  stroke: rgb(255 255 255);
+}
+
 .dark .apple-icon path {
   fill: rgb(255 255 255);
 }
@@ -257,4 +277,14 @@
   background-color: rgb(251 255 1);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+
+.drawer-trigger svg {
+  fill: rgb(148 148 148);
+  stroke: rgb(148 148 148);
+}
+
+.drawer-trigger:active svg {
+  fill: rgb(255 255 255);
+  stroke: rgb(255 255 255);
 }
