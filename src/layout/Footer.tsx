@@ -35,7 +35,7 @@ const Footer: React.FC = () => (
                 draggable={false}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={'https://github.com/Vladnel671/free_to_play_games'}
+                href={'https://github.com/nxqutcq/free_to_play_games'}
               >
                 <GithubIcon className={'github'} />
               </a>
